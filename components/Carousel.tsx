@@ -13,15 +13,13 @@ import { ArrowUpRight, MapPin, Star } from 'lucide-react'
 import Link from 'next/link'
 
 type Destination = {
-  id: number
+  id: string;
   name: string
   imageUrl: string
   location: string
   description: string
-  bestTimeToVisit: string
   activities: string[]
   rating: number
-  priceRange: string
 }
 
 type PropType = {
@@ -72,7 +70,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
                 />
 
                 <div className="w-full h-full rounded-[35px] absolute bg-gradient-to-b from-transparent via-black/20 to-black/90 flex flex-col justify-between p-5">
-                 <Link href={''} className='bg-white flex items-center p-3 rounded-[35px] w-1/3'>
+                 <Link href={`/details/${index.id}`} className='bg-white flex items-center p-3 rounded-[35px] w-1/3'>
                     <span className='font-semibold text-sm'>Explore</span>
                     <ArrowUpRight size={18}/>
                  </Link>

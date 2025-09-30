@@ -401,7 +401,7 @@ export const coastalPackages = [
   {
     id: 4,
     name: "Watamu Marine Adventure",
-    imageUrl: "/images/watamu.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1673262791211-55f7a4e13118?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8d2F0YW11JTIwYmVhY2h8ZW58MHx8MHx8fDA%3D",
     location: "Kilifi County, Kenya",
     description:
       "Discover coral reefs, marine life, and tranquil beaches in this coastal paradise.",
@@ -440,7 +440,7 @@ export const weekendPackages = [
   {
     id: 3,
     name: "Nairobi City Break",
-    imageUrl: "/images/nairobi.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1596005554384-d293674c91d7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bmFpcm9iaXxlbnwwfHwwfHx8MA%3D%3D",
     location: "Nairobi County, Kenya",
     description:
       "Experience urban culture, wildlife at Nairobi National Park, and vibrant nightlife.",
@@ -452,7 +452,7 @@ export const weekendPackages = [
   {
     id: 4,
     name: "Aberdare Forest Retreat",
-    imageUrl: "/images/aberdare.jpg",
+    imageUrl: "https://images.unsplash.com/photo-1615898649332-ba18c4197cc2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YWJlcmRhcmV8ZW58MHx8MHx8fDA%3D",
     location: "Nyeri County, Kenya",
     description:
       "Escape to lush forests, waterfalls, and scenic hiking trails in the Aberdares.",

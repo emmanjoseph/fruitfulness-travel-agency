@@ -62,13 +62,52 @@ const Hero = () => {
 
         {/* Right Side (Optional Image/Visual) */}
         <div className="hidden md:block w-1/2">
+        <div className='columns-3'>
           <Image
             src="/images/Tsavo.jpg"
             alt="travel-hero"
             width={500}
             height={500}
-            className="h-full rounded-3xl shadow-lg"
+            className="h-full rounded-3xl shadow-lg aspect-square my-5"
           />
+          <Image
+            src="/images/lamu.jpg"
+            alt="travel-hero"
+            width={500}
+            height={500}
+            className="h-full rounded-3xl shadow-lg aspect-square"
+          />
+          <Image
+            src="/images/mombasa.jpg"
+            alt="travel-hero"
+            width={500}
+            height={500}
+            className="h-full rounded-3xl shadow-lg my-5"
+          />
+          <Image
+            src="/images/diani.jpg"
+            alt="travel-hero"
+            width={500}
+            height={500}
+            className="h-full rounded-3xl shadow-lg aspect-square object-cover"
+          />
+          <Image
+            src="/images/samburu.jpg"
+            alt="travel-hero"
+            width={500}
+            height={500}
+            className="h-full rounded-3xl shadow-lg my-5 aspect-square object-cover"
+          />
+          <Image
+            src="/images/safari.jpg"
+            alt="travel-hero"
+            width={500}
+            height={500}
+            className="h-full rounded-3xl shadow-lg my-2 aspect-square"
+          />
+         
+        </div>
+          
         </div>
       </div>
     </section>
