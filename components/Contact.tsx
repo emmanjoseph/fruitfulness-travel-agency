@@ -16,7 +16,7 @@ const Contact = () => {
 
 
   return (
-    <section className='h-[570px] relative bg-neutral-950 bg-fixed text-gray-200'>
+    <section className='h-[570px] relative bg-emerald-700 bg-fixed text-gray-200'>
       <div className="absolute -left-20 top-0 hidden h-full w-72 overflow-hidden sm:block lg:left-20 lg:w-96">
           <ImageClipBox
           src='/images/lamu.jpg'

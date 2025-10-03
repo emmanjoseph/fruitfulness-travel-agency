@@ -15,7 +15,7 @@ const Page = () => {
                    style={{ zIndex: 0 }}
                  />
 
-                 <div className="relative z-10 py-12 md:py-24 max-w-[1400px] mx-auto px-4">
+                 <div className="relative z-10 py-24 max-w-[1400px] mx-auto px-4">
                     <div className="flex md:items-center flex-col md:flex-row justify-between gap-3">
                          <h1 className='font-heading text-2xl md:text-6xl text-gray-700 md:w-1/5'>Learn more about us</h1>
 

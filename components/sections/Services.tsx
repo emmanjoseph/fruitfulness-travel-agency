@@ -1,58 +1,64 @@
 import React from 'react'
 import AnimatedTitle from '../AnimatedTitle'
-import { destinations } from '@/constants'
-import Image from 'next/image'
-import { MapPin, StarIcon } from 'lucide-react'
+import {  mostPopularDestinations } from '@/constants'
+
+import { Calendar1Icon, Clock10, MapPin, Plane, StarIcon } from 'lucide-react'
 import Link from 'next/link'
 
 const Services = () => {
-  
+
     
   return (
-    <section className='max-w-[1400px] mx-auto px-6 py-28 flex flex-col items-center'>
+    <section className='max-w-[1400px] mx-auto px-4 py-14 flex flex-col items-center'>
         <AnimatedTitle
-             title='Visit  Popular destinations'
+             title='Other Popular Destinations'
              className='text-gray-800 max-w-lg mx-auto'
         />
 
         <p className='mt-4 text-lg font-medium text-center text-gray-700 max-w-lg'>
           Explore our most popular travel destinations and start planning your next adventure today!
         </p>
-        <div className='mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4'>
-             {destinations.map((destination)=>(
-               <Link href={`/details/${destination.id}`} key={destination.id}>
-                <div className="tour-card rounded-[35px] cursor-pointer">
-                                 <Image
-                    src={destination.imageUrl}
-                    alt={destination.name}
-                    width={300}
-                    height={200}
-                    className='w-full h-72 object-cover'
-                 />
 
-                 <div className='p-4'>
-                   <h3 className='text-lg font-semibold text-gray-700'>
-                        {destination.name}
-                    </h3>
-                   <div className="flex items-center justify-between">
-                     <p className='flex items-center gap-1.5'>
-                       <MapPin size={13} className='text-green-500'/>
-                       <span className='text-sm font-semibold text-gray-500'>
-                         {destination.location}
-                       </span>
-                     </p>
+        <div className="w-full mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {
+            mostPopularDestinations.slice(0,4).map((destination)=>{
+              const {name,imageUrl,numberOfDays,location,bestTimeToVisit,description,id} = destination;
+              return (
+                 <div key={id} className='w-full flex flex-col md:flex-row gap-3 items-center shadow shadow-gray-300 p-2 rounded-[35px] tour-card'>
+                   <div 
+                   style={{
+                     background:`url(${imageUrl})`,
+                     backgroundPosition:"center",
+                     backgroundSize:"cover"
+                   }}
+                   className="w-full md:w-1/2 h-40 md:h-72 rounded-[35px]" />
 
-                     <p className='flex items-center gap-1.5 text-sm font-bold text-gray-500'>
-                       <StarIcon size={13} className='text-yellow-500'/>
-                       <span>{destination.rating}</span>
-                     </p>
+                   <div className='flex flex-col gap-2.5'>
+
+                    <p className='flex flex-row gap-1.5 items-center font-bold text-amber-500'><Calendar1Icon size={17}/> <span>{numberOfDays} days</span></p>
+                    <p className='flex flex-row gap-1.5 items-center font-bold text-gray-500 text-sm'><MapPin size={17}/> <span>{location}</span></p>
+                      <h1 className='font-heading text-gray-700 text-xl'>{name}</h1>
+                      <p className='max-w-sm text-base text-gray-600'>
+                        {description.split(' ').slice(0, 20).join(' ')}...
+                      </p>
+                      <div className="text-base text-gray-600">
+                        <p className='flex flex-row items-center font-semibold gap-1.5'><Clock10 size={16} className='text-amber-500 '/> best time to visit</p>
+                        
+                        {bestTimeToVisit}
+                        </div>
+                         
+                         <Link href={`/details/${id}`}>
+                            <button className='bg-emerald-400 text-white font-semibold rounded-3xl py-3 w-full md:w-2/3 flex flex-row items-center justify-center cursor-pointer gap-1.5'>
+                          <span>View details</span>
+                          <Plane size={16}/>
+                        </button>
+                         </Link>
+                       
                    </div>
                  </div>
-
-                </div>
-  
-               </Link>
-             ))}
+              )
+            })
+          }
         </div>
     </section>
   )

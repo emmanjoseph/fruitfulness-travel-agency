@@ -1,13 +1,15 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // ✅ Enable static HTML export
+  output: "export",
 
-const nextConfig: NextConfig = {
-  /* config options here */
-   images: {
-    domains: [
-      "images.unsplash.com",
-      // add other domains if needed
-    ],
+  // ✅ Disable Next.js image optimization (not supported on static hosting)
+  images: {
+    unoptimized: true,
   },
+
+  // ✅ Ensure all routes have a trailing slash (important for static hosting)
+  trailingSlash: true,
 };
 
-export default nextConfig;
+module.exports = nextConfig;

@@ -39,7 +39,7 @@ const SemiFooter = () => {
                  </div>
 
                  <div>
-                    <h1 className='text-base font-semibold text-gray-800'>Location</h1>
+                    <h1 className='text-base font-semibold text-gray-800'>Main Office</h1>
                     <div>
                       <p className='text-sm font-medium text-gray-600'>Viewpark Towers 17th floor</p>
                     </div>

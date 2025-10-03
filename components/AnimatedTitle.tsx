@@ -42,7 +42,7 @@ const AnimatedTitle = ({ title, className }:{title:string,className:string}) => 
 
     return (
         <div
-            className={`mt-5 text-center text-4xl uppercase leading-[0.8] md:text-[4rem] wall-poet ${className}`}
+            className={`mt-5 text-center text-4xl uppercase leading-[0.8] wall-poet ${className}`}
         >
             <h1 ref={titleRef} className="font-audio-wide-heading font-heading">
                 {title}

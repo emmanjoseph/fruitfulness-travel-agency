@@ -1,4 +1,4 @@
-import { mostPopularDestinations } from '@/constants';
+import { kenyanDestinations } from '@/constants';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import { Cloud, Dot, MapPin, StarIcon } from 'lucide-react';
@@ -12,7 +12,7 @@ import {
 
 // ✅ For static export
 export function generateStaticParams() {
-  return mostPopularDestinations.map((d) => ({
+  return kenyanDestinations.map((d) => ({
     id: d.id,
   }));
 }
@@ -21,7 +21,7 @@ export function generateStaticParams() {
 // ✅ Just destructure params and type inline
 export default function DetailsPage({ params }: { params: { id: string } }) {
   const { id } = params;
-  const details = mostPopularDestinations.find((d) => d.id === id);
+  const details = kenyanDestinations.find((d) => d.id === id);
 
   if (!details) {
     notFound();
@@ -36,7 +36,7 @@ export default function DetailsPage({ params }: { params: { id: string } }) {
           alt={details.name}
           width={1000}
           height={1000}
-          className="h-40 w-full md:h-96 md:w-6/12 object-cover rounded-3xl"
+          className="h-40 md:h-96 md:w-6/12 object-cover rounded-3xl"
         />
         <div className="space-y-1.5">
           <h1 className="text-2xl md:text-3xl font-heading text-gray-800 font-semibold">

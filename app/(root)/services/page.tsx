@@ -1,275 +1,126 @@
 import EmblaCarousel from '@/components/Carousel'
-import { coastalPackages, destinations, weekendPackages, wildlifePackages } from '@/constants'
+import SemiFooter from '@/components/SemiFooter'
+import { Accordion, AccordionContent, AccordionTrigger } from '@/components/ui/accordion';
+import { kenyanDestinations, mostPopularDestinations } from '@/constants'
+import { AccordionItem } from '@radix-ui/react-accordion';
+import { Calendar1Icon, Clock10, MapPin, Plane } from 'lucide-react';
+import Link from 'next/link';
 import React from 'react'
-import Image from 'next/image'
-import { ArrowLeft, ArrowUp, Hotel, MapPin, PlaneTakeoff, Presentation, StarIcon } from 'lucide-react'
-import Link from 'next/link'
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const TravelCard = ({ destination }: { destination: any }) => (
-  <div key={destination.id} className="tour-card rounded-[35px] shadow-lg overflow-hidden">
-    <Image
-      src={destination.imageUrl}
-      alt={destination.name}
-      width={400}
-      height={300}
-      className="w-full h-52 object-cover"
-    />
-
-    <div className="p-4">
-      <h3 className="text-lg font-semibold text-gray-700">{destination.name}</h3>
-      <div className="flex items-center justify-between mt-2">
-        <p className="flex items-center gap-1.5">
-          <MapPin size={13} className="text-green-500" />
-          <span className="text-sm font-semibold text-gray-500">{destination.location}</span>
-        </p>
-
-        <p className="flex items-center gap-1.5 text-sm font-bold text-gray-500">
-          <StarIcon size={13} className="text-yellow-500" />
-          <span>{destination.rating}</span>
-        </p>
-      </div>
-    </div>
-  </div>
-)
-
-type SectionProps = {
-  title: string
-  subtitle: string
-  buttonText: string
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any[]
-  bgImage?: string
-}
-
-const ServiceSection = ({ title, subtitle, buttonText, data, bgImage = '/images/travelpattern.jpg' }: SectionProps) => (
-  <div className="relative w-full overflow-hidden">
-    {/* Background pattern */}
-    <Image
-      src={bgImage}
-      alt="travel-bg"
-      fill
-      className="object-cover opacity-10"
-      style={{ zIndex: 0 }}
-    />
-
-    {/* Content */}
-    <div className="relative z-10 flex items-center justify-center h-full py-14">
-      <div className="w-full max-w-[1400px] mx-auto px-4 flex flex-col md:flex-row items-center gap-6">
-        <div className="md:w-1/2 font-medium">
-          <h1 className="font-heading text-gray-800 text-4xl md:text-6xl max-w-md">
-            {title}
-          </h1>
-          <p className="text-base max-w-md mt-3 font-medium">{subtitle}</p>
-          <button className="mt-3 px-7 py-4 bg-gray-800 rounded-3xl font-audiowide text-sm text-gray-100">
-            {buttonText}
-          </button>
-        </div>
-
-        <div className="w-full md:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {data.map((destination) => (
-            <TravelCard key={destination.id} destination={destination} />
-          ))}
-        </div>
-      </div>
-    </div>
-  </div>
-)
+export const faqs = [
+  {
+    question: "Do I need a visa to travel to Kenya?",
+    answer: "International tourists usually require a visa to enter Kenya. You can apply for an eVisa online before your trip. East African residents may have different requirements."
+  },
+  {
+    question: "What is the best time to visit Kenya for safaris and holidays?",
+    answer: "The best time for safaris is July to October during the Great Migration. Coastal holidays are great year-round, but December to March and July to October offer the best beach weather."
+  },
+  {
+    question: "Are your packages suitable?",
+    answer: "Yes! We offer special rates and customized packages for local tourists, including weekend getaways and group discounts."
+  },
+  {
+    question: "Is it safe to travel around Kenya?",
+    answer: "Kenya is generally safe for both local and international tourists in popular destinations. We recommend traveling with reputable operators and following local advice."
+  },
+  {
+    question: "What should I pack for my trip?",
+    answer: "For safaris, pack layered clothing, comfortable shoes, sunscreen, and a camera. For coastal trips, bring swimwear, sandals, and light clothing. Local tourists should also carry identification."
+  }
+];
 
 const Services = () => {
   return (
-    <section className="font-sans">
-      {/* Hero */}
-      <div className="w-full h-[48vh]">
-        <div className="w-full h-full bg-[url(/images/wildlifepattern.jpg)] bg-cover bg-center flex flex-col items-center justify-center">
-          <div className="relative z-10 flex flex-col items-center text-center">
-            <h1 className="font-heading text-white text-4xl md:text-5xl lg:text-6xl font-bold drop-shadow-lg">
-              Our Services
-            </h1>
-            <p className="mt-4 text-white text-sm md:text-base lg:text-lg max-w-lg font-semibold">
-              Explore safaris, weekend getaways, beach holidays, and curated corporate tours.
-            </p>
-          </div>
-        </div>
-      </div>
+    <section className='font-sans'>
+       <div className="h-[42vh]  bg-[url(/images/naivasha.jpg)] bg-center bg-cover">
+        <div className="bg-gradient-to-r from-black via-black/70 to-transparent w-full h-full flex flex-col items-center justify-center gap-2.5">
+           <h1 className='text-4xl font-heading text-gray-50 mt-5'>
+  Travel In Style
+</h1>
 
-      {/* Destinations carousel */}
-      <div className="max-w-[1400px] mx-auto px-4 py-12 space-y-7">
-        <div>
-          <h1 className="text-2xl text-gray-700 font-bold pb-5">
-            &#128506; Most popular destinations
-          </h1>
-          <EmblaCarousel slides={destinations} />
+<p className="text-lg max-w-lg text-center text-gray-100 font-semibold">
+  Discover a world of comfort, adventure, and unforgettable experiences.</p>
+        </div>
+         
+       </div>
+
+       <div className="py-8 max-w-[1400px] mx-auto text-gray-700 font-medium space-y-10 p-4">
+        <div className='space-y-3'>
+          <h1 className='font-heading text-2xl'>Top destinations</h1>
+          <EmblaCarousel
+            slides={kenyanDestinations}
+          />
         </div>
 
-        <h1 className="text-2xl text-gray-700 font-bold pb-5">
-          &#128506; Our Service Packages
-        </h1>
-      </div>
+        <div className='space-y-3'>
+          <h1 className='font-heading text-2xl'>Explore New Destinations</h1>
 
-      {/* Wildlife */}
-<ServiceSection
-  title="Unforgettable Wildlife Safaris in Kenya"
-  subtitle="Witness the magic of the wild with our safari packages. From lions to elephants, enjoy an unforgettable journey in Kenya’s iconic parks."
-  buttonText="Feel free to contact us"
-  data={wildlifePackages}
-  bgImage="/images/wild.jpg"
-/>
+           <div className="w-full mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {
+            mostPopularDestinations.slice(0,6).map((destination)=>{
+              const {name,imageUrl,numberOfDays,location,bestTimeToVisit,description,id} = destination;
+              return (
+                 <div key={id} className='w-full flex flex-col md:flex-row gap-3 items-center shadow shadow-gray-300 p-2 rounded-[35px] tour-card'>
+                   <div 
+                   style={{
+                     background:`url(${imageUrl})`,
+                     backgroundPosition:"center",
+                     backgroundSize:"cover"
+                   }}
+                   className="w-full md:w-1/2 h-40 md:h-72 rounded-[35px]" />
 
-{/* Coastal */}
-<ServiceSection
-  title="Luxury Coastal Destinations and Beach Escapes"
-  subtitle="Discover the beauty of the coast — white sandy beaches, luxury resorts, and breathtaking ocean views."
-  buttonText="Plan your retreat"
-  data={coastalPackages}
-  bgImage="/images/sand.jpg"
-/>
+                   <div className='flex flex-col gap-2.5'>
 
-{/* Weekend */}
-<ServiceSection
-  title="Refreshing Weekend Getaways for Relaxation"
-  subtitle="Quick getaways designed for relaxation and fun. Escape the city hustle with a refreshing weekend retreat."
-  buttonText="Book your weekend"
-  data={weekendPackages}
-  bgImage="/images/vacation.jpg"
-/>
-
-
-      {/* Corporate (left as is) */}
-      <div className="relative w-full overflow-hidden">
-        <Image
-          src={'/images/travelpattern.jpg'}
-          alt="travel-bg"
-          fill
-          className="object-cover opacity-10"
-        />
-        <div className="relative z-10 flex items-center justify-center h-full py-14">
-          <div className="w-full max-w-[1400px] mx-auto flex flex-col md:flex-row items-center gap-6 px-4">
-            <div className="md:w-1/3 font-medium">
-              <h1 className="font-heading text-gray-800 text-4xl md:text-6xl max-w-lg">
-                Explore our corporate packages
-              </h1>
-              <p className="text-base max-w-md font-medium mt-3">
-                Build stronger teams with our curated retreats. Perfect for conferences, team bonding, and executive getaways.
-              </p>
-             
-            </div>
-            <div className="w-full md:w-2/3 grid grid-cols-1 sm:grid-cols-3 gap-6">
-  {/* Conferencing */}
-  <div className="tour-card p-6 shadow-md bg-white hover:shadow-xl transition">
-    <div className="flex flex-col items-center text-center space-y-3">
-      <Presentation/>
-      <h3 className="font-heading text-lg font-semibold text-gray-800">Conferencing</h3>
-      <p className="text-sm text-gray-600">
-        Professional venues and seamless arrangements for corporate and private events.
-      </p>
-    </div>
-  </div>
-
-  {/* Hotel Booking */}
-  <div className="tour-card p-6 shadow-md bg-white hover:shadow-xl transition">
-    <div className="flex flex-col items-center text-center space-y-3">
-      <Hotel/>
-      <h3 className="font-heading text-lg font-semibold text-gray-800">Hotel Booking</h3>
-      <p className="text-sm text-gray-600">
-        Find and reserve the best hotels with comfort, luxury, and convenience in mind.
-      </p>
-    </div>
-  </div>
-
-  {/* Flight & Ticketing */}
-  <div className="tour-card p-6 shadow-md bg-white hover:shadow-xl transition">
-    <div className="flex flex-col items-center text-center space-y-3">
-     <PlaneTakeoff/>
-      <h3 className="font-heading text-lg font-semibold text-gray-800">Flight & Air Ticketing</h3>
-      <p className="text-sm text-gray-600">
-        Hassle-free flight bookings and ticketing for both local and international travel.
-      </p>
-    </div>
-  </div>
-</div>
-
-          </div>
-        </div>
-      </div>
-
-      <div className='py-24 max-w-[1400px] mx-auto px-4'>
-        <div className="w-full flex flex-co items-center md:flex-row justify-between mb-11">
-          <div>
-            <Image
-               src={'/logo.jpg'}
-               alt='logo'
-               width={500}
-               height={500}
-               className='size-20 md:size-40'
-            />
-          </div>
-
-          <div className='flex flex-col md:flex-row gap-20'>
-                 <div>
-                    <h1 className='text-base font-semibold text-gray-800'>Quick links</h1>
-                    <div>
-                      <Link href={'/services'}>
-                         <p className='text-sm font-medium text-gray-600'>Wildlife package</p>
-                      </Link>
-                      <Link href={'/services'}>
-                         <p className='text-sm font-medium text-gray-600'>Coastal package</p>
-                      </Link>
-                      <Link href={'/services'}>
-                         <p className='text-sm font-medium text-gray-600'>Weekend packages</p>
-                      </Link>
-                      <Link href={'/services'}>
-                         <p className='text-sm font-medium text-gray-600'>About us</p>
-                      </Link>
-                    </div>
-                    
+                    <p className='flex flex-row gap-1.5 items-center font-bold text-amber-500'><Calendar1Icon size={17}/> <span>{numberOfDays} days</span></p>
+                    <p className='flex flex-row gap-1.5 items-center font-bold text-gray-500 text-sm'><MapPin size={17}/> <span>{location}</span></p>
+                      <h1 className='font-heading text-gray-700 text-xl'>{name}</h1>
+                      <p className='max-w-sm text-base text-gray-600'>
+                        {description.split(' ').slice(0, 20).join(' ')}...
+                      </p>
+                      <div className="text-base text-gray-600">
+                        <p className='flex flex-row items-center font-semibold gap-1.5'><Clock10 size={16} className='text-amber-500 '/> best time to visit</p>
+                        
+                        {bestTimeToVisit}
+                        </div>
+                         
+                         <Link href={`/details/${id}`}>
+                            <button className='bg-emerald-400 text-white font-semibold rounded-3xl py-3 w-full md:w-2/3 flex flex-row items-center justify-center cursor-pointer gap-1.5'>
+                          <span>View details</span>
+                          <Plane size={16}/>
+                        </button>
+                         </Link>
+                       
+                   </div>
                  </div>
-
-                 <div>
-                    <h1 className='text-base font-semibold text-gray-800'>Location</h1>
-                    <div>
-                      <p className='text-sm font-medium text-gray-600'>Viewpark Towers 17th floor</p>
-                    </div>
-                    
-                 </div>
-
-                
-          </div>
-
+              )
+            })
+          }
+        </div>
+          
         </div>
 
-       
 
-           <div className="md:flex flex-col md:flex-row items-center pt-10 justify-between border-t border-gray-300">
-          <span className='text-sm text-gray-500'>&copy; 2025 Fruitfulness Travel LTD. All rights reserved.</span>
-
-          <button className='text-sm font-semibold text-gray-500 hover:text-gray-800 transition-all duration-150 cursor-pointer flex items-center gap-1 tour-card px-2 py-1'>
-            <ArrowLeft/>
-             Back to home page
-          </button>
-
-          <button 
-          className='text-sm font-semibold text-gray-500 hover:text-gray-800 transition-all duration-150 cursor-pointer flex items-center gap-1 tour-card px-2 py-1'>
-            <ArrowUp/>
-             Back to top
-          </button>
-
-          <div className="flex items-center gap-4">
-            <Link href={'/'}>
-               <Image src={'/images/facebook.png'} alt='facebook' width={24} height={24}/>
-            </Link>
-            <Link href={'/'}>
-               <Image src={'/images/instagram.png'} alt='instagram' width={24} height={24}/>
-            </Link>
-            <Link href={'/'}>
-               <Image src={'/images/whatsapp.png'} alt='whatsapp' width={24} height={24}/>
-            </Link>
-          </div>
+        <div className='space-y-3 flex flex-col items-center'>
+          <h1 className='font-heading text-2xl'>FAQs</h1>
+          <Accordion type="single" collapsible className="w-full tour-card p-6  space-y-3 rounded-3xl">
+  {faqs.map((faq, idx) => (
+    <AccordionItem key={idx} value={`faq-${idx}`}>
+      <AccordionTrigger className="font-semibold text-lg text-left text-gray-800">
+        {faq.question}
+      </AccordionTrigger>
+      <AccordionContent className="text-gray-600 text-base">
+        {faq.answer}
+      </AccordionContent>
+    </AccordionItem>
+  ))}
+</Accordion>
+          
         </div>
 
-        </div>
-
-    
+        <SemiFooter/>
+         
+       </div>
     </section>
   )
 }
