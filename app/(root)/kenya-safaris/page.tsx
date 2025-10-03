@@ -9,7 +9,7 @@ import Link from 'next/link';
 const Kenya = () => {
   return (
     <section className='font-sans'>
-      <div className="h-[50vh]  bg-[url(/images/Tsavo.jpg)] bg-center bg-cover">
+      <div className="h-[50vh]  bg-[url(https://images.unsplash.com/photo-1679559429194-7fcc01396023?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFrZSUyMG5haXZhc2hhfGVufDB8fDB8fHww)] bg-center bg-cover">
         <div className="bg-gradient-to-r from-black via-black/80 to-transparent w-full h-full  gap-2.5">
            <div className="max-w-[1400px] mx-auto px-4 md:px-0 flex flex-col md:flex-row md:items-center gap-7 py-20 md:py-44">
                <h1 className='text-4xl md:text-6xl font-heading text-gray-50 mt-5'>
@@ -25,8 +25,8 @@ const Kenya = () => {
          
        </div>
 
-       <div className="max-w-[1400px] mx-auto px-4 py-12">
-        <h1 className='font-heading text-3xl'>Popular Destinations in Kenya</h1>
+       <div className="max-w-[1400px] mx-auto px-4 py-12 space-y-12">
+        <h1 className='font-heading text-2xl text-gray-700'>Popular Destinations in Kenya</h1>
           <div className="w-full mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
           {
             kenyanDestinations.map((destination)=>{
@@ -70,9 +70,9 @@ const Kenya = () => {
           }
         </div>
 
-        <div className='space-y-3 flex flex-col items-center mt-10'>
+        <div className='space-y-3 flex flex-col items-center py-10'>
           <h1 className='font-heading text-2xl'>FAQs</h1>
-          <Accordion type="single" collapsible className="w-full tour-card p-6 space-y-3 rounded-3xl">
+          <Accordion type="single" collapsible className="w-full tour-card p-6 space-y-3 rounded-[35px]">
   {faqs.map((faq, idx) => (
     <AccordionItem key={idx} value={`faq-${idx}`}>
       <AccordionTrigger className="font-semibold text-lg text-left text-gray-800">

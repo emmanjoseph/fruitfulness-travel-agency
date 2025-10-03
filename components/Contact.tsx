@@ -1,3 +1,4 @@
+"use client"
 import { ArrowRight } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
@@ -19,24 +20,24 @@ const Contact = () => {
     <section className='h-[570px] relative bg-emerald-700 bg-fixed text-gray-200'>
       <div className="absolute -left-20 top-0 hidden h-full w-72 overflow-hidden sm:block lg:left-20 lg:w-96">
           <ImageClipBox
-          src='/images/lamu.jpg'
+          src='https://images.unsplash.com/photo-1629553032544-3c1477c0eac9?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFtdSUyMGtlbnlhfGVufDB8fDB8fHww'
           clipClass='contact-clip-path-1'
           />
 
           <ImageClipBox
-          src='/images/lamu2.jpg'
+          src='https://images.unsplash.com/photo-1602094777645-5701b6128003?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fGxhbXUlMjBrZW55YXxlbnwwfHwwfHx8MA%3D%3D'
           clipClass='contact-clip-path-2 lg:translate-y-40 translate-y-60'
           />
         </div>
 
          <div className="absolute -top-40 left-20  w-60  sm:top-1/2 md:left-auto md:right-10 lg:top-20 lg:w-80">
         <ImageClipBox
-          src='/images/naivasha.jpg'
+          src='https://plus.unsplash.com/premium_photo-1664302700221-bd1549347986?q=80&w=2679&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
           clipClass='absolute md:scale-125'
           />
 
         <ImageClipBox
-          src='/images/samburu.jpg'
+          src='https://plus.unsplash.com/premium_photo-1664302700221-bd1549347986?q=80&w=2679&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
           clipClass='swordman-clip-path md:scale-125'
           />
         </div>
@@ -50,7 +51,9 @@ const Contact = () => {
              Our team of travel experts is here to help you plan your dream trip. Whether you have questions or need assistance with booking, we&apos;re just a message away.
            </p>
 
-           <button className='mt-6 bg-white rounded-3xl px-6 py-3.5 hover:scale-105 transition-transform cursor-pointer flex items-center gap-2 hover:gap-4 duration-300 '>
+           <button 
+           onClick={() => window.location.href = "mailto:info@fruitfulnesstravel.com"}
+           className='mt-6 bg-white rounded-3xl px-6 py-3.5 hover:scale-105 transition-transform cursor-pointer flex items-center gap-2 hover:gap-4 duration-300 '>
             <span className='text-neutral-900 font-semibold'>Get in touch</span>
             <ArrowRight size={18} className='text-neutral-900'/>
            </button>

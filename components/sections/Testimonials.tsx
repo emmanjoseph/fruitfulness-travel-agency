@@ -55,12 +55,7 @@ const Testimonials = () => {
 
             </div>
             </div>
-
-
            
-
-           
-            
         </div>
 
         

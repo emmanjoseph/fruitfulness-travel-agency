@@ -64,10 +64,12 @@ const Services = () => {
                  <div key={id} className='w-full flex flex-col md:flex-row gap-3 items-center shadow shadow-gray-300 p-2 rounded-[35px] tour-card'>
                    <div 
                    style={{
-                     background:`url(${imageUrl})`,
-                     backgroundPosition:"center",
-                     backgroundSize:"cover"
-                   }}
+  backgroundImage: `url(${imageUrl})`,
+  backgroundPosition: "center",
+  backgroundSize: "cover",
+  backgroundRepeat: "no-repeat",
+}}
+
                    className="w-full md:w-1/2 h-40 md:h-72 rounded-[35px]" />
 
                    <div className='flex flex-col gap-2.5'>
