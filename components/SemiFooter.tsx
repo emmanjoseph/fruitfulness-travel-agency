@@ -39,8 +39,18 @@ const SemiFooter = () => {
 
        
 
-           <div className="md:flex flex-col md:flex-row items-center pt-10 justify-between border-t border-gray-300">
-          <span className='text-sm text-gray-500'>&copy; 2025 Fruitfulness Travel LTD. All rights reserved.</span>
+           <div className="flex flex-col lg:flex-row items-center pt-10 lg:justify-between border-t border-gray-300 gap-6">
+
+            <div className="flex items-center gap-4">
+            <Link href={'https://www.instagram.com/fruitfulnesstravelltd?igsh=YTZwaW43ZXRxNDAx'}>
+      <Image src={'/images/instagram.png'} alt='instagram' width={24} height={24}/>
+    </Link>
+    <Link href={'https://wa.me/254769322991'}>
+      <Image src={'/images/whatsapp.png'} alt='whatsapp' width={24} height={24}/>
+    </Link>
+          </div>
+
+          
 
           <button
           onClick={()=> router.back()}
@@ -56,17 +66,7 @@ const SemiFooter = () => {
              Back to top
           </button>
 
-          <div className="flex items-center gap-4">
-            <Link href={'/'}>
-               <Image src={'/images/facebook.png'} alt='facebook' width={24} height={24}/>
-            </Link>
-            <Link href={'/'}>
-               <Image src={'/images/instagram.png'} alt='instagram' width={24} height={24}/>
-            </Link>
-            <Link href={'/'}>
-               <Image src={'/images/whatsapp.png'} alt='whatsapp' width={24} height={24}/>
-            </Link>
-          </div>
+          <span className='text-sm text-gray-500'>&copy; 2025 Fruitfulness Travel LTD. All rights reserved.</span>
           </div>
         </div>
     </div>

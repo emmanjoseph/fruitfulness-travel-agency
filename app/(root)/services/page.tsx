@@ -1,6 +1,7 @@
 import EmblaCarousel from '@/components/Carousel'
 import SemiFooter from '@/components/SemiFooter'
 import { Accordion, AccordionContent, AccordionTrigger } from '@/components/ui/accordion';
+import InfiniteReviewScroll from '@/components/userTestimonials';
 import { kenyanDestinations, mostPopularDestinations } from '@/constants'
 import { AccordionItem } from '@radix-ui/react-accordion';
 import { Calendar1Icon, Clock10, MapPin, Plane } from 'lucide-react';
@@ -33,7 +34,7 @@ export const faqs = [
 const Services = () => {
   return (
     <section className='font-sans'>
-       <div className="h-[42vh]  bg-[url(/images/naivasha.jpg)] bg-center bg-cover">
+       <div className="h-[50vh]  bg-[url(/images/naivasha.jpg)] bg-center bg-cover">
         <div className="bg-gradient-to-r from-black via-black/70 to-transparent w-full h-full flex flex-col items-center justify-center gap-2.5">
            <h1 className='text-4xl font-heading text-gray-50 mt-5'>
   Travel In Style
@@ -119,7 +120,9 @@ const Services = () => {
 </Accordion>
           
         </div>
-
+        <div>
+          <InfiniteReviewScroll/>
+        </div>
         <SemiFooter/>
          
        </div>

@@ -29,18 +29,6 @@ const Contact = () => {
           clipClass='contact-clip-path-2 lg:translate-y-40 translate-y-60'
           />
         </div>
-
-         <div className="absolute -top-40 left-20  w-60  sm:top-1/2 md:left-auto md:right-10 lg:top-20 lg:w-80">
-        <ImageClipBox
-          src='https://plus.unsplash.com/premium_photo-1664302700221-bd1549347986?q=80&w=2679&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-          clipClass='absolute md:scale-125'
-          />
-
-        <ImageClipBox
-          src='https://plus.unsplash.com/premium_photo-1664302700221-bd1549347986?q=80&w=2679&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-          clipClass='swordman-clip-path md:scale-125'
-          />
-        </div>
        <div className="max-w-[1400px] mx-auto py-20">
          <div className='flex flex-col items-center justify-center w-full h-full px-4'>
            <h1 className='font-heading text-4xl md:text-5xl text-center max-w-2xl'>

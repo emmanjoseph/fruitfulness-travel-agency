@@ -10,10 +10,7 @@ const Services = () => {
     
   return (
     <section className='max-w-[1400px] mx-auto px-4 py-14 flex flex-col items-center'>
-        <AnimatedTitle
-             title='Other Popular Destinations'
-             className='text-gray-800 max-w-lg mx-auto'
-        />
+        <h1 className='text-3xl font-heading text-gray-600'>Other popular destinations</h1>
 
         <p className='mt-4 text-lg font-medium text-center text-gray-700 max-w-lg'>
           Explore our most popular travel destinations and start planning your next adventure today!
@@ -39,7 +36,7 @@ const Services = () => {
                     <p className='flex flex-row gap-1.5 items-center font-bold text-gray-500 text-sm'><MapPin size={17}/> <span>{location}</span></p>
                       <h1 className='font-heading text-gray-700 text-xl'>{name}</h1>
                       <p className='max-w-sm text-base text-gray-600'>
-                        {description.split(' ').slice(0, 20).join(' ')}...
+                        {description.split(' ').slice(0, 18).join(' ')}...
                       </p>
                       <div className="text-base text-gray-600">
                         <p className='flex flex-row items-center font-semibold gap-1.5'><Clock10 size={16} className='text-amber-500 '/> best time to visit</p>
@@ -48,7 +45,7 @@ const Services = () => {
                         </div>
                          
                          <Link href={`/details/${id}`}>
-                            <button className='bg-emerald-400 text-white font-semibold rounded-3xl py-3 w-full md:w-2/3 flex flex-row items-center justify-center cursor-pointer gap-1.5'>
+                            <button className='bg-emerald-600 text-white font-semibold rounded-3xl py-3 w-full md:w-2/3 flex flex-row items-center justify-center cursor-pointer gap-1.5'>
                           <span>View details</span>
                           <Plane size={16}/>
                         </button>

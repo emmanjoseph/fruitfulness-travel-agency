@@ -12,14 +12,14 @@ const Tanzania = () => {
     <section className='font-sans'>
       <div className="h-[50vh]  bg-[url(https://images.unsplash.com/photo-1467221973068-7abf710bbf54?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHRhcmFuZ2lyZXxlbnwwfHwwfHx8MA%3D%3D)] bg-center bg-cover">
         <div className="bg-gradient-to-r from-black via-black/80 to-transparent w-full h-full  gap-2.5">
-           <div className="max-w-[1400px] mx-auto px-4 md:px-0 flex flex-col md:flex-row md:items-center gap-7 py-20 md:py-44">
+           <div className="max-w-[1400px] mx-auto px-4  flex flex-col md:flex-row md:items-center gap-7 py-20 md:py-44">
                <h1 className='text-4xl md:text-6xl font-heading text-gray-50 mt-5'>
               Tanzanian <br /> Safaris
            </h1>
 
-             <p className="text-base max-w-lg text-gray-100 font-medium">
-  Kenyan safaris offer breathtaking encounters with diverse wildlife, stunning landscapes, and vibrant cultures. From the iconic Maasai Mara to the scenic Amboseli and Tsavo parks, each safari promises unforgettable adventures and a true taste of Africa’s natural beauty.
-</p>
+        <p className="text-base max-w-lg text-gray-100 font-medium">
+            Tanzanian safaris invite you to explore vast savannahs, iconic wildlife, and breathtaking landscapes. From the legendary Serengeti and Ngorongoro Crater to the remote Selous and Ruaha reserves, every journey promises unforgettable encounters and authentic African adventure.
+          </p>
            </div>
            
         </div>

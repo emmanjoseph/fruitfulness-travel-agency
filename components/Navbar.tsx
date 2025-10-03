@@ -9,6 +9,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import Image from 'next/image'
 
 const Navbar = () => {
 
@@ -26,7 +27,17 @@ const Navbar = () => {
         
         {/* Logo */}
         <Link href="/" className="flex items-center gap-1.5">
-          <h1 className="font-bold text-lg text-neutral-900">Fruitfulness Travel</h1>
+        <div className="flex items-center gap-1.5">
+          <Image
+            src={'/favicon.svg'}
+            alt='icon'
+            width={20}
+            height={20}
+          />
+          <h1 className="font-bold text-lg text-neutral-900"><span className='text-green-900'>Fruitfulness
+            </span>Travel</h1>
+        </div>
+          
         </Link>
 
         {/* Desktop Nav */}
@@ -40,7 +51,11 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <button className="bg-neutral-900 rounded-3xl px-4 py-2 hover:bg-neutral-800 transition">
+          <button
+          style={{
+            borderRadius:10
+          }}
+          className="bg-neutral-900 px-4 py-2 hover:bg-neutral-800 transition-all">
             <span className="text-neutral-200 font-semibold leading-1 text-sm cursor-pointer">
               Plan your trip
             </span>

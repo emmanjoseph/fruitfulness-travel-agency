@@ -1,7 +1,6 @@
-import { testimonials } from '@/constants'
-import { Star } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
+import InfiniteReviewScroll from '../userTestimonials'
 
 const Testimonials = () => {
     const reasons = [
@@ -54,6 +53,10 @@ const Testimonials = () => {
                 ))}
 
             </div>
+            </div>
+
+            <div>
+                <InfiniteReviewScroll/>
             </div>
            
         </div>
