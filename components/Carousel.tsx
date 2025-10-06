@@ -62,7 +62,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
         <div className="embla__container">
           {slides.map((index) => (
             <div className="embla__slide" key={index.id}>
-              <div className="relative rounded-[35px] overflow-hidden h-[430px] flex flex-col">
+              <div className="relative rounded-[40px] overflow-hidden h-[370px] md:h-[430px] flex flex-col">
                 {/* Background Image */}
                 <div
                   className="absolute inset-0 bg-cover bg-center"

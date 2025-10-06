@@ -55,9 +55,8 @@ const Testimonials = () => {
             </div>
             </div>
 
-            <div>
-                <InfiniteReviewScroll/>
-            </div>
+            <h4 className='font-heading text-3xl text-gray-700 my-2 text-center'>Kind reviews from our clients </h4>
+           <InfiniteReviewScroll/>
            
         </div>
 
