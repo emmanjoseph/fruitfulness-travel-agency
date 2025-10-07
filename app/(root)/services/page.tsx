@@ -71,25 +71,25 @@ const Services = () => {
   backgroundRepeat: "no-repeat",
 }}
 
-                   className="w-full md:w-1/2 h-40 md:h-72 rounded-[35px]" />
+                   className="w-full md:w-1/2 h-56 md:h-72 rounded-[35px]" />
 
                    <div className='flex flex-col gap-2.5'>
 
                     <p className='flex flex-row gap-1.5 items-center font-bold text-amber-500'><Calendar1Icon size={17}/> <span>{numberOfDays} days</span></p>
                     <p className='flex flex-row gap-1.5 items-center font-bold text-gray-500 text-sm'><MapPin size={17}/> <span>{location}</span></p>
                       <h1 className='font-heading text-gray-700 text-xl'>{name}</h1>
-                      <p className='max-w-sm text-base text-gray-600'>
+                      <p className='max-w-sm text-sm md:text-base text-gray-600'>
                         {description.split(' ').slice(0, 20).join(' ')}...
                       </p>
-                      <div className="text-base text-gray-600">
+                      <div className="text-sm md:text-base font-medium text-gray-600">
                         <p className='flex flex-row items-center font-semibold gap-1.5'><Clock10 size={16} className='text-amber-500 '/> best time to visit</p>
                         
                         {bestTimeToVisit}
                         </div>
                          
                          <Link href={`/details/${id}`}>
-                            <button className='bg-emerald-400 text-white font-semibold rounded-3xl py-3 w-full md:w-2/3 flex flex-row items-center justify-center cursor-pointer gap-1.5'>
-                          <span>View details</span>
+                            <button className='bg-emerald-600 text-white font-semibold rounded-3xl py-3 w-full md:w-2/3 flex flex-row items-center justify-center cursor-pointer gap-1.5'>
+                          <span>Explore</span>
                           <Plane size={16}/>
                         </button>
                          </Link>

@@ -69,7 +69,7 @@ const Corporate = () => {
   const activeService = services.find((s) => s.id === activeId)!
 
   return (
-    <section className="max-w-[1440px] mx-auto p-4 py-20">
+    <section className="max-w-[1440px] mx-auto p-4 py-28">
       <div className="flex flex-col md:flex-row items-center gap-10">
         {/* Left: Accordion */}
         <div className="md:w-1/2 space-y-4">
