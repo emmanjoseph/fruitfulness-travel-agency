@@ -1,6 +1,6 @@
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { kenyanDestinations } from '@/constants';
-import { Calendar1Icon, Clock10, MapPin, Plane } from 'lucide-react';
+import { Calendar1Icon, Clock10, MapPin, Send } from 'lucide-react';
 import React from 'react'
 import { faqs } from '../services/page';
 import SemiFooter from '@/components/SemiFooter';
@@ -57,10 +57,10 @@ const Kenya = () => {
                         {bestTimeToVisit}
                         </div>
                          
-                         <Link href={`/details/${id}`}>
-                            <button className='bg-emerald-600 text-white font-semibold rounded-3xl py-3 w-full md:w-2/3 flex flex-row items-center justify-center cursor-pointer gap-1.5'>
+                         <Link href={`/kenya-safaris/${id}`}>
+                            <button className='bg-emerald-700 text-white font-semibold rounded-3xl py-3 w-full md:w-2/3 flex flex-row items-center justify-center cursor-pointer gap-1.5'>
                           <span>Explore</span>
-                          <Plane size={16}/>
+                          <Send size={16}/>
                         </button>
                          </Link>
                        

@@ -4,7 +4,7 @@ import { Accordion, AccordionContent, AccordionTrigger } from '@/components/ui/a
 import InfiniteReviewScroll from '@/components/userTestimonials';
 import { kenyanDestinations, mostPopularDestinations } from '@/constants'
 import { AccordionItem } from '@radix-ui/react-accordion';
-import { Calendar1Icon, Clock10, MapPin, Plane } from 'lucide-react';
+import { Calendar1Icon, Clock10, MapPin, SendHorizontal } from 'lucide-react';
 import Link from 'next/link';
 import React from 'react'
 
@@ -78,7 +78,7 @@ const Services = () => {
                     <p className='flex flex-row gap-1.5 items-center font-bold text-amber-500'><Calendar1Icon size={17}/> <span>{numberOfDays} days</span></p>
                     <p className='flex flex-row gap-1.5 items-center font-bold text-gray-500 text-sm'><MapPin size={17}/> <span>{location}</span></p>
                       <h1 className='font-heading text-gray-700 text-xl'>{name}</h1>
-                      <p className='max-w-sm text-sm md:text-base text-gray-600'>
+                      <p className='max-w-sm text-sm  text-gray-600'>
                         {description.split(' ').slice(0, 20).join(' ')}...
                       </p>
                       <div className="text-sm md:text-base font-medium text-gray-600">
@@ -90,7 +90,7 @@ const Services = () => {
                          <Link href={`/details/${id}`}>
                             <button className='bg-emerald-600 text-white font-semibold rounded-3xl py-3 w-full md:w-2/3 flex flex-row items-center justify-center cursor-pointer gap-1.5'>
                           <span>Explore</span>
-                          <Plane size={16}/>
+                          <SendHorizontal size={16}/>
                         </button>
                          </Link>
                        

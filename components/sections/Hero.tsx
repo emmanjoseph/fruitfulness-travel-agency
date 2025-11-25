@@ -48,14 +48,14 @@ const Hero = () => {
 
          <div className="mt-11 flex flex-col gap-3.5 md:flex-row">
           <Link href={'#features'}>
-              <button className='tour-card px-4 py-3 flex items-center gap-2.5 cursor-pointer bg-emerald-500'>
+              <button className='w-full  p-4 rounded-[20px] flex items-center justify-center gap-1.5 hover:gap-2 cursor-pointer bg-emerald-700 hover:bg-emerald-500 transition-all duration-300 text-white'>
                <span className='font-semibold'>Explore more</span>
                <ArrowDown className='animate-bounce'/>
             </button>
           </Link>
            
            <Link href={'/about'}>
-           <button className='tour-card px-4 py-3 flex items-center gap-2.5 cursor-pointer'>
+           <button className='w-full bg-white border border-gray-300 p-4 rounded-[20px] text-gray-700 flex items-center justify-center gap-2.5 cursor-pointer hover:-mt-1 transition-all duration-100'>
                <span className='font-semibold'>More about us</span>
                <ArrowUpRight/>
                

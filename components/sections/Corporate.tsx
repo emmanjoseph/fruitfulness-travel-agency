@@ -85,7 +85,7 @@ const Corporate = () => {
             {services.map(({ id, title, icon: Icon, description }, i) => (
               <div
                 key={id}
-                className={`border border-gray-200 rounded-2xl p-3 tour-card cursor-pointer transition-all duration-300 ${
+                className={`border border-gray-200 rounded-2xl p-4 tour-card cursor-pointer transition-all duration-300 ${
                   activeId === id
                     ? "bg-emerald-50 border-emerald-400 shadow-md"
                     : "hover:bg-gray-50"

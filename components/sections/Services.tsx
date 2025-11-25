@@ -1,14 +1,14 @@
 import React from 'react'
 import {  mostPopularDestinations } from '@/constants'
 
-import { Calendar1Icon, Clock10, MapPin, Plane } from 'lucide-react'
+import { Calendar1Icon, Clock10, MapPin, SendHorizontal } from 'lucide-react'
 import Link from 'next/link'
 
 const Services = () => {
 
     
   return (
-    <section className='max-w-[1400px] mx-auto px-4 py-14 flex flex-col items-center'>
+    <section className='max-w-[1400px] mx-auto px-4 py-20 flex flex-col items-center'>
         <h1 className='text-3xl font-heading text-gray-600 text-center'>Other popular destinations</h1>
 
         <p className='mt-4 text-lg font-medium text-center text-gray-700 max-w-lg'>
@@ -34,7 +34,7 @@ const Services = () => {
                     <p className='flex flex-row gap-1.5 items-center font-bold text-amber-500'><Calendar1Icon size={17}/> <span>{numberOfDays} days</span></p>
                     <p className='flex flex-row gap-1.5 items-center font-bold text-gray-500 text-sm'><MapPin size={17}/> <span>{location}</span></p>
                       <h1 className='font-heading text-gray-700 text-xl'>{name}</h1>
-                      <p className='max-w-sm text-[15px] md:text-base text-gray-600 font-medium'>
+                      <p className='max-w-sm text-sm text-gray-600 font-medium'>
                         {description.split(' ').slice(0, 15).join(' ')}...
                       </p>
                       <div className="text-[15px] md:text-base text-gray-600">
@@ -45,8 +45,8 @@ const Services = () => {
                          
                          <Link href={`/details/${id}`}>
                             <button className='bg-emerald-600 text-white font-semibold rounded-3xl py-3 w-full md:w-2/3 flex flex-row items-center justify-center cursor-pointer gap-1.5'>
-                          <span>View details</span>
-                          <Plane size={16}/>
+                          <span>Explore destination</span>
+                          <SendHorizontal size={16}/>
                         </button>
                          </Link>
                        

@@ -30,13 +30,13 @@ export default function DetailsPage({ params }: { params: { id: string } }) {
   return (
     <section className="max-w-[1400px] mx-auto px-4 space-y-5 font-sans font-medium">
       {/* Header */}
-      <div className="w-full flex flex-col md:flex-row md:items-center gap-7 pt-28">
+      <div className="w-full flex flex-col md:flex-row md:items-center gap-7 pt-20">
         <Image
           src={details.imageUrl}
           alt={details.name}
           width={1000}
           height={1000}
-          className="h-40 w-full md:h-96 md:w-6/12 object-cover rounded-3xl"
+          className="h-60 w-full md:h-96 md:w-6/12 object-cover rounded-3xl"
         />
         <div className="space-y-1.5">
           <h1 className="text-2xl md:text-3xl font-heading text-gray-800 font-semibold">

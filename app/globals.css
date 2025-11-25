@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
 
 html {
   scroll-behavior: smooth;
@@ -47,12 +46,11 @@ html {
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px)}
 
-@media (prefers-color-scheme: light) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #ffffff; /* White background */
+  --foreground: #0a0a0a; /* Dark text */
 }
+
 
 @layer utilities {
   .mask-clip-path {

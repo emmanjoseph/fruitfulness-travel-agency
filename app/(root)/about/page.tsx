@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import SemiFooter from '@/components/SemiFooter'
+import Link from 'next/link'
 const Page = () => {
 
   return (
@@ -63,7 +64,9 @@ creating a world where travel enriches both the traveler and the local community
 in a way that truly enriches your life. Whether you&apos;re seeking a serene escape,
 2
 an adventurous expedition, or a cultural deep dive, we&apos;ll design a journey that
-is truly fruitful.</p>
+is truly fruitful. We also collaborate closely with other partners to ensure every aspect of your travel experience is meaningful and impactful including <Link 
+className='font-semibold text-emerald-700'
+href={'https://www.safaribookings.com/'}>SafariBookings.com</Link></p>
 
 
       <div className='flex flex-col items-center'>
