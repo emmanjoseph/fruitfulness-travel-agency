@@ -45,9 +45,9 @@ const TouristAttraction = ({ img, title, location, description }: Props) => (
 
 const About = () => {
   return (
-    <section className="mx-auto max-w-[1440px] px-4 py-20 space-y-3 font-sans">
+    <section className="mx-auto max-w-[1440px] px-4 py-36 space-y-3 font-sans">
       {/* Intro */}
-      <div className="space-y-4">
+      <div className="space-y-6 pb-7">
         <h1 className="text-4xl md:text-5xl font-semibold text-gray-800">
           Discover the <br /> largest shared adventure
         </h1>
@@ -56,22 +56,32 @@ const About = () => {
       {/* Scrollable Attractions */}
       <div className="hide-scrollbar relative z-10 flex h-[370px] w-full items-start gap-4 md:gap-6 overflow-x-auto lg:h-[450px] xl:h-[600px] snap-x snap-mandatory">
         <TouristAttraction
-          img="/images/lamu.jpg"
-          title="Lamu Island"
+          img="https://images.unsplash.com/photo-1745691123668-ad57c3804810?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fHx8"
+          title="Explore Wildlife"
           location="Kenya"
-          description="A UNESCO World Heritage site, Lamu is known for its rich Swahili culture, pristine beaches, and timeless charm."
+          description="Vast savannahs alive with lions, elephants, and the legendary Great Migration—experience Africa’s wildlife at its most raw and breathtaking."
+
         />
         <TouristAttraction
-          img="/images/amboseli.jpg"
-          title="Amboseli"
-          location="Kenya"
-          description="Home to large elephant herds and stunning views of Mount Kilimanjaro, Amboseli offers an unforgettable safari experience."
+          img="https://images.unsplash.com/photo-1515404929826-76fff9fef6fe?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8YmVhY2glMjBzdW5zZXR8ZW58MHx8MHx8fDA%3D"
+          title="Sandy beaches"
+          location="Diani beach, Kenya"
+          description="Powder-white sands, turquoise waters, and golden sunsets create the perfect escape for relaxation, water sports, and coastal luxury."
+
         />
         <TouristAttraction
-          img="/images/maasai-mara.jpg"
-          title="Serengeti National Park"
-          location="Tanzania"
-          description="World-famous for the Great Migration, Serengeti is a haven for wildlife lovers and photographers alike."
+          img="https://images.unsplash.com/photo-1716404214250-8d34f6b0bc24?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          title="Mountains"
+          location="Mount Kilimanjaro, Tanzania"
+          description="Africa’s highest peak offers dramatic landscapes, alpine trails, and an unforgettable journey from tropical forests to snowy summits."
+
+        />
+        <TouristAttraction
+          img="https://images.unsplash.com/photo-1636636985438-4154b379aac5?q=80&w=2148&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          title="Lakes & Valleys"
+          location="The great rift valley"
+          description="Serene lakes framed by dramatic valleys and rolling hills, offering peaceful retreats, birdlife, and stunning natural panoramas."
+
         />
       </div>
 

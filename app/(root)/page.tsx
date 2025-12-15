@@ -1,11 +1,11 @@
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
 import About from '@/components/sections/About'
-import Corporate from '@/components/sections/Corporate'
 import Features from '@/components/sections/Features'
 import Hero from '@/components/sections/Hero'
 import Services from '@/components/sections/Services'
 import Testimonials from '@/components/sections/Testimonials'
+import InfiniteReviewScroll from '@/components/userTestimonials'
 import React from 'react'
 
 const Home = () => {
@@ -15,8 +15,8 @@ const Home = () => {
       <About/>
       <Features/>
       <Services/>
-      <Corporate/>
       <Testimonials/>
+      <InfiniteReviewScroll/>
       <Contact/>
       <Footer/>
       </div>

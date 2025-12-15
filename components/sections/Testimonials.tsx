@@ -1,6 +1,7 @@
+import { faqs } from '@/constants'
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion'
 import Image from 'next/image'
 import React from 'react'
-import InfiniteReviewScroll from '../userTestimonials'
 
 const Testimonials = () => {
     const reasons = [
@@ -54,10 +55,24 @@ const Testimonials = () => {
 
             </div>
             </div>
-
-            <h4 className='font-heading text-3xl text-gray-700 my-2 text-center'>Kind reviews from our clients </h4>
-           <InfiniteReviewScroll/>
            
+        </div>
+
+         <div className='space-y-3 flex flex-col items-center max-w-2xl mx-auto'>
+          <h1 className='font-heading text-2xl'>FAQs</h1>
+          <Accordion type="single" collapsible className="w-full tour-card p-6  space-y-3 rounded-3xl">
+  {faqs.map((faq, idx) => (
+    <AccordionItem key={idx} value={`faq-${idx}`}>
+      <AccordionTrigger className="font-semibold text-lg text-left text-gray-800">
+        {faq.question}
+      </AccordionTrigger>
+      <AccordionContent className="text-gray-600 text-base">
+        {faq.answer}
+      </AccordionContent>
+    </AccordionItem>
+  ))}
+</Accordion>
+          
         </div>
 
         

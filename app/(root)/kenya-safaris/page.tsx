@@ -48,7 +48,7 @@ const Kenya = () => {
                     <p className='flex flex-row gap-1.5 items-center font-bold text-amber-500'><Calendar1Icon size={17}/> <span>{numberOfDays} days</span></p>
                     <p className='flex flex-row gap-1.5 items-center font-bold text-gray-500 text-sm'><MapPin size={17}/> <span>{location}</span></p>
                       <h1 className='font-heading text-gray-700 text-xl'>{name}</h1>
-                      <p className='max-w-sm text-sm md:text-base text-gray-600'>
+                      <p className='max-w-sm text-sm text-gray-600'>
                         {description.split(' ').slice(0, 20).join(' ')}...
                       </p>
                       <div className="text-sm md:text-base font-medium text-gray-600">

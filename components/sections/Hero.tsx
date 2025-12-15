@@ -1,10 +1,11 @@
 "use client"
 import gsap from 'gsap'
-import { ArrowDown, ArrowUpRight, MapPin, StarIcon } from 'lucide-react'
+import { ArrowRight, StarIcon } from 'lucide-react'
 import Image from 'next/image'
 import SplitText from "gsap/SplitText"
 import React, { useEffect } from 'react'
 import Link from 'next/link'
+import { Badge } from '../ui/badge'
 
   gsap.registerPlugin(SplitText)
 
@@ -27,12 +28,17 @@ const Hero = () => {
   })
  
   return (
-    <section className='mx-auto max-w-[1440px] px-4 pt-36 lg:pt-52 py-10 flex flex-col lg:flex-row gap-10 overflow-hidden md:h-[95vh]'>
-       <div className="absolute right-0 top-0 h-screen w-screen bg-[url('/images/pattern-bg.png')] bg-cover bg-center md:-right-28 xl:-top-60 left-0 top-0 ml-[-100px]" />
-       <div className="z-20 md:w-1/2 space-y-7">
-         <h1 className='text-5xl lg:text-[78px] font-heading text-gray-700 hero-text'>Your journey <br />starts here</h1>
-         <p className="text-gray-700 text-xl font-heading">Discover Hidden Gems & Unforgettable Adventures</p>
-         <p className="text-gray-700 text-lg font-medium max-w-[500px] hero-text">
+    <section className=' pt-36 lg:pt-40 py-10 flex flex-col items-center  gap-10 overflow-hidden md:h-[95vh]'>
+       <div className="px-4 z-20 space-y-3 flex flex-col items-center">
+        <Link className='' href={'/'}>
+        <Badge className='bg-emerald-700 shadow text-white p-2 flex items-center gap-2.5'>
+          <p className="font-bold">Explore plenty of destinations</p>
+          <ArrowRight/>
+        </Badge>
+        </Link>
+        
+         <h1 className='text-5xl lg:text-[58px] font-heading text-gray-700 hero-text text-center'>Your journey starts here</h1>
+         <p className="text-gray-700 text-base font-medium max-w-[590px] hero-text text-center">
           From serene beaches to vibrant cities, Fruitfulness helps you explore the world with ease. Plan, book, and live the adventure you’ve always dreamed of.
          </p>
 
@@ -42,50 +48,81 @@ const Hero = () => {
              <StarIcon size={17} className='text-amber-500 fill-amber-500' key={index}/>
             ))}
           </div>
-           <h4 className='text-lg md:text-xl text-gray-700 font-semibold'>1000 + Excellent reviews</h4>
+           <h4 className='text-lg text-gray-700 font-semibold'>1000 + Excellent reviews</h4>
          </div>
 
 
-         <div className="mt-11 flex flex-col gap-3.5 md:flex-row">
+         <div className="mt-3 flex flex-col gap-3.5 md:flex-row">
           <Link href={'#features'}>
-              <button className='w-full  p-4 rounded-[20px] flex items-center justify-center gap-1.5 hover:gap-2 cursor-pointer bg-emerald-700 hover:bg-emerald-500 transition-all duration-300 text-white'>
-               <span className='font-semibold'>Explore more</span>
-               <ArrowDown className='animate-bounce'/>
+              <button className='w-full py-3 px-5 rounded-full flex items-center justify-center gap-1.5 hover:gap-2 cursor-pointer bg-emerald-700 hover:bg-emerald-600 transition-all duration-300 text-white'>
+               <span className='font-semibold'>Start planning</span>
+               <ArrowRight />
             </button>
           </Link>
-           
-           <Link href={'/about'}>
-           <button className='w-full bg-white border border-gray-300 p-4 rounded-[20px] text-gray-700 flex items-center justify-center gap-2.5 cursor-pointer hover:-mt-1 transition-all duration-100'>
-               <span className='font-semibold'>More about us</span>
-               <ArrowUpRight/>
-               
-            </button>
-           </Link>
             
          </div>
        </div>
 
-       <div className='flex items-start justify-center'>
-          <div className="z-20 bg-black rounded-[35px] lg:w-[350px]">
-             <Image src={'/images/lamu.jpg'}
-               className='rounded-t-[35px] w-full'
-               alt='lamu'
-               width={300}
-               height={300}
-               
-             />
-              <div className="text-gray-300 font-sans font-medium p-5 space-y-1">
-                 <p className='font-bold'>Diani Beach</p>
-                 <p className='flex items-center gap-1.5 text-sm font-semibold'><MapPin className='fill-green-500 text-green-500' size={14}/>
-                   <span>Kwale County, Kenya</span>
-                 </p>
+      <div className="w-full flex gap-4 items-end">
 
-                 <span className='text-sm'>
-                  Warm and humid year-round (28–34°C). Best time to visit is December–March and July–October when the weather is drier
-                 </span>
-              </div>
-          </div>
-       </div>
+  <Image
+    src="https://images.unsplash.com/photo-1489493887464-892be6d1daae?q=80&w=2367"
+    width={300}
+    height={420}
+    alt="img"
+    className="rounded-4xl object-cover h-[420px] w-[260px]"
+  />
+
+  <Image
+    src="https://plus.unsplash.com/premium_photo-1723774894918-635e6eee6572?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c2FmYXJpfGVufDB8fDB8fHww"
+    width={300}
+    height={360}
+    alt="img"
+    className="rounded-4xl object-cover h-[360px] w-[180px] -mt-12"
+  />
+
+  <Image
+    src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHNhZmFyaXxlbnwwfHwwfHx8MA%3D%3D"
+    width={300}
+    height={440}
+    alt="img"
+    className="rounded-4xl object-cover h-[440px] w-[300px]"
+  />
+
+  <Image
+    src="https://images.unsplash.com/photo-1646159755791-54e741749028?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8bW91bnQlMjBrZW55YXxlbnwwfHwwfHx8MA%3D%3D"
+    width={300}
+    height={400}
+    alt="img"
+    className="rounded-4xl object-cover h-[400px] w-[260px] -mt-16"
+  />
+
+  <Image
+    src="https://images.unsplash.com/photo-1708119063168-4785d1359824?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhbml8ZW58MHx8MHx8fDA%3D"
+    width={300}
+    height={360}
+    alt="img"
+    className="rounded-4xl object-cover h-[360px] w-[200px]"
+  />
+
+  <Image
+    src="https://images.unsplash.com/photo-1688496761159-e9df8bf438a8?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bGFtdXxlbnwwfHwwfHx8MA%3D%3D"
+    width={300}
+    height={420}
+    alt="img"
+    className="rounded-4xl object-cover h-[420px] w-[240px] -mt-10"
+  />
+
+  <Image
+    src="https://images.unsplash.com/photo-1489493887464-892be6d1daae?q=80&w=2367"
+    width={300}
+    height={360}
+    alt="img"
+    className="rounded-4xl object-cover h-[360px] w-[200px]"
+  />
+
+</div>
+
 
     </section>
   )

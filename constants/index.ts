@@ -446,3 +446,27 @@ export const mostPopularDestinations = [
   },
 ];
 
+
+export const faqs = [
+  {
+    question: "Do I need a visa to travel to Kenya?",
+    answer: "International tourists usually require a visa to enter Kenya. You can apply for an eVisa online before your trip. East African residents may have different requirements."
+  },
+  {
+    question: "What is the best time to visit Kenya for safaris and holidays?",
+    answer: "The best time for safaris is July to October during the Great Migration. Coastal holidays are great year-round, but December to March and July to October offer the best beach weather."
+  },
+  {
+    question: "Are your packages suitable?",
+    answer: "Yes! We offer special rates and customized packages for local tourists, including weekend getaways and group discounts."
+  },
+  {
+    question: "Is it safe to travel around Kenya?",
+    answer: "Kenya is generally safe for both local and international tourists in popular destinations. We recommend traveling with reputable operators and following local advice."
+  },
+  {
+    question: "What should I pack for my trip?",
+    answer: "For safaris, pack layered clothing, comfortable shoes, sunscreen, and a camera. For coastal trips, bring swimwear, sandals, and light clothing. Local tourists should also carry identification."
+  }
+];
+

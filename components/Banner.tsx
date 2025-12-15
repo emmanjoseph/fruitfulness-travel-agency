@@ -6,7 +6,7 @@ import Image from 'next/image'
 const Banner = () => {
   return (
     <div className='hidden md:block w-full bg-emerald-700 font-sans'>
-        <div className="max-w-[1440px] mx-auto flex flex-row justify-between text-white p-4">
+        <div className="max-w-[1440px] mx-auto flex flex-row justify-between text-white p-3">
 
           <div className='flex'>
             <p className="flex flex-row items-center">

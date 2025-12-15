@@ -62,7 +62,7 @@ creating a world where travel enriches both the traveler and the local community
 
           <p className="text-base text-gray-600">Our team of expert travelers and guides are passionate about sharing the world
 in a way that truly enriches your life. Whether you&apos;re seeking a serene escape,
-2
+to
 an adventurous expedition, or a cultural deep dive, we&apos;ll design a journey that
 is truly fruitful. We also collaborate closely with other partners to ensure every aspect of your travel experience is meaningful and impactful including <Link 
 className='font-semibold text-emerald-700'
@@ -72,14 +72,19 @@ href={'https://www.safaribookings.com/'}>SafariBookings.com</Link></p>
       <div className='flex flex-col items-center'>
          <h1 className='font-heading text-gray-700 text-4xl'>Gallery</h1>
 
-       <div className="mt-12 columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+       <div className="mt-12 columns-1 sm:columns-2 md:columns-5 gap-4 space-y-4">
   {[
     "https://images.unsplash.com/photo-1564490292125-2e3c78a0ef44?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8bW9tYmFzYXxlbnwwfHwwfHx8MA%3D%3D",
-    "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=900&auto=format&fit=crop&q=60",
+    "https://plus.unsplash.com/premium_photo-1666695512218-72b628a0a6a5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8c2FmYXJpc3xlbnwwfHwwfHx8MA%3D%3D",
     "https://images.unsplash.com/photo-1578326626553-39f72c545b07?q=80&w=1398&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=900&auto=format&fit=crop&q=60",
     "https://images.unsplash.com/photo-1534759846116-5799c33ce22a?q=80&w=1350&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=900&auto=format&fit=crop&q=60",
+    "https://images.unsplash.com/photo-1763878119119-aff0820121fd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHNhZmFyaXN8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1526772662000-3f88f10405ff?w=900&auto=format&fit=crop&q=60",
+    "https://images.unsplash.com/photo-1626569846723-faf43927df8b?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHdpbGRsaWZlJTIwcGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D",
+    "https://plus.unsplash.com/premium_photo-1661868852019-1ee8ef9c30d7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHNhZmFyaXN8ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1603632076161-5836b146638c?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8d2lsZGxpZmUlMjBwaG90b2dyYXBoeXxlbnwwfHwwfHx8MA%3D%3D",
   ].map((src, idx) => (
     <div key={idx} className="relative overflow-hidden rounded-2xl group">
       <Image

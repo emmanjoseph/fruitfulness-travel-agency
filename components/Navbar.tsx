@@ -1,8 +1,7 @@
 "use client"
 import { useState } from "react"
 import Link from 'next/link'
-import { usePathname } from "next/navigation"
-import { Menu } from 'lucide-react'
+import { Menu, PlaneTakeoff } from 'lucide-react'
 import {
   Sheet,
   SheetContent,
@@ -15,22 +14,18 @@ import Image from 'next/image'
 
 const Navbar = () => {
   const [open, setOpen] = useState(false)
-  const pathname = usePathname()
+
 
   const navLinks = [
     { name: "Services", path: "/services" },
-    { name: "Kenya safaris", path: "/kenya-safaris" },
-    { name: "Tanzania safaris", path: "/tanzania-safaris" },
+    {name:"Kenya", path:"/kenya-safaris"},
+    {name:"Tanzania", path:"/tanzania-safaris"},
     { name: "About", path: "/about" }
   ]
 
-  // Automatically close sheet when route changes
-  // (useEffect ensures it closes on navigation)
-  // But optional if we close manually in onClick
-  // useEffect(() => setOpen(false), [pathname])
 
   return (
-    <header className='p-4 border-b border-gray-200 bg-white absolute w-full z-20 font-sans'>
+    <header className='p-4  bg-white absolute w-full z-20 font-sans'>
       <div className="w-full max-w-[1400px] mx-auto flex items-center justify-between">
         
         {/* Logo */}
@@ -60,12 +55,13 @@ const Navbar = () => {
             ))}
           </div>
           <button
-            style={{ borderRadius: 10 }}
-            className="bg-neutral-900 px-4 py-2 hover:bg-neutral-800 transition-all"
+            style={{ borderRadius: 50 }}
+            className="bg-neutral-900 px-4 py-2.5 hover:bg-neutral-800 transition-all flex items-center gap-2.5 text-white cursor-pointer"
           >
             <span className="text-neutral-200 font-semibold leading-1 text-sm cursor-pointer">
               Plan your trip
             </span>
+            <PlaneTakeoff size={18}/>
           </button>
         </div>
 

@@ -1,61 +1,147 @@
 import React from 'react'
-import {  mostPopularDestinations } from '@/constants'
-
-import { Calendar1Icon, Clock10, MapPin, SendHorizontal } from 'lucide-react'
 import Link from 'next/link'
+import { Badge } from '../ui/badge'
+import { MapPin, Star } from 'lucide-react'
+
 
 const Services = () => {
 
-    
+    const destinations = [
+      {
+        name: "Diani Beach",
+        location: "Kwale County, Kenya",
+        imageUrl: "https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8ZGlhbmklMjBiZWFjaHxlbnwwfHwwfHx8MA%3D%3D",
+        rating: 4.8,
+      },
+      {
+        name: "Lake Naivasha",
+        location: "Nakuru County, Kenya",
+        imageUrl: "https://images.unsplash.com/photo-1736763373900-5e2de39cbbbe?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bmFpdmFzaGF8ZW58MHx8MHx8fDA%3D",
+        rating: 4.8,
+      },
+      {
+        name: "Zanzibar Island",
+        location: "Unguja, Zanzibar Archipelago, Tanzania",
+        imageUrl: "https://images.unsplash.com/photo-1575999502951-4ab25b5ca889?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8emFuemliYXJ8ZW58MHx8MHx8fDA%3D",
+        rating: 4.5,
+      },
+    ]
   return (
-    <section className='max-w-[1400px] mx-auto px-4 py-20 flex flex-col items-center'>
-        <h1 className='text-3xl font-heading text-gray-600 text-center'>Other popular destinations</h1>
+    <section className='max-w-[1400px] mx-auto px-4 py-20 space-y-4'>
+      <h1 className='font-semibold text-3xl'>Top rated travel destinations</h1>
+      <p className='text-gray-600'>Checkout some of the top rated places you can visit in East Africa </p>
 
-        <p className='mt-4 text-lg font-medium text-center text-gray-700 max-w-lg'>
-          Explore our most popular travel destinations and start planning your next adventure today!
-        </p>
+      <div className="grid lg:grid-cols-10 gap-3">
+        <div className="lg:col-span-8 space-y-3">
+         <div className="relative w-full min-h-[350px] rounded-3xl overflow-hidden">
 
-        <div className="w-full mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+  {/* Background Image */}
+  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1586348409779-f808a7013f67?w=900&auto=format&fit=crop&q=60')] bg-cover bg-center" />
+
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/40" />
+
+   <div className="absolute inset-0 w-full h-full z-10 p-6 text-white flex flex-col justify-between">
+    <Badge className="bg-white font-semibold text-gray-700 text-[15px]">
+      <Star className="fill-amber-500 text-amber-500" />
+      4.7
+    </Badge>
+
+    <div className='space-y-0.5'>
+      <h1 className="font-semibold text-lg">Maasai Mara</h1>
+      <p className='font-semibold flex items-center gap-2'>
+        <MapPin size={15} className='fill-white'/> Narok county, Kenya
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<div className="grid lg:grid-cols-2 gap-3">
+   <div className="relative w-full min-h-[350px] rounded-3xl overflow-hidden">
+
+  {/* Background Image */}
+  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1516496798850-70e120364fe4?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHNlcmVuZ2V0aXxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center" />
+
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/40" />
+
+   <div className="absolute inset-0 w-full h-full z-10 p-6 text-white flex flex-col justify-between">
+    <Badge className="bg-white font-semibold text-gray-700 text-[15px]">
+      <Star className="fill-amber-500 text-amber-500" />
+      4.7
+    </Badge>
+
+    <div className='space-y-0.5'>
+      <h1 className="font-semibold text-lg">Serengeti National park</h1>
+      <p className='font-semibold flex items-center gap-2'>
+        <MapPin size={15} className='fill-white'/> Narok county, Kenya
+      </p>
+    </div>
+  </div>
+
+</div>
+
+   <div className="relative w-full min-h-[350px] rounded-3xl overflow-hidden">
+
+  {/* Background Image */}
+  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1523805009345-7448845a9e53?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjN8fHNlcmVuZ2V0aXxlbnwwfHwwfHx8MA%3D%3D')] bg-cover bg-center" />
+
+  {/* Gradient Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/40" />
+
+   <div className="absolute inset-0 w-full h-full z-10 p-6 text-white flex flex-col justify-between">
+    <Badge className="bg-white font-semibold text-gray-700 text-[15px]">
+      <Star className="fill-amber-500 text-amber-500" />
+      4.7
+    </Badge>
+
+    <div className='space-y-0.5'>
+      <h1 className="font-semibold text-lg">Serengeti National park</h1>
+      <p className='font-semibold flex items-center gap-2'>
+        <MapPin size={15} className='fill-white'/> Narok county, Kenya
+      </p>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+
+
+         
+        </div>
+        <div className="lg:col-span-2 grid grid-rows-3 gap-3">
           {
-            mostPopularDestinations.slice(0,4).map((destination)=>{
-              const {name,imageUrl,numberOfDays,location,bestTimeToVisit,description,id} = destination;
-              return (
-                 <div key={id} className='w-full flex flex-col md:flex-row gap-3 items-center shadow shadow-gray-300 p-2 rounded-[35px] tour-card'>
-                   <div 
-                   style={{
-                     background:`url(${imageUrl})`,
-                     backgroundPosition:"center",
-                     backgroundSize:"cover"
-                   }}
-                   className="w-full md:w-1/2 h-56 md:h-72 rounded-[35px]" />
+            destinations.map((destination)=>(
+              <div key={destination.name} className='relative w-full rounded-3xl overflow-hidden'>
+                <div style={{
+                  backgroundImage:`url(${destination.imageUrl})`
+                }} className='absolute inset-0 bg-cover bg-center'/>
 
-                   <div className='flex flex-col gap-2.5'>
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-b from-black/10 to-black/40" />
 
-                    <p className='flex flex-row gap-1.5 items-center font-bold text-amber-500'><Calendar1Icon size={17}/> <span>{numberOfDays} days</span></p>
-                    <p className='flex flex-row gap-1.5 items-center font-bold text-gray-500 text-sm'><MapPin size={17}/> <span>{location}</span></p>
-                      <h1 className='font-heading text-gray-700 text-xl'>{name}</h1>
-                      <p className='max-w-sm text-sm text-gray-600 font-medium'>
-                        {description.split(' ').slice(0, 15).join(' ')}...
-                      </p>
-                      <div className="text-[15px] md:text-base text-gray-600">
-                        <p className='flex flex-row items-center font-semibold gap-1.5'><Clock10 size={16} className='text-amber-500 '/> best time to visit</p>
-                        
-                        {bestTimeToVisit}
-                        </div>
-                         
-                         <Link href={`/details/${id}`}>
-                            <button className='bg-emerald-600 text-white font-semibold rounded-3xl py-3 w-full md:w-2/3 flex flex-row items-center justify-center cursor-pointer gap-1.5'>
-                          <span>Explore destination</span>
-                          <SendHorizontal size={16}/>
-                        </button>
-                         </Link>
-                       
-                   </div>
-                 </div>
-              )
-            })
+                 <div className="absolute inset-0 w-full h-full z-10 p-3 text-white flex flex-col justify-between">
+    <Badge className="bg-white font-semibold text-gray-700 text-[15px]">
+      <Star className="fill-amber-500 text-amber-500" />
+      4.7
+    </Badge>
+
+    <div className='space-y-0.5'>
+      <h1 className="font-semibold text-base">{destination.name}</h1>
+      <p className='font-semibold text-sm flex items-center gap-2'>
+        <MapPin size={15} className='fill-white'/> {destination.location}
+      </p>
+    </div>
+  </div>
+
+              </div>
+            ))
           }
         </div>
+      </div>
     </section>
   )
 }
