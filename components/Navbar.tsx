@@ -18,8 +18,8 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Destinations", path: "/services" },
-    {name:"Kenya", path:"/kenya-safaris"},
-    {name:"Tanzania", path:"/tanzania-safaris"},
+    // {name:"Kenya", path:"/kenya-safaris"},
+    // {name:"Tanzania", path:"/tanzania-safaris"},
     { name: "About", path: "/about" }
   ]
 
