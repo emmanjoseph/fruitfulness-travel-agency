@@ -1,8 +1,7 @@
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { kenyanDestinations } from '@/constants';
 import { Calendar1Icon, Clock10, MapPin, Send } from 'lucide-react';
 import React from 'react'
-import { faqs } from '../services/page';
+
 import SemiFooter from '@/components/SemiFooter';
 import Link from 'next/link';
 
@@ -71,22 +70,7 @@ const Kenya = () => {
           }
         </div>
 
-        <div className='space-y-3 flex flex-col items-center py-10'>
-          <h1 className='font-heading text-2xl'>FAQs</h1>
-          <Accordion type="single" collapsible className="w-full tour-card p-6 space-y-3 rounded-[35px]">
-  {faqs.map((faq, idx) => (
-    <AccordionItem key={idx} value={`faq-${idx}`}>
-      <AccordionTrigger className="font-semibold text-lg text-left text-gray-800">
-        {faq.question}
-      </AccordionTrigger>
-      <AccordionContent className="text-gray-600 text-base">
-        {faq.answer}
-      </AccordionContent>
-    </AccordionItem>
-  ))}
-</Accordion>
-          
-        </div>
+       
        </div>
        <SemiFooter/>
     </section>

@@ -17,7 +17,7 @@ export function generateStaticParams() {
   }));
 }
 
-// ❌ Don’t import or declare PageProps
+
 // ✅ Just destructure params and type inline
 export default function DetailsPage({ params }: { params: { id: string } }) {
   const { id } = params;
