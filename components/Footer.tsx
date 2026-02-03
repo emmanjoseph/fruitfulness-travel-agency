@@ -43,7 +43,7 @@ const Footer = () => {
             <div className="flex flex-col text-start space-y-1.5">
               {quickLinks.map((link,idx)=>(
                 <Link key={idx} href={link.href}>
-                  <span className='text-[15px] font-medium'>{link.name}</span>
+                  <span className='text-[14px] font-medium'>{link.name}</span>
                 </Link>
               ))}
             </div>
@@ -51,11 +51,11 @@ const Footer = () => {
 
           <div className=''>
                              <h1 className='font-semibold text-lg text-start mb-1'>Main Office</h1>
-                             <div className='space-y-1.5'>
-                               <p className='text-[15px] font-medium text-gray-600 flex items-center gap-3'><Building className='text-orange-400' size={15}/>View Park Towers, Monrovia Street,Utalii Lane-17th Floor,</p>
-                               <p className='text-[15px] font-medium text-gray-600 flex items-center gap-3'><AtSign size={15} className='text-blue-700'/>info@fruitfulnesstravel.co.ke</p>
-                               <p className='text-[15px] font-medium text-gray-600 flex items-center gap-3'><Phone size={15} className='text-green-900'/> + 254 769 322 991</p>
-                               <p className='text-[15px] font-medium text-gray-600 flex items-center gap-3'><Mail size={15}/>PO.BOX 46435 - 00100, Nairobi, Kenya </p>
+                             <div className='space-y-2.5'>
+                               <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><Building className='text-orange-400' size={15}/>View Park Towers, Monrovia Street,Utalii Lane-17th Floor,</p>
+                               <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><AtSign size={15} className='text-blue-700'/>info@fruitfulnesstravel.co.ke</p>
+                               <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><Phone size={15} className='text-green-900'/> + 254 769 322 991</p>
+                               <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><Mail size={15}/>PO.BOX 46435 - 00100, Nairobi, Kenya </p>
                              </div>
                              
                           </div>

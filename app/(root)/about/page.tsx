@@ -9,16 +9,16 @@ const Page = () => {
         <div className="relative w-full overflow-hidden">
               {/* Background pattern */}
                  <Image
-                   src={"/images/wild.jpg"}
+                   src={"/images/bg-1.png"}
                    alt="travel-bg"
                    fill
                    className="object-cover opacity-10"
                    style={{ zIndex: 0 }}
                  />
 
-                 <div className="relative z-10 py-24 max-w-[1400px] mx-auto px-4">
-                    <div className="flex md:items-center flex-col md:flex-row justify-between gap-3">
-                         <h1 className='font-heading text-2xl md:text-6xl text-gray-700 md:w-1/5'>Learn more about us</h1>
+                 <div className="relative z-10 py-24 max-w-[1000px] mx-auto px-4">
+                    <div className="flex items-center flex-col justify-between gap-3">
+                         <h1 className='font-heading text-2xl md:text-6xl text-gray-700 '>Learn more about us</h1>
 
                          <div className='md:w-4/5 md:p-10 space-y-4.5'>
                            <p className='text-base text-gray-600'> The name Fruitfulness Travel reflects our philosophy. We believe that every
@@ -42,7 +42,7 @@ creating a world where travel enriches both the traveler and the local community
                  </div>
         </div>
 
-        <div className="py-24 max-w-[1400px] mx-auto px-4 space-y-5">
+        <div className="py-24 max-w-[1000px] mx-auto px-4 space-y-5">
           <p className="text-base text-gray-600">
             <span className='text-xl italic font-semibold pb-0.5'>
               &quot;We believe that the best journeys aren&apos;t measured in miles, but in moments.&quot;

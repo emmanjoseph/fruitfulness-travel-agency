@@ -18,14 +18,14 @@ const Navbar = () => {
 
   const navLinks = [
     { name: "Destinations", path: "/services" },
-    // {name:"Kenya", path:"/kenya-safaris"},
-    // {name:"Tanzania", path:"/tanzania-safaris"},
-    { name: "About", path: "/about" }
+    {name:"Kenya", path:"/kenya-safaris"},
+    {name:"Tanzania", path:"/tanzania-safaris"},
+    { name: "About", path: "/about" },
   ]
 
 
   return (
-    <header className='p-4  bg-white absolute w-full z-20 font-sans'>
+    <header className='p-4 absolute w-full z-20 font-sans'>
       <div className="w-full max-w-[1400px] mx-auto flex items-center justify-between">
         
         {/* Logo */}
@@ -54,15 +54,18 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
+          <Link href={'/plan-trip'}>
           <button
             style={{ borderRadius: 50 }}
             className="bg-neutral-900 px-4 py-2.5 hover:bg-neutral-800 transition-all flex items-center gap-2.5 text-white cursor-pointer"
           >
             <span className="text-neutral-200 font-semibold leading-1 text-sm cursor-pointer">
-              Plan your trip
+              Contact Us
             </span>
             <PlaneTakeoff size={18}/>
           </button>
+          </Link>
+          
         </div>
 
         {/* Mobile Nav */}

@@ -45,11 +45,11 @@ const TouristAttraction = ({ img, title, location, description }: Props) => (
 
 const About = () => {
   return (
-    <section className="mx-auto max-w-[1440px] px-4 py-36 space-y-3 font-sans">
+    <section className="mx-auto max-w-[1400px] px-4 py-36 space-y-3 font-sans">
       {/* Intro */}
       <div className="space-y-6 pb-7">
         <h1 className="text-4xl md:text-5xl font-semibold text-gray-800">
-          Discover the <br /> largest shared adventure
+          Explore the <br /> largest shared adventure
         </h1>
       </div>
 

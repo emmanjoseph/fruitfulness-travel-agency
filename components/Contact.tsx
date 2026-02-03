@@ -8,17 +8,25 @@ const Contact = () => {
 
 
   return (
-   <section
-  className="relative h-[570px] mt-7 rounded-t-[100px] bg-[url('https://plus.unsplash.com/premium_photo-1697729918007-3ff509bb2468?w=900&auto=format&fit=crop&q=60')] bg-fixed bg-cover bg-center text-gray-200 overflow-hidden"
+    <section className='max-w-[1400px] mx-auto'>
+
+       <h2 className="text-4xl font-semibold text-gray-700 text-center pb-5">
+          Let's Get In Touch 
+        </h2>
+
+      <div className='p-2 shadow-lg rounded-[40px]'>
+
+          <div
+  className="relative h-[570px] bg-[url('https://images.unsplash.com/photo-1707410436272-1bcc71ecafb3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2FmYXJpc3xlbnwwfHwwfHx8MA%3D%3D')] bg-fixed bg-cover bg-center text-gray-200 overflow-hidden rounded-[40px]"
 >
   {/* Gradient Overlay */}
-  <div className="absolute inset-0 rounded-t-[100px] bg-gradient-to-t from-black/80 via-black/60 to-black/10" />
+  <div className="absolute inset-0  bg-gradient-to-t from-black/90 via-black/70 to-black/10" />
 
   {/* Content */}
-  <div className="relative z-10 max-w-[1400px] mx-auto h-full py-20">
+  <div className="relative z-10 h-full py-20">
     <div className="flex flex-col items-center justify-center w-full h-full px-4">
       <h1 className="font-heading text-4xl md:text-5xl text-center max-w-2xl">
-        Ready to embark on your next adventure? Contact us today!
+        Ready to embark on your next adventure? 
       </h1>
 
       <p className="text-center max-w-xl mt-4 text-gray-300">
@@ -40,7 +48,12 @@ const Contact = () => {
       </button>
     </div>
   </div>
-</section>
+</div>
+
+      </div>
+    
+    </section>
+   
 
   )
 }
