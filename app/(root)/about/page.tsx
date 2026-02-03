@@ -18,9 +18,9 @@ const Page = () => {
 
                  <div className="relative z-10 py-24 max-w-[1000px] mx-auto px-4">
                     <div className="flex items-center flex-col justify-between gap-3">
-                         <h1 className='font-heading text-2xl md:text-6xl text-gray-700 '>Learn more about us</h1>
+                         <h1 className='font-heading text-2xl md:text-6xl text-gray-700 mb-5 '>Learn more about us</h1>
 
-                         <div className='md:w-4/5 md:p-10 space-y-4.5'>
+                         <div className='space-y-4.5'>
                            <p className='text-base text-gray-600'> The name Fruitfulness Travel reflects our philosophy. We believe that every
                          journey should bear &apos;fruit&apos;—whether it&apos;s the fruit of knowledge, new friendships, personal
                          growth, or a deeper understanding of the world. We don&apos;t just plan trips; we cultivate

@@ -86,7 +86,7 @@ const Steps = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-[800px] w-full overflow-hidden"
+      className="relative h-[800px] w-full overflow-hidden mt-10 lg:mt-0"
     >
       {/* Background */}
       <Image

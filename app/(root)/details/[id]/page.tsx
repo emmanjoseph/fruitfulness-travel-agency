@@ -205,7 +205,7 @@ const DetailsPage = () => {
 
 
 
-<Link href={`/plan-trip?tripId=${details.id}`}>
+<Link href={`/plan-trip/${details.id}`}>
 <button type="button" className='bg-emerald-700 w-full rounded-[15px] py-3 text-white font-semibold cursor-pointer flex items-center justify-center gap-x-2 hover:bg-emerald-600 transition-all duration-150'>
   <p className='text-sm'>Book your journey</p>
   <PlaneTakeoff/>

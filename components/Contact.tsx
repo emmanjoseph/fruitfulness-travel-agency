@@ -8,7 +8,7 @@ const Contact = () => {
 
 
   return (
-    <section className='max-w-[1400px] mx-auto'>
+    <section id='contact' className='max-w-[1400px] mx-auto'>
 
        <h2 className="text-4xl font-semibold text-gray-700 text-center pb-5">
           Let's Get In Touch 

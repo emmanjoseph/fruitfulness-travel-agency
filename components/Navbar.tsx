@@ -54,7 +54,7 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <Link href={'/plan-trip'}>
+          <Link href={'#contact'}>
           <button
             style={{ borderRadius: 50 }}
             className="bg-neutral-900 px-4 py-2.5 hover:bg-neutral-800 transition-all flex items-center gap-2.5 text-white cursor-pointer"
