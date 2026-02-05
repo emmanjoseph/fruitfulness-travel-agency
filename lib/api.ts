@@ -1,34 +1,41 @@
+import { Destination } from "@/components/sections/Destinations";
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL! || 'http://localhost:8000';
 
-export const fetchJourneys = async () => {
-  try {    
+export const fetchJourneys = async (): Promise<Destination[]> => {
+  try {
     const res = await fetch(`${API_URL}/api/journeys`);
-    
+
     if (!res.ok) {
       throw new Error(`Failed to fetch journeys: ${res.status}`);
     }
-    
-    const data = await res.json();
-    return data;
+
+    const json = await res.json();
+
+    return json.data || [];
   } catch (error) {
     console.error("Error fetching journeys:", error);
-    return []; // Return empty array on error
+    return [];
   }
 };
 
-export const fetchJourneyById = async (id:string)=>{
-    try {
-        const res = await fetch(`${API_URL}/api/journeys/${id}`);
-         if (!res.ok) {
+
+export const fetchJourneyById = async (id: string) => {
+  try {
+    const res = await fetch(`/api/journeys/${id}`);
+
+    if (!res.ok) {
       throw new Error(`Failed to fetch details: ${res.status}`);
-      
     }
-    const data = await res.json();
-    return data;
+
+    return await res.json();
   } catch (error) {
-        console.error("Error fetching journey details:", error);
-    }
-}
+    console.error("Error fetching journey details:", error);
+    throw error;
+  }
+};
+
+
 export type TripsQuery = {
   page?: number;
   limit?: number;
@@ -65,27 +72,21 @@ export const requestBooking = async (payload: {
   travelDate: string;
   numberOfGuests: number;
 }) => {
-  try {
-    const res = await fetch(`${API_URL}/api/booking`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
-    });
+  const res = await fetch(`/api/booking`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  });
 
-    if (!res.ok) {
-      const errorData = await res.json();
-      throw new Error(
-        errorData.message || `Failed to request booking: ${res.status}`
-      );
-    }
+  const data = await res.json();
 
-    const data = await res.json();
-    return data; // return booking response
-  } catch (error) {
-    console.error("Error submitting booking:", error);
-    throw error;
+  if (!res.ok) {
+    throw new Error(data.message || "Failed to request booking");
   }
+
+  return data;
 };
+
 
 export const fetchJourneyByCountry = async (country:string) => {
   try {

@@ -11,11 +11,11 @@ export default function TripsGrid({ trips }: { trips: any[] }) {
   if (!trips?.length) return <p className="mt-10">No journeys found.</p>;
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
       {trips.map((trip) => (
          <Link key={trip.id} href={`/details/${trip.id}`} className="rounded-[40px]">
       {/* images */}
-      <div className="relative w-full h-80 rounded-[40px]">
+      <div className="relative w-full h-40 lg:h-80 rounded-[40px]">
          <Image src={trip.imgUrl} alt={trip.id} width={500} height={500} className='w-full h-full object-cover rounded-[40px]'/>
 
          <div className="absolute bottom-0 right-0 rounded-tl-[30px] size-16 bg-white flex items-center justify-center">

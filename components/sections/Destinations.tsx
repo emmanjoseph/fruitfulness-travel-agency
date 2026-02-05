@@ -1,37 +1,10 @@
-"use client"
-import { getAllTrips } from '@/lib/api';
-import { ArrowUpRight, Calendar, CalendarFold, MapIcon, MapPinIcon, MapPinXInside, StarIcon, VolleyballIcon } from 'lucide-react';
-import { useEffect, useState } from 'react'
-import { useGSAP } from '@gsap/react'
+import { fetchJourneys, getAllTrips } from '@/lib/api';
+import { CalendarFold, MapIcon, MapPinIcon, MapPinXInside, StarIcon, VolleyballIcon } from 'lucide-react';
 import gsap from 'gsap';
 import { Badge } from '../ui/badge';
 import Link from 'next/link';
 import Image from 'next/image';
 
- 
-interface AnimationProps {
-  [key: string]: string | number | boolean;
-}
-
-interface ScrollProps {
-  [key: string]: string | number;
-}
-
-export const animateWithGsap = (
-  target: string | HTMLElement,
-  animationProps: AnimationProps,
-  scrollProps: ScrollProps
-): void => {
-  gsap.to(target, {
-    ...animationProps,
-    scrollTrigger: {
-      trigger: target,
-      toggleActions: 'restart reverse restart reverse',
-      start: 'top 85%',
-      ...scrollProps,
-    }
-  })
-}
 
 export type Destination = {
   id: string;
@@ -52,37 +25,8 @@ const shortenText = (text: string, maxLength: number) => {
   return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
 };
 
-const Destinations = () => {
-  const currentPage = 1
-  const [trips, setTrips] = useState<Destination[]>([])
-    
-
-   useEffect(() => {
-    const fetchTrips = async () => {
-     
-      try {
-        const data = await getAllTrips({
-          page:currentPage,
-          limit:8
-        })
-        setTrips(data.data || [])
-      } catch (error) {
-        console.error("Error fetching trips:", error)
-      }
-    }
-    fetchTrips()
-  }, [currentPage]);
-
-  console.log(trips);
-
-  useGSAP(()=> {
-     animateWithGsap('.g_fadeIn', {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: 'power2.inOut'
-    }, {})
-  },[]);
+const Destinations = async () => {
+  const trips:Destination[] = await fetchJourneys()
   
      return (
     <div className='mx-auto max-w-[1400px] px-4 space-y-4'>
@@ -97,7 +41,7 @@ const Destinations = () => {
 
          
             <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5'>
-            {trips.map((trip)=> (
+            {trips.map((trip:Destination)=> (
               <Link key={trip.name}  href={`/details/${trip.id}`}>
                  <div className="max-w-sm rounded-[35px] overflow-hidden bg-white shadow-lg">
 
@@ -157,19 +101,8 @@ const Destinations = () => {
               
             ))}
         </div>
-        </div>
-
-      
-
-
- 
+        </div> 
   )
 }
 
 export default Destinations
-
-// patience musembi
-// jonathan kitaka 
-// rechael matheka 
-// deborah
-
