@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Urbanist, Righteous,Audiowide} from "next/font/google";
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner"
+
 
 const urbanist = Urbanist({
   variable: "--font-urbanist",
@@ -38,7 +40,8 @@ export default function RootLayout({
       <body
         className={`${urbanist.variable} ${righteous.variable} ${audiowide.variable}  antialiased`}
       >
-        {children}
+        <main>{children}</main>
+        <Toaster richColors/>
       </body>
     </html>
   );
