@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { PlaneIcon } from "lucide-react";
+import {CalendarFold, MapPinIcon, PlaneIcon, PlaneTakeoff, StarIcon } from "lucide-react";
+import { Card, CardFooter, CardHeader, CardTitle } from "./ui/card";
+import { Badge } from "./ui/badge";
 
 const shortenText = (text: string, maxLength: number) => {
   if (!text) return "";
@@ -13,27 +15,52 @@ export default function TripsGrid({ trips }: { trips: any[] }) {
   return (
     <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
       {trips.map((trip) => (
-         <Link key={trip.id} href={`/details/${trip.id}`} className="rounded-[40px]">
-      {/* images */}
-      <div className="relative w-full h-40 lg:h-80 rounded-[40px]">
-         <Image src={trip.imgUrl} alt={trip.id} width={500} height={500} className='w-full h-full object-cover rounded-[40px]'/>
-
-         <div className="absolute bottom-0 right-0 rounded-tl-[30px] size-16 bg-white flex items-center justify-center">
-            <div className="size-14 rounded-full shadow-xl flex items-center justify-center">
-                <PlaneIcon size={20} className="text-gray-500"/>
-            </div>
-            
-         </div>
+       <Link key={trip.name} href={`/details/${trip.id}`}>
+      <Card className="relative mx-auto w-full max-w-sm pt-0 rounded-[30px] hover:shadow-lg transition-shadow">
+        <Image
+          src={trip.imgUrl}
+          alt={trip.name}
+          className="relative z-20 aspect-video w-full lg:h-64 object-cover brightness-90 dark:brightness-40 rounded-t-[30px]"
+          width={400}
+          height={700}
+        />
+        
+       <CardHeader className="">
+  {/* Country Badge */}
+  <Badge className="w-fit capitalize bg-emerald-600 text-white font-semibold">
+    {trip.country}
+  </Badge>
+  
+  <CardTitle className="line-clamp-2">{trip.name}</CardTitle>
+  
+  {/* Location & Info Grid */}
+  <div className="">
+    <div className="flex items-center gap-1.5 text-sm text-muted-foreground font-semibold">
+      <MapPinIcon size={14} />
+      <span className="truncate">{trip.location}</span>
+    </div>
+    
+    <div className="flex items-center justify-between">
+      <div className="flex items-center gap-1.5 text-sm text-muted-foreground font-semibold">
+        <CalendarFold size={14} />
+        <span>{trip.numberOfDays} days</span>
       </div>
-       
-
-      <div className="p-4">
-        <h3 className="font-semibold">
-           {shortenText(trip.name, 30)}
-        </h3>
-        <p className="text-sm text-gray-500 font-medium">{trip.location}</p>
-        <p className="text-sm mt-1">⭐ {trip.rating} | {trip.numberOfDays} days</p>
+      
+      <div className="flex items-center gap-1">
+        <StarIcon size={14} className="fill-yellow-500 text-yellow-500" />
+        <span className="font-semibold text-sm">{trip.rating}/5</span>
       </div>
+    </div>
+  </div>
+</CardHeader>
+        
+        <CardFooter>
+          <button className='flex items-center justify-center gap-x-1.5 bg-neutral-700 w-full text-white font-semibold py-3 rounded-3xl cursor-pointer hover:bg-neutral-800 transition-colors'>
+            Explore destination
+            <PlaneTakeoff size={15}/>
+          </button>
+        </CardFooter>
+      </Card>
     </Link>
       ))}
     </div>
