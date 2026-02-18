@@ -26,7 +26,7 @@ export default async function ServicesPage({ searchParams }: Props) {
     country: params.country,
     search: params.q,
   });
-
+  
   return (
     <main className="max-w-[1440px] mx-auto px-6 py-10 font-sans">
       <div className="pt-36 pb-24">

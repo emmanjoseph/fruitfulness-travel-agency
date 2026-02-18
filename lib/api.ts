@@ -2,6 +2,7 @@ import { Destination } from "@/components/sections/Destinations";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL! || 'http://localhost:8000';
 
+
 export const fetchJourneys = async (): Promise<Destination[]> => {
   try {
     const res = await fetch(`${API_URL}/api/journeys`);
@@ -53,7 +54,7 @@ export async function getAllTrips(query: TripsQuery) {
   });
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/api/journeys?${params.toString()}`,
+    `${API_URL}/api/journeys?${params.toString()}`,
     { cache: "no-store" } // tourism data changes often
   );
 

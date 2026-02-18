@@ -13,7 +13,7 @@ export default function TripsGrid({ trips }: { trips: any[] }) {
   if (!trips?.length) return <p className="mt-10">No journeys found.</p>;
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+    <div className="grid md:grid-cols-4 gap-6 mt-8">
       {trips.map((trip) => (
        <Link key={trip.name} href={`/details/${trip.id}`}>
       <Card className="relative mx-auto w-full max-w-sm pt-0 rounded-[30px] hover:shadow-lg transition-shadow">
