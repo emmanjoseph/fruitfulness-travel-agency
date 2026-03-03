@@ -6,12 +6,14 @@ import Testimonials from '@/components/sections/Testimonials'
 import Destinations from '@/components/sections/Destinations'
 import Reasons from '@/components/sections/Reasons'
 import Steps from '@/components/sections/Steps'
+import ImageInfiniteScroller from '@/components/ImageInfiniteScroller'
 
 
 const Home = () => {
   return (
     <div className='font-sans font-medium'>
       <Hero/>
+      <ImageInfiniteScroller/>
       <About/>
       <Destinations/>
       <Steps/>

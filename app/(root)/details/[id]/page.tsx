@@ -1,4 +1,5 @@
 "use client"
+import { ControlledMap } from '@/components/Map'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -60,24 +61,6 @@ const DetailsPage = () => {
 
       <p className='text-gray-700 py-5'>{details.description}</p>
 
-      {/* <div className="flex items-center justify-between">
-
-        <div className="flex items-center gap-6">
-        <p className="text-gray-600 font-medium flex items-center gap-x-1.5 text-sm"><Calendar1 size={16}/>{details.numberOfDays} day plan</p>
-
-        <p className="text-gray-600 font-medium flex items-center gap-x-1.5 text-sm"><MapPin size={16}/>{details.location}</p>
-      </div>
-
-        
-        <div className="flex items-center gap-x-2">
-          {Array.from({ length: Math.round(details.rating) }).map((_, index) => (
-           <StarIcon key={index} size={16} className='text-yellow-500 fill-yellow-500'/>
-          ))}
-          <Badge className="text-sm bg-amber-500 text-white font-bold">
-            {details.rating} / 5.0 
-          </Badge>
-        </div>
-      </div> */}
       
 
       {/* image */}
@@ -153,60 +136,14 @@ const DetailsPage = () => {
   </div>
 )}
 
-{/* Pricing */}
-{details.pricing?.length > 0 && (
-  <div>
-    <h2 className="text-3xl font-bold py-3 flex items-center gap-x-1.5"><DollarSignIcon/> Pricing Tiers</h2>
-
-    <div className="space-y-4">
-      {details.pricing.map((price: any, index: number) => (
-        <Card
-          key={index}
-          className="p-6 border border-gray-200 rounded-4xl bg-white shadow-sm"
-        >
-          <CardHeader className="flex items-center justify-between">
-            <h3 className="font-semibold text-xl text-gray-800">
-              {price.tier}
-            </h3>
-            <Badge className="bg-emerald-600 text-white font-bold px-3 py-2">
-              {price.currency}
-            </Badge>
-          </CardHeader>
-
-          <CardContent className="mt-2 text-sm text-gray-700 space-y-1">
-            <div className="grid grid-cols-2 gap-3">
-               <p className='bg-gray-200/20 p-4 rounded-2xl'>
-              <strong>Citizen:</strong> {" "} {price.citizenPrice}
-            </p>
-            <p className='bg-gray-200/20 p-4 rounded-2xl'>
-              <strong>Non-Resident:</strong> {" "} {price.nonResidentPrice}
-            </p>
-            </div>
-           
-            <div className='bg-gray-200/20 p-4 rounded-2xl'>
-              <h3 className='text-gray-700 font-semibold'>Accommodation</h3> 
-              <p>{price.accommodation}</p>
-              
-            </div>
-
-            {price.transportation && (
-              <p className='bg-gray-200/20 p-4 rounded-2xl'>
-                <strong>Transport:</strong>{" "}
-                {price.transportation.type} –{" "}
-                {price.transportation.description}
-              </p>
-            )}
-          </CardContent>
-        </Card>
-      ))}
-    </div>
-  </div>
-)}
-
+<div>
+  
+</div>
+{/* <ControlledMap/> */}
 
 
 <Link href={`/plan-trip/${details.id}`}>
-<button type="button" className='bg-emerald-700 w-full rounded-[15px] py-3 text-white font-semibold cursor-pointer flex items-center justify-center gap-x-2 hover:bg-emerald-600 transition-all duration-150'>
+<button type="button" className='bg-emerald-700 w-full rounded-[30px] py-4 text-white font-semibold cursor-pointer flex items-center justify-center gap-x-2 hover:bg-emerald-600 transition-all duration-150'>
   <p className='text-sm'>Book your journey</p>
   <PlaneTakeoff/>
 </button>

@@ -15,25 +15,39 @@ const images = [
     "https://plus.unsplash.com/premium_photo-1661952476300-1f32e068126f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fHNhZmFyaXxlbnwwfHwwfHx8MA%3D%3D",
 ];
 
-const GradientWrapper = ({ children }: { children: React.ReactNode }) => (
-  <div className="relative overflow-hidden">
-    {/* Left fade */}
-    <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-32 bg-gradient-to-r from-gray-50 to-transparent" />
-
-    {/* Right fade */}
-    <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-32 bg-gradient-to-l from-gray-50 to-transparent" />
-
-    {children}
-  </div>
-)
 
 const ImageInfiniteScroller = () => {
   return (
-    <div>
+    <div className="py-7">
         <InfiniteScroll
-      speed={60}
+      speed={90}
       direction="left"
-      fadeWidth={100}
+      fadeWidth={250}
+      fadeColor="#f9fafb"
+      className="py-3"
+    >
+      {images.map((src, index) => (
+        <div
+          key={index}
+          className="flex-shrink-0 w-[320px] h-[220px] rounded-2xl overflow-hidden"
+        >
+          <Image
+            src={src}
+            alt="Travel destination"
+            width={500}
+            height={500}
+            className="w-full h-full"
+            sizes="320px"
+            priority={index < 3}
+          />
+        </div>
+      ))}
+    </InfiniteScroll>
+    
+        <InfiniteScroll
+      speed={40}
+      direction="left"
+      fadeWidth={250}
       fadeColor="#f9fafb"
       className="py-3"
     >
@@ -55,30 +69,7 @@ const ImageInfiniteScroller = () => {
       ))}
     </InfiniteScroll>
 
-        <InfiniteScroll
-      speed={60}
-      direction="right"
-      fadeWidth={1000}
-      fadeColor="white"
-      className=""
-    >
-      {images.map((src, index) => (
-        <div
-          key={index}
-          className="flex-shrink-0 w-[320px] h-[220px] rounded-2xl overflow-hidden"
-        >
-          <Image
-            src={src}
-            alt="Travel destination"
-            width={500}
-            height={500}
-            className="w-full h-full"
-            sizes="320px"
-            priority={index < 3}
-          />
-        </div>
-      ))}
-    </InfiniteScroll>
+       
 
     </div>
     

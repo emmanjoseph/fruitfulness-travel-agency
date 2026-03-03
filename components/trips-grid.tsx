@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import {CalendarFold, MapPinIcon, PlaneIcon, PlaneTakeoff, StarIcon } from "lucide-react";
+import {CalendarFold, MapPinIcon, PlaneIcon, PlaneTakeoff, StarIcon, Volleyball } from "lucide-react";
 import { Card, CardFooter, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "./ui/badge";
+import { ta } from "date-fns/locale";
 
 const shortenText = (text: string, maxLength: number) => {
   if (!text) return "";
@@ -31,16 +32,15 @@ export default function TripsGrid({ trips }: { trips: any[] }) {
     {trip.country}
   </Badge>
   
-  <CardTitle className="line-clamp-2">{trip.name}</CardTitle>
+  <CardTitle className="line-clamp-2 font-heading">{shortenText(trip.name,27)}</CardTitle>
   
   {/* Location & Info Grid */}
   <div className="">
     <div className="flex items-center gap-1.5 text-sm text-muted-foreground font-semibold">
-      <MapPinIcon size={14} />
       <span className="truncate">{trip.location}</span>
     </div>
     
-    <div className="flex items-center justify-between">
+    <div className="flex items-center justify-between py-2">
       <div className="flex items-center gap-1.5 text-sm text-muted-foreground font-semibold">
         <CalendarFold size={14} />
         <span>{trip.numberOfDays} days</span>
@@ -50,6 +50,19 @@ export default function TripsGrid({ trips }: { trips: any[] }) {
         <StarIcon size={14} className="fill-yellow-500 text-yellow-500" />
         <span className="font-semibold text-sm">{trip.rating}/5</span>
       </div>
+
+      <div className="flex items-center gap-x-1 text-sm text-muted-foreground font-semibold">
+        <Volleyball size={14} />
+        <span>{trip.activities.length} activities</span>
+      </div>
+    </div>
+
+    <div className="mt-2 flex gap-x-3">
+      {trip.tags.slice(0, 4).map((tag:string)=>(
+        <Badge key={tag} className="text-xs bg-emerald-100 text-emerald-800 font-medium">
+          {tag}
+        </Badge>
+      ))}
     </div>
   </div>
 </CardHeader>

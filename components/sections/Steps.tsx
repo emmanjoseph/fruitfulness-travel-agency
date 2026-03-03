@@ -1,10 +1,11 @@
 "use client"
 
-import { LocationEdit } from "lucide-react"
+import { LocationEdit,MapIcon } from "lucide-react"
 import Image from "next/image"
 import React, { useEffect, useRef } from "react"
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import Scales from "../ui/scales"
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -13,7 +14,7 @@ const steps = [
     heading: "Find your destination",
     description:
       "Explore a handpicked selection of global gems, from hidden local retreats to iconic world wonders tailored to your travel style.",
-    icon: LocationEdit,
+    icon: MapIcon,
     bgColor: "#FFF0EC",
   },
   {
@@ -88,22 +89,15 @@ const Steps = () => {
       ref={sectionRef}
       className="relative h-[800px] w-full overflow-hidden mt-10 lg:mt-0"
     >
-      {/* Background */}
-      <Image
-        src="/bg-1.png"
-        alt="hero background"
-        fill
-        priority
-        className="object-cover"
-      />
+    
 
       {/* Overlay */}
       <div className="absolute inset-0 lg:py-28">
-        <div className="mx-auto max-w-[1100px] px-4 flex flex-col items-center">
+        <div className="mx-auto max-w-[1300px] px-8 flex flex-col items-center">
           <h1 className="text-xl md:text-3xl text-gray-600 text-center font-semibold">
             How it works
           </h1>
-          <p className="text-base text-center font-medium text-gray-700 max-w-2xl py-1">
+          <p className="text-base text-center font-medium text-gray-700 max-w-2xl pt-1 pb-4">
             Get to your desired destination
           </p>
 
@@ -111,36 +105,30 @@ const Steps = () => {
             {/* Images */}
             <div
               ref={imagesRef}
-              className="hidden w-1/2 lg:grid grid-cols-3 gap-10"
+              className="hidden w-1/2 lg:flex items-center justify-center"
             >
-              <Image
-                src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?w=900"
-                alt="img"
-                width={1000}
-                height={1000}
-                className="rounded-4xl object-cover col-span-2 h-50"
-              />
-              <Image
-                src="https://images.unsplash.com/photo-1564613469739-c78f970f9c17?w=900"
-                alt="img"
-                width={1000}
-                height={1000}
-                className="rounded-4xl object-cover h-52"
-              />
-              <Image
-                src="https://plus.unsplash.com/premium_photo-1679619558250-41fa96ef187c?w=900"
-                alt="img"
-                width={1000}
-                height={1000}
-                className="rounded-4xl object-cover"
-              />
-              <Image
-                src="https://images.unsplash.com/photo-1501426026826-31c667bdf23d?w=900"
-                alt="img"
-                width={1000}
-                height={1000}
-                className="rounded-4xl object-cover col-span-2 h-68"
-              />
+              <div className="relative h-98 w-98 rounded-lg bg-gray-100 dark:bg-neutral-800/50">
+        <div className="absolute -inset-y-[30%] -left-10 h-[160%] w-8 mask-t-from-90% mask-b-from-90%">
+          <Scales size={8} className="rounded-lg" />
+        </div>
+        <div className="absolute -inset-y-[30%] -right-10 h-[160%] w-8 mask-t-from-90% mask-b-from-90%">
+          <Scales size={8} className="rounded-lg" />
+        </div>
+        <div className="absolute -inset-x-[30%] -top-10 h-8 w-[160%] mask-r-from-90% mask-l-from-90%">
+          <Scales size={8} className="rounded-lg" />
+        </div>
+        <div className="absolute -inset-x-[30%] -bottom-10 h-8 w-[160%] mask-r-from-90% mask-l-from-90%">
+          <Scales size={8} className="rounded-lg" />
+        </div>
+        <div className="relative z-10 h-full w-full overflow-hidden rounded-none bg-white shadow-sm ring-1 shadow-black/10 ring-black/5 dark:bg-neutral-800">
+          <Image
+            src="https://plus.unsplash.com/premium_photo-1681955753848-a9b908b09429?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGRpYW5pJTIwYmVhY2h8ZW58MHx8MHx8fDA%3D"
+            alt="Portrait"
+            fill
+            className="h-full w-full object-cover filter"
+          />
+        </div>
+      </div>
             </div>
 
             {/* Steps */}

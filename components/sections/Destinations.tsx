@@ -32,7 +32,7 @@ const Destinations = async () => {
      return (
     <div className='mx-auto max-w-[1400px] px-4 space-y-4'>
        <div className='flex flex-col items-center justify-center'>
-        <h1 className='text-xl md:text-3xl text-gray-600 text-center font-semibold'>Discover the best adventures <br /> for every kind of traveler</h1>
+        <h1 className='text-xl md:text-4xl text-gray-600 text-center font-medium font-heading'>Our Featured Tours</h1>
          <p className="text-base text-center font-medium text-gray-700 max-w-2xl py-4">
            Step into the wild heart of Africa. East Africa offers diverse safari experiences, blending majestic wildlife, stunning scenery, and authentic cultural encounters — all in one unforgettable journey.
          </p>
@@ -41,54 +41,40 @@ const Destinations = async () => {
 
 
          
-           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-5'>
+           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-2'>
   {trips.map((trip: Destination) => (
     <Link key={trip.name} href={`/details/${trip.id}`}>
-      <Card className="relative mx-auto w-full max-w-sm pt-0 rounded-[30px] hover:shadow-lg transition-shadow">
+      <div className="relative mx-auto w-full h-96 max-w-sm pt-0 rounded-[40px] hover:shadow-lg transition-shadow">
         <Image
           src={trip.imgUrl}
           alt={trip.name}
-          className="relative z-20 aspect-video w-full lg:h-64 object-cover brightness-90 dark:brightness-40 rounded-t-[30px]"
-          width={400}
-          height={700}
+          className="relative z-20 aspect-video w-full h-full object-cover brightness-90 dark:brightness-40 rounded-[40px]"
+          width={1000}
+          height={1000}
         />
         
-       <CardHeader className="">
-  {/* Country Badge */}
-  <Badge className="w-fit capitalize bg-emerald-600 text-white font-semibold">
-    {trip.country}
-  </Badge>
-  
-  <CardTitle className="line-clamp-2">{trip.name}</CardTitle>
-  
-  {/* Location & Info Grid */}
-  <div className="">
-    <div className="flex items-center gap-1.5 text-sm text-muted-foreground font-semibold">
-      <MapPinIcon size={14} />
-      <span className="truncate">{trip.location}</span>
-    </div>
-    
-    <div className="flex items-center justify-between">
-      <div className="flex items-center gap-1.5 text-sm text-muted-foreground font-semibold">
-        <CalendarFold size={14} />
-        <span>{trip.numberOfDays} days</span>
+        <div className="absolute top-0 right-0 bg-neutral-950/40 rounded-[40px] p-6 z-30 w-full h-full flex flex-col justify-between text-gray-100">
+          <div className="flex items-center justify-between">
+            <Badge className='text-sm font-semibold bg-white text-gray-900'>
+              <p>{trip.country}</p>
+            </Badge>
+          </div>
+
+          <div className='space-y-0.5'>
+            <h1 className="font-bold text-base">{trip.name}</h1>
+            <div className="flex items-center justify-between">
+            <p className='text-sm font-medium'>{trip.location}</p>
+
+            <p className="font-bold flex items-center gap-x-1.5">
+              <StarIcon className='text-amber-500 fill-amber-500' size={15}/>
+              <span className='text-base'>{trip.rating}/5</span>
+
+            </p>
+            </div>
+          </div>
+        </div>
+   
       </div>
-      
-      <div className="flex items-center gap-1">
-        <StarIcon size={14} className="fill-yellow-500 text-yellow-500" />
-        <span className="font-semibold text-sm">{trip.rating}/5</span>
-      </div>
-    </div>
-  </div>
-</CardHeader>
-        
-        <CardFooter>
-          <button className='flex items-center justify-center gap-x-1.5 bg-neutral-700 w-full text-white font-semibold py-3 rounded-3xl cursor-pointer hover:bg-neutral-800 transition-colors'>
-            Explore destination
-            <PlaneTakeoff size={15}/>
-          </button>
-        </CardFooter>
-      </Card>
     </Link>
   ))}
 </div>

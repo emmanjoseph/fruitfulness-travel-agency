@@ -6,9 +6,16 @@ import SplitText from "gsap/SplitText"
 import React, { useEffect } from 'react'
 import Link from 'next/link'
 import { Badge } from '../ui/badge'
-import ImageInfiniteScroller from '../ImageInfiniteScroller'
 
-  gsap.registerPlugin(SplitText)
+
+  gsap.registerPlugin(SplitText);
+
+  const image = [
+    "https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmFjYXRpb258ZW58MHx8MHx8fDA%3D",
+    "https://images.unsplash.com/photo-1518459384564-ecfd8e80721f?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mzh8fHNhZmFyaXxlbnwwfHwwfHx8MA%3D%3D",
+    "https://plus.unsplash.com/premium_photo-1697729918007-3ff509bb2468?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDV8fHNhZmFyaXxlbnwwfHwwfHx8MA%3D%3D",
+    "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8bW91bnRhaW58ZW58MHx8MHx8fDA%3D"
+  ]
 
 
 const Hero = () => {
@@ -38,7 +45,7 @@ const Hero = () => {
         </Badge>
         </Link>
         
-         <h1 className='text-5xl lg:text-[58px] font-heading text-gray-700 hero-text text-center'>Your journey starts here</h1>
+         <h1 className='text-5xl lg:text-[58px] font-heading text-gray-700 font-semibold text-center'>Your journey starts here</h1>
          <p className="text-gray-700 text-base font-medium max-w-[590px] hero-text text-center">
           From serene beaches to vibrant cities, Fruitfulness helps you explore the world with ease. Plan, book, and live the adventure you’ve always dreamed of.
          </p>
@@ -64,7 +71,7 @@ const Hero = () => {
          </div>
 
        </div>
-         <ImageInfiniteScroller/>
+  
 
     </section>
   )

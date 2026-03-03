@@ -11,7 +11,6 @@ export async function GET(
     const { id } = await context.params;
     
     const url = `${API_URL}/api/journeys/${id}`;
-    // console.log('🔍 Fetching from:', url); // Debug log
 
     const res = await fetch(url, {
       headers: {
@@ -20,10 +19,7 @@ export async function GET(
       cache: "no-store",
     });
 
-    // console.log('📊 Response status:', res.status); // Debug log
-
     const data = await res.json();
-    // console.log('📦 Response data:', data); // Debug log
 
     return NextResponse.json(data, { status: res.status });
 

@@ -31,7 +31,7 @@ export default async function ServicesPage({ searchParams }: Props) {
     <main className="max-w-[1440px] mx-auto px-6 py-10 font-sans">
       <div className="pt-36 pb-24">
         <div className="flex flex-col items-center space-y-2">
-          <h1 className="text-4xl lg:text-7xl font-extrabold text-gray-700
+          <h1 className="text-4xl lg:text-7xl text-center font-bold font-heading text-gray-700
           ">Your Perfect Getaway</h1>
           <p className="text-gray-600 text-center max-w-xl font-medium text-base">Whether you crave sandy beaches, majestic mountains, bustling cities, or serene forests, we bring you the best destinations from around the globe. Start your journey here and discover your dream getaway.</p>
         </div>

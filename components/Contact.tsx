@@ -8,16 +8,10 @@ const Contact = () => {
 
 
   return (
-    <section id='contact' className='max-w-[1400px] mx-auto'>
-
-       <h2 className="text-4xl font-semibold text-gray-700 text-center pb-5">
-          Let's Get In Touch 
-        </h2>
-
-      <div className='p-2 shadow-lg rounded-[40px]'>
+    <section id='contact' className=''>
 
           <div
-  className="relative h-[570px] bg-[url('https://images.unsplash.com/photo-1707410436272-1bcc71ecafb3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8c2FmYXJpc3xlbnwwfHwwfHx8MA%3D%3D')] bg-fixed bg-cover bg-center text-gray-200 overflow-hidden rounded-[40px]"
+  className="h-100 lg:h-150 relative bg-[url('https://images.unsplash.com/photo-1597046878594-c238e356fee2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2FmYXJpJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D')] bg-fixed bg-cover bg-center text-gray-200 overflow-hidden"
 >
   {/* Gradient Overlay */}
   <div className="absolute inset-0  bg-gradient-to-t from-black/90 via-black/70 to-black/10" />
@@ -50,7 +44,7 @@ const Contact = () => {
   </div>
 </div>
 
-      </div>
+  
     
     </section>
    

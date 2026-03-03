@@ -41,7 +41,7 @@ export default function Testimonials() {
     <section className="mx-auto max-w-[1400px] px-4 py-20">
       {/* Header */}
       <div className="text-center mb-14">
-        <h2 className="text-4xl font-semibold text-gray-900">
+        <h2 className="text-4xl font-heading text-gray-900">
           Results that speak volumes
         </h2>
         <p className="text-2xl text-gray-500 mt-2">
