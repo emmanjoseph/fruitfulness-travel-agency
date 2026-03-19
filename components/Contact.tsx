@@ -19,11 +19,11 @@ const Contact = () => {
   {/* Content */}
   <div className="relative z-10 h-full py-20">
     <div className="flex flex-col items-center justify-center w-full h-full px-4">
-      <h1 className="font-heading text-4xl md:text-5xl text-center max-w-2xl">
+      <h1 className="font-heading font-bold text-4xl md:text-6xl text-center max-w-2xl">
         Ready to embark on your next adventure? 
       </h1>
 
-      <p className="text-center max-w-xl mt-4 text-gray-300">
+      <p className="text-center max-w-xl mt-4 text-gray-300 lg:text-xl text-base">
         Our team of travel experts is here to help you plan your dream trip.
         Whether you have questions or need assistance with booking, we’re just a
         message away.

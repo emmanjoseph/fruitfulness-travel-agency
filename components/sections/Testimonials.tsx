@@ -41,9 +41,9 @@ export default function Testimonials() {
     <section className="mx-auto max-w-[1400px] px-4 py-20">
       {/* Header */}
       <div className="text-center mb-14">
-        <h2 className="text-4xl font-heading text-gray-900">
-          Results that speak volumes
-        </h2>
+        <h2 className="max-w-7xl pl-4 mx-auto text-3xl md:text-5xl font-bold text-neutral-700 text-center font-sans">
+        Results That Speak Volumes
+      </h2>
         <p className="text-2xl text-gray-500 mt-2">
           Read success stories
         </p>

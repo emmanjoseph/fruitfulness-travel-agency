@@ -21,11 +21,11 @@ const Reasons = () => {
     ]
   return (
     <div className='mx-auto max-w-[1400px] px-4 py-20 space-y-4'>
-         <h2 className="text-center text-4xl font-semibold text-gray-900">
-          Why choose us?
-        </h2>
+         <h2 className="max-w-7xl pl-4 mx-auto text-3xl md:text-5xl font-bold text-neutral-700 text-center font-sans pb-3">
+        Why Choose Us?
+      </h2>
 
-        <div className="grid lg:grid-cols-3 gap-4">
+        <div className="grid lg:grid-cols-3 gap-4 py-10">
             {answers.map(({heading,description,imgUrl})=> (
                 <div key={heading} className='rounded-4xl bg-gray-200/15 p-5 space-y-4'>
                     <Image src={imgUrl} alt={heading} width={200} height={200} className='size-24 rounded-full object-cover'/>

@@ -1,12 +1,12 @@
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import About from '@/components/sections/About'
 import Hero from '@/components/sections/Hero'
 import Testimonials from '@/components/sections/Testimonials'
 import Destinations from '@/components/sections/Destinations'
 import Reasons from '@/components/sections/Reasons'
-import Steps from '@/components/sections/Steps'
 import ImageInfiniteScroller from '@/components/ImageInfiniteScroller'
+import { About } from '@/components/sections/About'
+import FAQ from '@/components/sections/FAQ'
 
 
 const Home = () => {
@@ -16,9 +16,9 @@ const Home = () => {
       <ImageInfiniteScroller/>
       <About/>
       <Destinations/>
-      <Steps/>
       <Reasons/>
-      <Testimonials/>    
+      <Testimonials/> 
+      <FAQ/>   
       <Contact/>
       <Footer/>
       </div>

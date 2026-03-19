@@ -21,19 +21,16 @@ export type Destination = {
   href?: string 
 }
 
-const shortenText = (text: string, maxLength: number) => {
-  if (!text) return "";
-  return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
-};
-
 const Destinations = async () => {
   const trips:Destination[] = await fetchJourneys();
   
      return (
-    <div className='mx-auto max-w-[1400px] px-4 space-y-4'>
+    <div className='mx-auto max-w-[1400px] py-10 px-4 space-y-4'>
        <div className='flex flex-col items-center justify-center'>
-        <h1 className='text-xl md:text-4xl text-gray-600 text-center font-medium font-heading'>Our Featured Tours</h1>
-         <p className="text-base text-center font-medium text-gray-700 max-w-2xl py-4">
+        <h2 className="max-w-7xl pl-4 mx-auto text-3xl md:text-5xl font-bold text-neutral-700 text-center font-sans">
+        Latest Destinations
+      </h2>
+         <p className="text-neutral-600  text-base md:text-xl text-center py-4 font-sans max-w-3xl mx-auto">
            Step into the wild heart of Africa. East Africa offers diverse safari experiences, blending majestic wildlife, stunning scenery, and authentic cultural encounters — all in one unforgettable journey.
          </p>
        </div>
@@ -48,7 +45,7 @@ const Destinations = async () => {
         <Image
           src={trip.imgUrl}
           alt={trip.name}
-          className="relative z-20 aspect-video w-full h-full object-cover brightness-90 dark:brightness-40 rounded-[40px]"
+          className="relative z-20 aspect-video w-full h-full object-cover brightness-65 dark:brightness-40 rounded-[40px]"
           width={1000}
           height={1000}
         />
@@ -61,9 +58,9 @@ const Destinations = async () => {
           </div>
 
           <div className='space-y-0.5'>
-            <h1 className="font-bold text-base">{trip.name}</h1>
+            <h1 className="font-bold text-lg truncate">{trip.name}</h1>
             <div className="flex items-center justify-between">
-            <p className='text-sm font-medium'>{trip.location}</p>
+            <p className='text-sm font-semibold truncate'>{trip.location}</p>
 
             <p className="font-bold flex items-center gap-x-1.5">
               <StarIcon className='text-amber-500 fill-amber-500' size={15}/>

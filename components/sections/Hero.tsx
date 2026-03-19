@@ -45,8 +45,8 @@ const Hero = () => {
         </Badge>
         </Link>
         
-         <h1 className='text-5xl lg:text-[58px] font-heading text-gray-700 font-semibold text-center'>Your journey starts here</h1>
-         <p className="text-gray-700 text-base font-medium max-w-[590px] hero-text text-center">
+         <h1 className='text-5xl lg:text-[68px] font-heading text-gray-700 font-semibold text-center'>Your journey starts here</h1>
+         <p className="text-gray-700 text-xl font-medium max-w-[590px] hero-text text-center">
           From serene beaches to vibrant cities, Fruitfulness helps you explore the world with ease. Plan, book, and live the adventure you’ve always dreamed of.
          </p>
 

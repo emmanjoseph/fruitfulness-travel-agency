@@ -121,3 +121,22 @@ export const fetchJourneyByTags = async (tag:string) => {
     return []; // Return empty array on error
   }
 }
+
+
+export const fetchRelatedJourneys = async (id:string) => {
+  try {
+    const res = await fetch(`${API_URL}/api/journeys/${id}/related`,
+      { cache: "no-store" }
+    );
+     if (!res.ok) {
+      throw new Error(`Failed to fetch related journeys for ${id}: ${res.status}`,
+        
+      );
+    }
+    const data = await res.json();
+    return data;  
+  } catch (error) {
+    console.error("Error fetching related journeys:", error);
+    return []; // Return empty array on error
+  }
+}
