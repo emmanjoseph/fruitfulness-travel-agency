@@ -15,22 +15,23 @@ const Tanzania = async ({ searchParams }: Props) => {
           country:"tanzania"
        });
   return (
-    <section className='max-w-[1440px] mx-auto px-6 py-10 font-sans'>
-         <div className="pt-32 pb-24">
-        <div className="flex flex-col items-center space-y-2">
-          <h1 className="text-4xl lg:text-7xl font-extrabold text-gray-700
+    <section className='font-sans'>
+
+       <div  className="h-100 lg:h-140 relative bg-[url('https://images.unsplash.com/photo-1631646109206-4b5616964f84?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8a2lsaW1hbmphcm98ZW58MHx8MHx8fDA%3D')] bg-fixed bg-cover bg-center text-gray-200 overflow-hidden">
+  <div className="absolute inset-0  bg-linear-to-t from-white via-black/70 to-black/80" />
+
+        <div className="relative h-full z-10 flex flex-col items-center space-y-2 text-white pt-40">
+          <h1 className="text-4xl lg:text-7xl text-center font-bold font-heading
           ">Tanzania Safaris</h1>
-
-          <p className="text-gray-600 text-center max-w-xl font-medium text-base">
-  Tanzania is home to some of Africa’s most iconic landscapes, from the endless plains of the Serengeti to the majestic Mount Kilimanjaro and the wildlife-rich Ngorongoro Crater. Its safaris offer unforgettable encounters with abundant wildlife, vibrant cultures, and breathtaking natural beauty.
-</p>
-
-         
+          <p className="text-gray-100 text-center max-w-xl font-medium text-base"> Tanzania is home to some of Africa’s most iconic landscapes, from the endless plains of the Serengeti to the majestic Mount Kilimanjaro and the wildlife-rich Ngorongoro Crater. Its safaris offer unforgettable encounters with abundant wildlife, vibrant cultures, and breathtaking natural beauty.</p>
         </div>
 
       </div>
-      <h1 className="text-2xl font-medium">Explore Tanzanian Destinations</h1>
-                    <TripsGrid trips={trips.data} />
+
+     <div className="max-w-350 mx-auto px-4">
+              <h1 className="text-2xl mt-10 font-semibold">Explore Tanzania Destinations</h1>
+                 <TripsGrid trips={trips.data} />
+           </div>
                     <FAQ/>
                     <SemiFooter/>
     </section>

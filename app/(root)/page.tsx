@@ -13,13 +13,13 @@ const Home = () => {
   return (
     <div className='font-sans font-medium'>
       <Hero/>
-      <ImageInfiniteScroller/>
       <About/>
       <Destinations/>
       <Reasons/>
       <Testimonials/> 
       <FAQ/>   
       <Contact/>
+      <ImageInfiniteScroller/>
       <Footer/>
       </div>
   )

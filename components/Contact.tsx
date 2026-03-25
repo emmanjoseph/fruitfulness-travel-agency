@@ -11,15 +11,15 @@ const Contact = () => {
     <section id='contact' className=''>
 
           <div
-  className="h-100 lg:h-150 relative bg-[url('https://images.unsplash.com/photo-1597046878594-c238e356fee2?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8c2FmYXJpJTIwYmFja2dyb3VuZHxlbnwwfHwwfHx8MA%3D%3D')] bg-fixed bg-cover bg-center text-gray-200 overflow-hidden"
+  className="h-100 lg:h-180 relative bg-[url('https://images.unsplash.com/photo-1532574754390-44dc5c6780bb?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-fixed bg-cover bg-center text-gray-200 overflow-hidden"
 >
   {/* Gradient Overlay */}
-  <div className="absolute inset-0  bg-gradient-to-t from-black/90 via-black/70 to-black/10" />
+  <div className="absolute inset-0  bg-linear-to-t from-white via-black/70 to-black/80" />
 
   {/* Content */}
   <div className="relative z-10 h-full py-20">
     <div className="flex flex-col items-center justify-center w-full h-full px-4">
-      <h1 className="font-heading font-bold text-4xl md:text-6xl text-center max-w-2xl">
+      <h1 className="font-heading font-bold text-4xl md:text-7xl text-center max-w-3xl">
         Ready to embark on your next adventure? 
       </h1>
 

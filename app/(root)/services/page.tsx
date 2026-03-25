@@ -28,17 +28,20 @@ export default async function ServicesPage({ searchParams }: Props) {
   });
   
   return (
-    <main className="max-w-[1440px] mx-auto px-6 py-10 font-sans">
-      <div className="pt-36 pb-24">
-        <div className="flex flex-col items-center space-y-2">
-          <h1 className="text-4xl lg:text-7xl text-center font-bold font-heading text-neutral-700
+    <main className="font-sans">
+      <div  className="h-100 lg:h-140 relative bg-[url('https://images.unsplash.com/photo-1675156682569-1b91ed586a5a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDd8fHphbnppYmFyJTIwaXNsYW5kfGVufDB8fDB8fHww')] bg-fixed bg-cover bg-center text-gray-200 overflow-hidden">
+  <div className="absolute inset-0  bg-linear-to-t from-white via-black/70 to-black/80" />
+
+        <div className="relative h-full z-10 flex flex-col items-center space-y-2 text-white pt-40">
+          <h1 className="text-4xl lg:text-7xl text-center font-bold font-heading
           ">Your Perfect Getaway</h1>
-          <p className="text-gray-600 text-center max-w-xl font-medium text-base">Whether you crave sandy beaches, majestic mountains, bustling cities, or serene forests, we bring you the best destinations from around the globe. Start your journey here and discover your dream getaway.</p>
+          <p className="text-gray-100 text-center max-w-xl font-medium text-base md:text-xl p-4">Whether you crave sandy beaches, majestic mountains, bustling cities, or serene forests, we bring you the best destinations from around the globe. Start your journey here and discover your dream getaway.</p>
         </div>
 
       </div>
-  
-      <FiltersBar />
+
+      <section className="max-w-350 mx-auto px-6 py-10">
+         <FiltersBar />
 
       <TripsGrid trips={trips.data} />
 
@@ -51,6 +54,8 @@ export default async function ServicesPage({ searchParams }: Props) {
       <FAQ/>
 
       <SemiFooter/>
+      </section>
+     
     </main>
   );
 }

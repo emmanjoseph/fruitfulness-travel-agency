@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <header className='p-4 absolute w-full z-20 font-sans'>
-      <div className="w-full max-w-[1400px] mx-auto flex items-center justify-between">
+      <div className="w-full max-w-350 mx-auto flex items-center justify-between text-gray-100">
         
         {/* Logo */}
         <Link href="/" className="flex items-center gap-1.5">
@@ -37,8 +37,8 @@ const Navbar = () => {
               width={20}
               height={20}
             />
-            <h1 className="font-bold text-lg text-neutral-900">
-              <span className='text-green-900'>Fruitfulness</span>Travel
+            <h1 className="font-bold text-lg text-neutral-100">
+              <span className='text-green-500'>Fruitfulness</span>Travel
             </h1>
           </div>
         </Link>
@@ -48,7 +48,7 @@ const Navbar = () => {
           <div className="flex items-center gap-8">
             {navLinks.map(link => (
               <Link href={link.path} key={link.name}>
-                <span className="text-[14px] font-semibold text-gray-700 hover:text-neutral-900 transition">
+                <span className="text-[15px] font-semibold">
                   {link.name}
                 </span>
               </Link>
