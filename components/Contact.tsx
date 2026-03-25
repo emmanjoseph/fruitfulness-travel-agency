@@ -11,7 +11,7 @@ const Contact = () => {
     <section id='contact' className=''>
 
           <div
-  className="h-100 lg:h-180 relative bg-[url('https://images.unsplash.com/photo-1532574754390-44dc5c6780bb?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-fixed bg-cover bg-center text-gray-200 overflow-hidden"
+  className="h-140 lg:h-180 relative bg-[url('https://images.unsplash.com/photo-1532574754390-44dc5c6780bb?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')] bg-fixed bg-cover bg-center text-gray-200 overflow-hidden"
 >
   {/* Gradient Overlay */}
   <div className="absolute inset-0  bg-linear-to-t from-white via-black/70 to-black/80" />

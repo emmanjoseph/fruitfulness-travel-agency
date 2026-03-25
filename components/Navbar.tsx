@@ -57,7 +57,7 @@ const Navbar = () => {
           <Link href={'#contact'}>
           <button
             style={{ borderRadius: 50 }}
-            className="bg-neutral-900 px-4 py-2.5 hover:bg-neutral-800 transition-all flex items-center gap-2.5 text-white cursor-pointer"
+            className="bg-emerald-600 px-4 py-3 hover:bg-emerald-200 transition-all flex items-center gap-2.5 text-white cursor-pointer"
           >
             <span className="text-neutral-200 font-semibold leading-1 text-sm cursor-pointer">
               Contact Us

@@ -9,7 +9,7 @@ const Hero = () => {
       <div className="absolute inset-0 bg-gradient-to-t from-white via-black/70 to-black/90" />
 
       {/* Content */}
-      <div className="relative z-10 h-full min-h-screen flex items-center">
+      <div className="relative z-10 h-full min-h-screen flex items-center pt-30 md:pt-10">
         <div className="container mx-auto px-4 md:px-8 lg:px-16">
           <div className="max-w-4xl">
             {/* Badge/Tag */}
