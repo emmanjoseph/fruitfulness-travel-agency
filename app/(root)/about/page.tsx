@@ -66,7 +66,7 @@ to
 an adventurous expedition, or a cultural deep dive, we&apos;ll design a journey that
 is truly fruitful. We also collaborate closely with other partners to ensure every aspect of your travel experience is meaningful and impactful including <Link 
 className='font-semibold text-emerald-700'
-href={'https://www.safaribookings.com/'}>SafariBookings.com</Link></p>
+href={'https://www.safaribookings.com/p7831'}>SafariBookings.com</Link></p>
 
 
       <div className='flex flex-col items-center'>

@@ -5,14 +5,10 @@ import React from 'react'
 
 const Footer = () => {
 
-  const quickLinks = [
+  const destinations = [
     {
-      name:"Services",
+      name:"Explore all destinations",
       href:"/services"
-    },
-    {
-      name:"About",
-      href:"/about"
     },
     {
       name:"Kenya destinations",
@@ -25,18 +21,56 @@ const Footer = () => {
 
   ]
 
+  const quickLinks = [
+    {
+      name:"Contact us",
+      href:""
+    },
+    {
+      name:"About Us",
+      href:"/about"
+    },
+    {
+      name:"Terms and Conditions",
+      href:"/terms"
+    }
+  ]
+
 
   return (
     <footer className='py-20 px-4 text-gray-600'>
-      <div className="max-w-[1400px] mx-auto flex flex-col gap-5">
+      <div className="max-w-350 mx-auto flex flex-col gap-5">
          <div className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-center">
         <div>
           <Image src={'/logo.jpg'} alt='logo' width={700} height={700} className='size-40 lg:size-52'/>
         </div>
 
         <div className='flex flex-col md:flex-row gap-8 md:gap-28 pb-14'>
+
+          <div className=''>
+            <h1 className='font-semibold text-lg text-start mb-1'>Main Office</h1>
+            <div className='space-y-1.5'>
+              <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><Building className='text-orange-400' size={15}/>View Park Towers, Monrovia Street,Utalii Lane-17th Floor,</p>
+              <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><AtSign size={15} className='text-blue-700'/>info@fruitfulnesstravel.co.ke</p>
+              <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><Phone size={15} className='text-green-900'/> + 254 769 322 991</p>
+              <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><Mail size={15}/>PO.BOX 46435 - 00100, Nairobi, Kenya </p>
+            </div>
+
+          </div>
           
           
+          <div>
+            <h3 className='font-semibold text-lg text-start mb-1'>Destinations</h3>
+
+            <div className="flex flex-col text-start space-y-1.5">
+              {destinations.map((link,idx)=>(
+                <Link key={idx} href={link.href}>
+                  <span className='text-[14px] font-medium'>{link.name}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
           <div>
             <h3 className='font-semibold text-lg text-start mb-1'>Quick Links</h3>
 
@@ -49,16 +83,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className=''>
-                             <h1 className='font-semibold text-lg text-start mb-1'>Main Office</h1>
-                             <div className='space-y-2.5'>
-                               <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><Building className='text-orange-400' size={15}/>View Park Towers, Monrovia Street,Utalii Lane-17th Floor,</p>
-                               <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><AtSign size={15} className='text-blue-700'/>info@fruitfulnesstravel.co.ke</p>
-                               <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><Phone size={15} className='text-green-900'/> + 254 769 322 991</p>
-                               <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><Mail size={15}/>PO.BOX 46435 - 00100, Nairobi, Kenya </p>
-                             </div>
-                             
-                          </div>
+
 
         </div>
 

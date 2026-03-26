@@ -4,9 +4,6 @@ import gsap from 'gsap';
 import { Badge } from '../ui/badge';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Button } from 'react-day-picker';
-import { Card, CardHeader, CardAction, CardTitle, CardDescription, CardFooter } from '../ui/card';
-
 
 export type Destination = {
   id: string;
@@ -38,20 +35,20 @@ const Destinations = async () => {
 
 
          
-           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-2'>
-  {trips.map((trip: Destination) => (
+           <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6'>
+  {trips.slice(0,8).map((trip: Destination) => (
     <Link key={trip.name} href={`/details/${trip.id}`}>
-      <div className="relative mx-auto w-full h-96 max-w-sm pt-0 rounded-[40px] hover:shadow-lg transition-shadow">
+      <div className="relative mx-auto max-w-sm w-full pt-0 rounded-tr-[60px] rounded-bl-[60px] hover:shadow-lg transition-shadow bg-neutral-950/90">
         <Image
           src={trip.imgUrl}
           alt={trip.name}
-          className="relative z-20 aspect-video w-full h-full object-cover brightness-65 dark:brightness-40 rounded-[40px]"
+          className="relative z-20 aspect-video w-full h-full md:h-60 object-cover  rounded-tr-[60px] rounded-bl-[60px]"
           width={1000}
           height={1000}
         />
         
-        <div className="absolute top-0 right-0 bg-neutral-950/40 rounded-[40px] p-6 z-30 w-full h-full flex flex-col justify-between text-gray-100">
-          <div className="flex items-center justify-between">
+        <div className="rounded-tr-[60px] rounded-bl-[60px] p-6 z-30 w-full h-full flex flex-col justify-between text-gray-100">
+          <div className="flex items-center justify-between mb-4">
             <Badge className='text-sm font-semibold bg-white text-gray-900'>
               <p>{trip.country}</p>
             </Badge>
