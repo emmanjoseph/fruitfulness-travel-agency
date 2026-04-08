@@ -21,7 +21,7 @@ export default function Pagination({
           <Link
             key={page}
             href={`${basePath}?${query.toString()}`}
-            className={`px-4 py-2 border rounded-[15px] font-semibold border-none shadow-xl ${
+            className={`px-5 py-3 border rounded-[15px] font-semibold border-none shadow-xl ${
               page === currentPage ? "bg-black text-white" : ""
             }`}
           >

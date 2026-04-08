@@ -54,13 +54,13 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <Link href={'#contact'}>
+          <Link href={'/'}>
           <button
             style={{ borderRadius: 50 }}
-            className="bg-emerald-600 px-4 py-3 hover:bg-emerald-200 transition-all flex items-center gap-2.5 text-white cursor-pointer"
+            className="bg-emerald-800 px-4 py-3 hover:bg-emerald-700 transition-all flex items-center gap-2.5 text-white cursor-pointer"
           >
             <span className="text-neutral-200 font-semibold leading-1 text-sm cursor-pointer">
-              Contact Us
+              Plan a trip
             </span>
             <PlaneTakeoff size={18}/>
           </button>

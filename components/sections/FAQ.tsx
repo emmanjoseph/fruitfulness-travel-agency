@@ -59,7 +59,7 @@ const faqs = [
   return (
     <section className="relative w-full overflow-hidden py-16 lg:py-24">
       {/* Content */}
-      <div className="relative max-w-[1440px] mx-auto px-4 flex flex-col items-center gap-10">
+      <div className="relative max-w-350 mx-auto px-4 flex flex-col items-center gap-10">
          <h2 className="text-3xl md:text-5xl font-bold text-neutral-700 text-center font-sans pb-3">
         Frequently Asked Questions
       </h2>
