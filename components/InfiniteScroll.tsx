@@ -22,7 +22,7 @@ export default function InfiniteScroll({
   gap = 16,
   className = "",
   fadeWidth = 80,
-  fadeColor = "#ffffff",
+  fadeColor = "#000000",
 }: InfiniteScrollProps) {
   const containerRef = useRef<HTMLDivElement>(null)
 

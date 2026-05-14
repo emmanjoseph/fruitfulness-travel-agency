@@ -1,4 +1,5 @@
 import { Destination } from "@/components/sections/Destinations";
+import {CustomizeTripFormValues} from "@/lib/utils";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL! || 'http://localhost:8000';
 
@@ -70,7 +71,11 @@ export const requestBooking = async (payload: {
   phone: string;
   journeyId: string;
   travelDate: string;
-  numberOfGuests: number;
+  numberOfAdults: number;
+  numberOfChildren: number;
+  pricingTier: string;
+  nationality: string;
+  specialRequests?: string;
 }) => {
   const res = await fetch(`/api/booking`, {
     method: "POST",
@@ -88,39 +93,6 @@ export const requestBooking = async (payload: {
 };
 
 
-export const fetchJourneyByCountry = async (country:string) => {
-  try {
-    const res = await fetch(`${API_URL}/api/journeys/country/${country}`,
-      { cache: "no-store" }
-    );
-    if (!res.ok) {
-      throw new Error(`Failed to fetch journeys by ${country}: ${res.status}`);
-    }
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching journeys:", error);
-    return []; // Return empty array on error
-  }
-}
-
-export const fetchJourneyByTags = async (tag:string) => {
-  try {
-    const res = await fetch(`${API_URL}/api/journeys/tag/${tag}`,
-      { cache: "no-store" }
-    );
-     if (!res.ok) {
-      throw new Error(`Failed to fetch journeys by ${tag}: ${res.status}`,
-        
-      );
-    }
-    const data = await res.json();
-    return data;
-  } catch (error) {
-    console.error("Error fetching journeys:", error);
-    return []; // Return empty array on error
-  }
-}
 
 
 export const fetchRelatedJourneys = async (id:string) => {
@@ -139,4 +111,21 @@ export const fetchRelatedJourneys = async (id:string) => {
     console.error("Error fetching related journeys:", error);
     return []; // Return empty array on error
   }
+}
+
+export const RequestCustomBooking = async (payload:CustomizeTripFormValues) => {
+  const res = await fetch(`${API_URL}/api/custom-bookings`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload),
+  })
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.message || "Failed to request booking");
+  }
+
+  return data;
+
 }

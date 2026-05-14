@@ -25,8 +25,8 @@ const Navbar = () => {
 
 
   return (
-    <header className='p-4 absolute w-full z-20 font-sans'>
-      <div className="w-full max-w-350 mx-auto flex items-center justify-between text-gray-100">
+    <header className='p-4 absolute w-full z-20 font-heading'>
+      <div className="w-full container mx-auto flex items-center justify-between text-gray-100">
         
         {/* Logo */}
         <Link href="/" className="flex items-center gap-1.5">
@@ -37,8 +37,8 @@ const Navbar = () => {
               width={20}
               height={20}
             />
-            <h1 className="font-bold text-lg text-neutral-100">
-              <span className='text-green-500'>Fruitfulness</span>Travel
+            <h1 className="font-extrabold text-lg text-neutral-100">
+              FruitfulnessTravel
             </h1>
           </div>
         </Link>
@@ -54,12 +54,12 @@ const Navbar = () => {
               </Link>
             ))}
           </div>
-          <Link href={'/'}>
+          <Link href={'/plan-safari'}>
           <button
             style={{ borderRadius: 50 }}
-            className="bg-emerald-800 px-4 py-3 hover:bg-emerald-700 transition-all flex items-center gap-2.5 text-white cursor-pointer"
+            className="bg-white px-4 py-3 hover:bg-emerald-700 transition-all flex items-center gap-2.5 text-black hover:text-white cursor-pointer"
           >
-            <span className="text-neutral-200 font-semibold leading-1 text-sm cursor-pointer">
+            <span className="font-semibold leading-1 text-sm cursor-pointer">
               Plan a trip
             </span>
             <PlaneTakeoff size={18}/>

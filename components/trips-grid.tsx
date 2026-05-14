@@ -1,78 +1,62 @@
 import Link from "next/link";
 import Image from "next/image";
 import {CalendarFold, MapIcon, MapPinIcon, PlaneIcon, PlaneTakeoff, StarIcon, Volleyball} from "lucide-react";
-import { Card, CardFooter, CardHeader, CardTitle } from "./ui/card";
-import { Badge } from "./ui/badge";
-import { ta } from "date-fns/locale";
-
-export const shortenText = (text: string, maxLength: number) => {
-  if (!text) return "";
-  return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
-};
+import {Badge} from "@/components/ui/badge";
+;
 
 export default function TripsGrid({ trips }: { trips: any[] }) {
   if (!trips?.length) return <p className="mt-10">No journeys found.</p>;
 
+  // console.log('TripsGrid', trips);
+
   return (
-    <div className="grid md:grid-cols-4 gap-6 lg:gap-4 mt-8">
+    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-2.5 mt-8">
       {trips.map((trip) => (
-          <Link key={trip.name} href={`/details/${trip.id}`}>
-            <div className="w-full card font-heading">
-              <div className="card-pattern-grid"></div>
-              <Image
-                  src={trip.imgUrl}
-                  alt={trip.name}
-                  className="relative z-20 aspect-video w-full h-full md:h-50 object-cover"
-                  width={1000}
-                  height={1000}
-              />
-
-              <div className={'p-4 bg-white space-y-1'}>
-                <div className="flex items-center justify-between">
-                  <Badge className={'py-1.5 capitalize bg-emerald-600'}>
-                    <p className={'text-white font-semibold'}>{trip.country}</p>
+          <Link href={`/details/${trip.id}`} key={trip.id}>
+            <div className="group bg-orange-100/10 rounded-[35px] overflow-hidden transition-all duration-300 border border-stone-300">
+              {/* Image */}
+              <div className="relative h-50  overflow-hidden">
+                <Image
+                    src={trip.imgUrl}
+                    alt={trip.name}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                <div className="absolute z-10 p-6">
+                  <Badge className={'bg-emerald-600 font-semibold text-base'}>
+                    {trip.numberOfDays} days
                   </Badge>
-
-
                 </div>
-
-                <h1 className="truncate font-semibold  text-gray-700">
-                  {trip.name}
-                </h1>
-
-                <p className="text-gray-600 truncate font-heading font-medium text-sm flex items-center gap-x-1.5">
-                  <MapIcon size={15} className={'text-gray-700 fill-gray-700'}/>
-                  {trip.location}
-                </p>
-
-                <div className="flex items-center gap-x-2 mt-1">
-                  {trip.tags.slice(0,3).map((tag:string) => (
-                      <Badge className={'bg-black px-2 py-2'}>
-                        {tag}
-                      </Badge>
-                  ))}
-                </div>
-
-
-                <div className="card-actions">
-
-                  <p className="font-bold font-heading flex items-center gap-x-1.5 text-gray-700">
-                    <StarIcon className={'text-amber-300 fill-amber-300'}/>
-                    {trip.rating}/5
-                  </p>
-
-                  <button className={'card-button bg-emerald-500'}>
-                    <p className="font-semibold capitalize">
-                      Explore destination
-                    </p>
-                  </button>
-                </div>
-
-
               </div>
 
+              {/* Content */}
+              <div className="p-4 space-y-3">
+                {/* Title and Price */}
+                <div className="flex items-start justify-between gap-2">
+                  <h3 className="font-bold font-heading text-base text-gray-700 line-clamp-1 group-hover:text-emerald-600 transition-colors">
+                    {trip.name}
+                  </h3>
+                </div>
 
 
+                {/* Rating */}
+                <div className="flex items-center gap-1.5">
+                  <span className="font-semibold font-heading text-gray-900">{trip.rating}</span>
+                  <StarIcon className="fill-amber-400 text-amber-400" size={16} />
+                  <span className="text-sm text-gray-600">
+              {trip.rating >= 4.5 ? "Superb" : "Good"}
+            </span>
+                </div>
+
+                {/* Description */}
+                {trip.description && (
+                    <p className="text-sm font-medium text-gray-600 line-clamp-2">
+                      {trip.description}
+                    </p>
+                )}
+              </div>
             </div>
           </Link>
 

@@ -1,9 +1,10 @@
-import { AtSign, Building, Mail, Phone } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import {IconBrandInstagram, IconBrandWhatsapp} from "@tabler/icons-react";
 
 const Footer = () => {
+  const year = new Date().getFullYear();
 
   const destinations = [
     {
@@ -11,12 +12,36 @@ const Footer = () => {
       href:"/services"
     },
     {
-      name:"Kenya destinations",
+      name:"Kenya",
       href:"/kenya-safaris"
     },
     {
-      name:"Tanzania destinations",
+      name:"Tanzania",
       href:"/tanzania-safaris"
+    },
+    {
+      name:"Uganda",
+      href:"/tanzania-safaris"
+    },
+
+  ]
+
+  const topTags = [
+    {
+      name:"Wildlife",
+      href:"/"
+    },
+    {
+      name:"Mountains",
+      href:"/"
+    },
+    {
+      name:"Sandy beaches",
+      href:"/"
+    },
+    {
+      name:"Adventure",
+      href:"/"
     },
 
   ]
@@ -33,34 +58,23 @@ const Footer = () => {
     {
       name:"Terms and Conditions",
       href:"/terms"
+    },
+    {
+      name:"Privacy Policy",
+      href:"/terms"
     }
   ]
 
 
   return (
-    <footer className='py-20 px-4 text-gray-600'>
-      <div className="max-w-350 mx-auto flex flex-col gap-5">
-         <div className="flex flex-col md:flex-row gap-6 md:gap-0 justify-between items-center">
-        <div>
-          <Image src={'/logo.jpg'} alt='logo' width={700} height={700} className='size-40 lg:size-52'/>
-        </div>
+    <footer className='py-20 px-4 text-gray-300/80 bg-black'>
+      <div className="container mx-auto flex flex-col gap-5">
+         <div className="flex flex-col lg:flex-row gap-5 md:gap-0 lg:items-center justify-between">
+           <Image src={'/logo.jpg'} alt={'logo'} width={300} height={200} className={'size-30 lg:size-50 rounded-full'}/>
 
-        <div className='flex flex-col md:flex-row gap-8 md:gap-28 pb-14'>
-
-          <div className=''>
-            <h1 className='font-semibold text-lg text-start mb-1'>Main Office</h1>
-            <div className='space-y-1.5'>
-              <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><Building className='text-orange-400' size={15}/>View Park Towers, Monrovia Street,Utalii Lane-17th Floor,</p>
-              <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><AtSign size={15} className='text-blue-700'/>info@fruitfulnesstravel.co.ke</p>
-              <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><Phone size={15} className='text-green-900'/> + 254 769 322 991</p>
-              <p className='text-[14px] font-medium text-gray-600 flex items-center gap-3'><Mail size={15}/>PO.BOX 46435 - 00100, Nairobi, Kenya </p>
-            </div>
-
-          </div>
-          
-          
+        <div className='flex flex-col md:flex-row gap-8 md:gap-28 pt-14 pb-28'>
           <div>
-            <h3 className='font-semibold text-lg text-start mb-1'>Destinations</h3>
+            <h3 className='font-medium text-lg text-start mb-1 font-heading text-white'>Destinations</h3>
 
             <div className="flex flex-col text-start space-y-1.5">
               {destinations.map((link,idx)=>(
@@ -72,7 +86,19 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className='font-semibold text-lg text-start mb-1'>Quick Links</h3>
+            <h3 className='font-medium text-lg text-start mb-1 font-heading text-white'>Travel Categories</h3>
+
+            <div className="flex flex-col text-start space-y-1.5">
+              {topTags.map((link,idx)=>(
+                  <Link key={idx} href={link.href}>
+                    <span className='text-[14px] font-medium'>{link.name}</span>
+                  </Link>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 className='font-medium text-lg text-start mb-1 font-heading text-white'>Quick Links</h3>
 
             <div className="flex flex-col text-start space-y-1.5">
               {quickLinks.map((link,idx)=>(
@@ -82,25 +108,26 @@ const Footer = () => {
               ))}
             </div>
           </div>
-
-
-
         </div>
 
        
           
        </div>
 
-       <div className="flex flex-col lg:flex-row items-center pt-10 lg:justify-between border-t border-gray-300 gap-6">
+       <div className="flex flex-col lg:flex-row items-center pt-16 lg:justify-between border-t border-gray-300/50 gap-6">
+
+  <span className='text-sm text-gray-300/80 text-center'>&copy;{year} Fruitfulness Travel LTD. All rights reserved.</span>
+         <p className="text-sm text-gray-300/80 text-center">Web by <span className="font-bold">Category7+</span></p>
+         
+
          <div className="flex items-center gap-4 justify-center">
-    <Link href={'https://www.instagram.com/fruitfulnesstravelltd?igsh=YTZwaW43ZXRxNDAx'}>
-      <Image src={'/images/instagram.png'} alt='instagram' width={24} height={24}/>
-    </Link>
-    <Link href={'https://wa.me/254769322991'}>
-      <Image src={'/images/whatsapp.png'} alt='whatsapp' width={24} height={24}/>
-    </Link>
-  </div>
-  <span className='text-sm text-gray-500 text-center'>&copy; 2025 Fruitfulness Travel LTD. All rights reserved.</span>
+           <Link href={'https://www.instagram.com/fruitfulnesstravelltd?igsh=YTZwaW43ZXRxNDAx'}>
+             <IconBrandInstagram size={23}/>
+           </Link>
+           <Link href={'https://wa.me/254769322991'}>
+             <IconBrandWhatsapp size={23}/>
+           </Link>
+         </div>
 
  
 </div>

@@ -1,20 +1,86 @@
 "use client";
-
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import Image from "next/image";
+import gsap from "gsap";
+import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect, useRef } from "react";
+gsap.registerPlugin(ScrambleTextPlugin, ScrollTrigger)
 
 export function About() {
   const cards = data.map((card, index) => (
     <Card key={card.src} card={card} index={index} />
   ));
 
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const paragraphRef = useRef<HTMLParagraphElement>(null)
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: titleRef.current,
+          start: "top 80%",
+          end: "top 40%",
+          scrub: 1, // 🔑 ties everything to scroll
+        },
+      });
+
+      // Heading (scramble + subtle motion)
+      tl.fromTo(
+          titleRef.current,
+          {
+            opacity: 0,
+            y: 40,
+            filter: "blur(8px)",
+          },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 1,
+            ease: "none",
+          }
+      );
+
+      // Paragraph (linked, no delay needed)
+      tl.fromTo(
+          paragraphRef.current,
+          {
+            opacity: 0,
+            y: 60,
+            filter: "blur(8px)",
+          },
+          {
+            opacity: 1,
+            y: 0,
+            filter: "blur(0px)",
+            duration: 1,
+            ease: "none",
+          },
+          "-=0.4" // slight overlap instead of delay
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <div className="w-full h-full py-20">
-      <h2 className="max-w-7xl pl-4 mx-auto text-3xl md:text-5xl font-bold text-neutral-700 dark:text-neutral-200 font-sans">
-        Explore Africa, Your Way.
-      </h2>
-      <Carousel items={cards} />
+    <div className="w-full h-full py-20 bg-black">
+      <div className="max-w-7xl pl-4 mx-auto grid lg:grid-cols-2 gap-4">
+        <h1 ref={titleRef}
+            className=" text-3xl md:text-6xl font-extrabold text-neutral-100 font-heading">
+          Explore Africa ,<br/> Your Way.
+        </h1>
+
+        <p ref={paragraphRef} className={'pt-4 md:text-lg text-gray-100 max-w-lg flex justify-end items-end md:pt-24'}>Africa is vast,
+          vibrant, and full of contrast. From golden savannas and ancient deserts to lively cities, rainforest trails,
+          and turquoise coastlines, every journey reveals something different. It is a place of deep culture, warm
+          hospitality, unforgettable wildlife, and stories that stay with you long after you leave.</p>
+
+      </div>
+      <Carousel items={cards}/>
     </div>
   );
 }

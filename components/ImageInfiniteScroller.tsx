@@ -18,12 +18,11 @@ const images = [
 
 const ImageInfiniteScroller = () => {
   return (
-    <div className="py-7">
+    <div className="py-5 bg-black">
         <InfiniteScroll
-      speed={90}
+      speed={20}
       direction="left"
       fadeWidth={250}
-      fadeColor="#f9fafb"
       className="py-3"
     >
       {images.map((src, index) => (
@@ -45,11 +44,10 @@ const ImageInfiniteScroller = () => {
     </InfiniteScroll>
     
         <InfiniteScroll
-      speed={40}
+      speed={50}
       direction="left"
       fadeWidth={250}
-      fadeColor="#f9fafb"
-      className="py-3"
+      className=""
     >
       {images.map((src, index) => (
         <div

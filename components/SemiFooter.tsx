@@ -8,9 +8,9 @@ import { useRouter } from 'next/navigation'
 const SemiFooter = () => {
   const router = useRouter()
   return (
-    <div className='py-8'>
+    <div className=''>
            <div className='max-w-[1400px] mx-auto px-4'>
-           <div className="flex flex-col lg:flex-row items-center pt-10 lg:justify-between border-t border-gray-300 gap-10">
+           <div className="flex flex-col lg:flex-row items-center py-10 lg:justify-between border-t border-gray-300 gap-10">
 
             <div className="flex items-center gap-4">
             <Link href={'https://www.instagram.com/fruitfulnesstravelltd?igsh=YTZwaW43ZXRxNDAx'}>

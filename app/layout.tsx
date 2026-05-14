@@ -1,50 +1,18 @@
 import type { Metadata } from "next";
-import { Urbanist} from "next/font/google";
-import localFont from "next/font/local";
+import {Raleway, Bricolage_Grotesque} from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
 
 
-const urbanist = Urbanist({
+const urbanist = Raleway({
   variable: "--font-urbanist",
   subsets: ["latin"],
 });
 
-const chillax = localFont({
-  src: [
-    {
-      path: "./fonts/Chillax-Extralight.woff2",
-      weight: "200",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Chillax-Light.woff2",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Chillax-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Chillax-Medium.woff2",
-      weight: "500",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Chillax-Semibold.woff2",
-      weight: "600",
-      style: "normal",
-    },
-    {
-      path: "./fonts/Chillax-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-  variable: "--font-chillax",
-});
+const bricolage = Bricolage_Grotesque({
+  variable:"--font-heading",
+  subsets:["latin"],
+})
 
 
 export const metadata: Metadata = {
@@ -63,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${urbanist.variable} ${chillax.variable} antialiased`}
+        className={`${urbanist.variable} ${bricolage.variable} antialiased`}
       >
         <main>{children}</main>
         <Toaster richColors/>

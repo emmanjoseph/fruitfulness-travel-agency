@@ -63,21 +63,7 @@ const reviewsData: ReviewsData = {
             relative_time_description: "5 months ago",
             text: "Third time with this company and they just keep getting better. The new camp in Samburu is stunning. Saw reticulated giraffes and Grevy's zebras — species you only find in northern Kenya. A truly unique itinerary.",
             profile_photo_url: "",
-        },
-        {
-            author_name: "Natalie F.",
-            rating: 5,
-            relative_time_description: "6 months ago",
-            text: "Booked a custom 10-day itinerary and they nailed every detail. The team clearly loves what they do — that passion comes through in everything from the morning briefings to the campfire stories at night.",
-            profile_photo_url: "",
-        },
-        {
-            author_name: "Marco & Elena B.",
-            rating: 5,
-            relative_time_description: "7 months ago",
-            text: "We travelled with two young kids (ages 6 and 9) and were worried it might be challenging. The team was so patient and engaging with the children — they turned every drive into an adventure. Our kids are now obsessed with wildlife.",
-            profile_photo_url: "",
-        },
+        }
     ],
 };
 
