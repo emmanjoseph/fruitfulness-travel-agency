@@ -53,13 +53,11 @@ export const usePrevNextButtons = (
 type PropType = ComponentPropsWithRef<'button'>
 
 export const PrevButton = (props: PropType) => {
-    const { children, disabled, ...restProps } = props
+    const { children, className, disabled, ...restProps } = props
 
     return (
         <button
-            className={'embla__button embla__button--prev'.concat(
-                disabled ? ' embla__button--disabled' : ''
-            )}
+            className={`embla__button embla__button--prev${disabled ? ' embla__button--disabled' : ''}${className ? ` ${className}` : ''}`}
             type="button"
             {...restProps}
         >
@@ -75,13 +73,11 @@ export const PrevButton = (props: PropType) => {
 }
 
 export const NextButton = (props: PropType) => {
-    const { children, disabled, ...restProps } = props
+    const { children, className, disabled, ...restProps } = props
 
     return (
         <button
-            className={'embla__button embla__button--next'.concat(
-                disabled ? ' embla__button--disabled' : ''
-            )}
+            className={`embla__button embla__button--next${disabled ? ' embla__button--disabled' : ''}${className ? ` ${className}` : ''}`}
             type="button"
             {...restProps}
         >

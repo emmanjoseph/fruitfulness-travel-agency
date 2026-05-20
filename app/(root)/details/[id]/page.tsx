@@ -1,18 +1,14 @@
 "use client"
 import SemiFooter from '@/components/SemiFooter'
-import { Badge } from '@/components/ui/badge'
-import { Skeleton } from '@/components/ui/skeleton'
 import { fetchJourneyById, fetchRelatedJourneys } from '@/lib/api'
-import {
-    MapPin, Palmtree, StarIcon, Volleyball
-} from 'lucide-react'
-import Image from 'next/image'
-import Link from 'next/link'
-import { useParams, useRouter } from 'next/navigation'
+import { Palmtree } from 'lucide-react'
+import { useParams } from 'next/navigation'
 import React, { useEffect, useState, useRef } from 'react'
 import gsap from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import SliderCards from "@/components/slider";
+import PhotoStrip, { type PhotoStripSlide } from "@/components/sections/photo-strip";
+import Carousel from "@/components/Carousel";
+import JourneyLoading from "@/components/journey-loading";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -21,7 +17,6 @@ gsap.registerPlugin(ScrollTrigger)
 function AnimatedHero({ details }: { details: any }) {
     const heroRef = useRef<HTMLDivElement>(null)
     const bgRef = useRef<HTMLDivElement>(null)
-    const overlayRef = useRef<HTMLDivElement>(null)
     const titleRef = useRef<HTMLHeadingElement>(null)
     const descRef = useRef<HTMLParagraphElement>(null)
 
@@ -36,16 +31,15 @@ function AnimatedHero({ details }: { details: any }) {
                 y: 50
             })
 
-            // Entrance animation timeline
-            const tl = gsap.timeline({
+            // Animate the title and overview once when the page loads.
+            gsap.timeline({
                 defaults: { ease: "power3.out" }
             })
-
-            tl.to(bgRef.current, {
-                scale: 1,
-                duration: 1.5,
-                ease: "power2.out"
-            })
+                .to(bgRef.current, {
+                    scale: 1,
+                    duration: 1.5,
+                    ease: "power2.out"
+                })
                 .to(titleRef.current, {
                     opacity: 1,
                     y: 0,
@@ -70,18 +64,6 @@ function AnimatedHero({ details }: { details: any }) {
                 }
             })
 
-            gsap.to([titleRef.current, descRef.current], {
-                y: -50,
-                opacity: 0.3,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: heroRef.current,
-                    start: "top top",
-                    end: "bottom top",
-                    scrub: 1
-                }
-            })
-
         }, heroRef)
 
         return () => ctx.revert()
@@ -90,7 +72,7 @@ function AnimatedHero({ details }: { details: any }) {
     return (
         <div
             ref={heroRef}
-            className="relative h-[70vh] min-h-[500px] md:h-[600px] overflow-hidden flex items-end"
+            className="relative h-[60vh] min-h-[400px] overflow-hidden flex items-end"
         >
             {/* Background Image */}
             <div
@@ -114,7 +96,7 @@ function AnimatedHero({ details }: { details: any }) {
                     {/* Title */}
                     <h1
                         ref={titleRef}
-                        className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tight mb-4 text-[#f0ece0] font-heading"
+                        className="text-3xl md:text-4xl font-bold leading-[1.1] tracking-tight mb-4 text-[#f0ece0] font-heading"
                     >
                         {details.name}
                     </h1>
@@ -122,99 +104,12 @@ function AnimatedHero({ details }: { details: any }) {
                     {/* Description */}
                     <p
                         ref={descRef}
-                        className="text-sm md:text-base lg:text-lg text-white/90 leading-relaxed font-medium max-w-3xl"
+                        className="text-sm md:text-base  text-white/90 leading-relaxed font-medium max-w-3xl"
                     >
                         {details.description}
                     </p>
                 </div>
             </div>
-        </div>
-    )
-}
-
-// ─── Photo Strip with Stats ───────────────────────────────────────────────────
-
-function PhotoStripWithStats({
-                                 photos,
-                                 location,
-                                 rating
-                             }: {
-    photos: { src: string; alt: string }[]
-    location: string
-    rating: number
-}) {
-    const stripRef = useRef<HTMLDivElement>(null)
-    const photosRef = useRef<(HTMLDivElement | null)[]>([])
-
-    useEffect(() => {
-        if (!stripRef.current || photos.length === 0) return
-
-        const ctx = gsap.context(() => {
-            const photoElements = photosRef.current.filter(Boolean)
-
-            gsap.set(photoElements, {
-                opacity: 0,
-                y: 30,
-                scale: 0.9
-            })
-
-            gsap.to(photoElements, {
-                opacity: 1,
-                y: 0,
-                scale: 1,
-                duration: 0.6,
-                stagger: 0.1,
-                ease: "power2.out",
-                scrollTrigger: {
-                    trigger: stripRef.current,
-                    start: "top 80%"
-                }
-            })
-        }, stripRef)
-
-        return () => ctx.revert()
-    }, [photos])
-
-    return (
-        <div className="bg-black">
-            {/* Stats */}
-            <div className="flex items-center gap-x-5 text-white max-w-7xl mx-auto px-6 lg:px-10 pt-6">
-                <div className="flex items-center gap-x-1.5 font-semibold font-heading text-sm">
-                    <MapPin className="fill-emerald-400 text-emerald-400" size={16} />
-                    {location}
-                </div>
-                <div className="flex items-center gap-x-1.5 font-semibold font-heading text-sm">
-                    <StarIcon className="fill-amber-400 text-amber-400" size={16} />
-                    {rating} / 5
-                </div>
-            </div>
-
-            {/* Photo Strip */}
-            {photos.length > 0 && (
-                <div
-                    ref={stripRef}
-                    className="flex gap-3 px-6 lg:px-10 py-10 overflow-x-auto scrollbar-hide"
-                >
-                    {photos.map((photo, i) => (
-                        <div
-                            key={i}
-                            ref={(el) => {
-                                photosRef.current[i] = el
-                            }}
-                            className={`flex-none w-[280px] md:w-[320px] h-[200px] md:h-[250px] rounded-xl overflow-hidden cursor-pointer
-                                transition-transform duration-200 hover:scale-[1.03]
-                                ${i === 0 ? "ring-2 ring-[#d4a843] ring-offset-2 ring-offset-black" : ""}
-                            `}
-                        >
-                            <img
-                                src={photo.src}
-                                alt={photo.alt}
-                                className="w-full h-full object-cover brightness-[0.88] saturate-110 hover:brightness-100 hover:saturate-[1.2] transition-all duration-200"
-                            />
-                        </div>
-                    ))}
-                </div>
-            )}
         </div>
     )
 }
@@ -290,8 +185,8 @@ function ItineraryTimeline({ itineraries }: { itineraries: any[] }) {
 
     return (
         <div className="py-6">
-            <h2 className="text-2xl lg:text-3xl font-medium text-gray-700 mb-8 flex items-center gap-x-2 font-heading">
-                Day-wise Itinerary
+            <h2 className="text-xl font-heading font-bold py-5">
+                &#9978; Day-wise Itinerary
             </h2>
 
             <div ref={containerRef} className="relative">
@@ -330,7 +225,7 @@ const DetailsPage = () => {
     const [journeyDetails, setJourneyDetails] = useState<any>(null)
     const [relatedJourneys, setRelatedJourneys] = useState<any>([])
     const [loading, setLoading] = useState(true)
-    const [photoStrip, setPhotoStrip] = useState<{ src: string; alt: string }[]>([])
+    const [photoStrip, setPhotoStrip] = useState<PhotoStripSlide[]>([])
 
     useEffect(() => {
         if (!idParam) return
@@ -381,86 +276,138 @@ const DetailsPage = () => {
             .catch(console.error)
     }, [journeyDetails])
 
-    if (loading) return (
-        <div className='max-w-3xl mx-auto px-4 md:px-0 py-20 text-center flex items-center flex-col space-y-3'>
-            <Skeleton className="h-12 w-3/4 rounded-xl" />
-            <Skeleton className="h-[225px] w-9/10 bg-gray-200 rounded-[30px]" />
-            <Skeleton className="h-[125px] w-9/10 bg-gray-200 rounded-[30px]" />
-            <Skeleton className="h-12 w-1/2 bg-gray-200 rounded-[30px]" />
-            <Skeleton className="h-12 w-1/2 bg-gray-200 rounded-[30px]" />
-        </div>
-    )
+    if (loading) return <JourneyLoading />
 
     if (!journeyDetails) return <div className='py-20 text-center'>Journey not found</div>
 
     const details = journeyDetails.data || journeyDetails
-    const related = relatedJourneys.data || relatedJourneys
+    const related = Array.isArray(relatedJourneys)
+        ? relatedJourneys
+        : relatedJourneys.data || []
 
     return (
         <section>
             {/* ✅ Animated Hero - Responsive height */}
             <AnimatedHero details={details} />
 
-            {/* ✅ Photo Strip with Stats */}
-            <PhotoStripWithStats
-                photos={photoStrip}
+            <PhotoStrip
+                slides={photoStrip}
+                options={{ dragFree: true, loop: true }}
                 location={details.location}
                 rating={details.rating}
             />
 
-            <section className='py-20 max-w-5xl mx-auto px-4 md:px-0 space-y-3.5 font-sans'>
-                {details.tags?.length > 0 && (
-                    <div className="flex gap-2 overflow-x-auto py-3">
-                        {details.tags.map((tag: string, index: number) => (
-                            <Badge key={index} className="px-3 py-1.5 bg-black font-bold">{tag}</Badge>
-                        ))}
-                    </div>
-                )}
+            <section className='py-10 container mx-auto px-4 md:px-10 space-y-3.5 font-heading rounded-t-2xl grid lg:grid-cols-10'>
+                <div className="space-y-3.5 lg:col-span-7">
+                    {details.itineraries?.length > 0 && (
+                        <ItineraryTimeline itineraries={details.itineraries} />
+                    )}
 
-                {details.itineraries?.length > 0 && (
-                    <ItineraryTimeline itineraries={details.itineraries} />
-                )}
-
-                {details.activities?.length > 0 && (
-                    <div>
-                        <h1 className='text-2xl font-medium font-heading text-gray-600 py-3 flex items-center gap-x-1.5'>Travel highlights</h1>
-                        <div className="space-y-2">
-                            {details.activities.map((activity: string, index: number) => (
-                                <div key={index} className="py-4 px-6 bg-gray-50 rounded-xl flex items-center gap-x-2.5 font-medium text-[15px] text-gray-600">
-                                    <Palmtree size={17} className={'text-orange-500 fill-orange-500'} />
-                                    {activity}
-                                </div>
-                            ))}
+                    {details.activities?.length > 0 && (
+                        <div>
+                            <h1 className='text-xl font-heading font-bold py-3'>&#127796; Travel highlights</h1>
+                            <div className="space-y-2">
+                                {details.activities.map((activity: string, index: number) => (
+                                    <div key={index} className="py-4 px-6 bg-gray-50 rounded-xl flex items-center gap-x-2.5 font-medium text-[15px] text-gray-600">
+                                        <Palmtree size={17} className={'text-orange-500 fill-orange-500'} />
+                                        {activity}
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
 
-                {details.bestTimeToVisit?.length > 0 && (
-                    <div>
-                        <h2 className="text-2xl py-3 flex items-center gap-x-1.5 font-heading font-medium text-gray-600">Best Time to Visit</h2>
-                        <div className="flex flex-wrap gap-2">
-                            {details.bestTimeToVisit.map((period: string, i: number) => (
-                                <span key={i} className="px-4 py-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full text-sm font-medium">
+                    {details.bestTimeToVisit?.length > 0 && (
+                        <div>
+                            <h2 className="text-xl font-heading font-bold py-3">&#128336; Best Time to Visit</h2>
+                            <div className="flex flex-wrap gap-2">
+                                {details.bestTimeToVisit.map((period: string, i: number) => (
+                                    <span key={i} className="px-4 py-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full text-sm font-medium">
                                     {period}
                                 </span>
-                            ))}
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
 
-                <Link href={`/plan-trip/${details.id}`}>
-                    <button type="button" className='bg-emerald-700 w-full max-w-[400px] mx-auto rounded-[20px] py-4 px-6 text-white font-semibold cursor-pointer flex items-center justify-center gap-x-2 hover:bg-emerald-600 transition-all duration-150'>
-                        <p className='text-base font-medium font-heading'>Plan your safari</p>
-                    </button>
-                </Link>
-            </section>
-
-            <div className="pb-20">
-                <div className="max-w-5xl mx-auto px-4 lg:px-0 flex flex-col items-center gap-x-1.5">
-                    <h2 className="text-3xl flex items-center gap-x-1.5 font-heading font-medium text-gray-600">You may also like</h2>
-                    <p className={'text-gray-500 text-xl mt-1 leading-relaxed font-medium'}>Explore more unforgettable safari experiences</p>
                 </div>
-                <SliderCards journey={related}/>
+
+                <div className="lg:col-span-3 lg:p-5">
+                    <aside className="lg:sticky lg:top-24 space-y-4 rounded-[28px] border border-stone-200 bg-white p-5 shadow-sm">
+                        <div>
+                            <p className="text-[11px] uppercase tracking-[2px] text-emerald-700 font-bold">
+                                Trip snapshot
+                            </p>
+
+                            <h2 className="mt-2 font-heading text-xl font-extrabold text-gray-800 leading-tight">
+                                Ready to begin your journey?
+                            </h2>
+
+                            <p className="mt-2 text-sm font-medium text-gray-500 leading-relaxed">
+                                Review the key details, then choose the booking path that fits your trip.
+                            </p>
+                        </div>
+
+                        <div className="space-y-3 rounded-2xl bg-gray-50 p-4 text-sm font-semibold text-gray-700">
+                            <div className="flex justify-between gap-3">
+                                <span>Duration</span>
+                                <span>{details.numberOfDays} days</span>
+                            </div>
+
+                            <div className="flex justify-between gap-3">
+                                <span>Location</span>
+                                <span className="text-right">{details.location}</span>
+                            </div>
+
+                            <div className="flex justify-between gap-3">
+                                <span>Rating</span>
+                                <span>{details.rating} / 5</span>
+                            </div>
+                        </div>
+
+                        <div className="space-y-2">
+                            <a
+                                href={`/plan-trip/${details.id}`}
+                                className="block rounded-2xl bg-emerald-700 px-5 py-3.5 text-center font-heading font-bold text-white transition hover:bg-emerald-600"
+                            >
+                                Book this itinerary
+                            </a>
+
+                            <a
+                                href="/plan-safari"
+                                className="block rounded-2xl border border-emerald-700 px-5 py-3.5 text-center font-heading font-bold text-emerald-800 transition hover:bg-emerald-50"
+                            >
+                                Customize this trip
+                            </a>
+                        </div>
+
+                        <div className="border-t pt-4">
+                            <p className="mb-3 text-sm font-bold text-gray-800">On this page</p>
+
+                            <div className="space-y-2 text-sm font-medium text-gray-500">
+                                <a href="#itinerary" className="block hover:text-emerald-700">
+                                    Day-wise itinerary
+                                </a>
+                                <a href="#highlights" className="block hover:text-emerald-700">
+                                    Travel highlights
+                                </a>
+                                <a href="#best-time" className="block hover:text-emerald-700">
+                                    Best time to visit
+                                </a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+
+
+
+            </section>
+            <h1 className={'container mx-auto text-xl font-heading font-bold pb-10 px-4 md:px-10'}>&#129654; You may also like </h1>
+
+            <div className=" pb-10 px-4 md:px-4">
+                {related.length > 0 && (
+                    <Carousel slides={related} options={{ dragFree: true, loop: related.length > 3 }} />
+                )}
             </div>
 
             <SemiFooter />

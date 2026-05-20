@@ -8,8 +8,9 @@ import {TripsGridSkeleton} from "@/components/journey-skeleton";
 import {TripsList} from "@/components/journey-list";
 import {ScatterHero} from "@/components/sections/services-hero";
 import CustomizeCta from "@/components/sections/customize";
+import PhotoStrip from "@/components/sections/photo-strip";
 
-const PHOTO_STRIP = [
+const slides = [
     {
         src: "https://images.unsplash.com/photo-1577315734214-4b3dec92d9ad?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHphbnppYmFyfGVufDB8fDB8fHww",
         alt: "Masai Mara",
@@ -85,36 +86,19 @@ export default async function ServicesPage({ searchParams }: Props) {
     return (
         <main className="font-sans">
             <ScatterHero
-                backgroundImage={'https://images.unsplash.com/photo-1621419203897-20b66b98d495?q=80&w=2765&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'}
-                heading={'Discover Africa'}
+                backgroundImage={'https://plus.unsplash.com/premium_photo-1697729918007-3ff509bb2468?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjV8fGFmcmljYXxlbnwwfHwwfHx8MA%3D%3D'}
+                heading={'Explore Africa'}
                 headingText={'discover'}
                 paragraph={'Africa is vast, vibrant, and full of contrast. From golden savannas and ancient deserts to lively cities, rainforest trails, and turquoise coastlines, every journey reveals something different. It is a place of deep culture, warm hospitality, unforgettable wildlife, and stories that stay with you long after you leave.'}
             />
 
-            {/* ── PHOTO STRIP ── */}
-            <div className="flex gap-3 px-6 lg:px-10 py-10 overflow-x-auto scrollbar-hide bg-[#0a0a08]">
-                {PHOTO_STRIP.map((photo, i) => (
-                    <div
-                        key={i}
-                        className={`flex-none w-[320px] h-[250px] rounded-xl overflow-hidden cursor-pointer
-              hover:scale-[1.03] transition-transform duration-200
-              ${i === 0 ? "ring-2 ring-[#d4a843] ring-offset-2 ring-offset-[#0a0a08]" : ""}
-            `}
-                    >
-                        <img
-                            src={photo.src}
-                            alt={photo.alt}
-                            className="w-full h-full object-cover brightness-[0.88] saturate-110 hover:brightness-100 hover:saturate-[1.2] transition-all duration-200"
-                        />
-                    </div>
-                ))}
-            </div>
+            <PhotoStrip slides={slides} options={{ dragFree: true, loop: true }}/>
 
             {/* ── MAIN CONTENT ── */}
-            <section className="max-w-350 mx-auto px-6 pt-20">
-                <div className="w-full grid lg:grid-cols-7 gap-5">
-                     {/*Trips Grid with Suspense */}
-                    <div className="lg:col-span-5">
+            <section className="container mx-auto px-4 pt-20 rounded-t-3xl">
+                <div className="w-full space-y-8">
+                    <FiltersBar />
+
                         <Suspense key={suspenseKey} fallback={<TripsGridSkeleton />}>
                             <TripsList
                                 page={page}
@@ -125,12 +109,6 @@ export default async function ServicesPage({ searchParams }: Props) {
                                 month={params.month}
                             />
                         </Suspense>
-                    </div>
-
-                    {/* Filters Sidebar */}
-                    <div className="lg:col-span-2">
-                        <FiltersBar />
-                    </div>
                 </div>
 
                 {/* Pagination */}

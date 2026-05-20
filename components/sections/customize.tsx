@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 const CustomizeCta = () => {
     return (
@@ -23,9 +24,12 @@ const CustomizeCta = () => {
                     Tell us your travel style, dates, and budget. We will help shape a safari that fits you.
                 </p>
 
-                <button className="mt-10 rounded-full bg-white px-6 py-3 text-sm font-heading font-semibold text-neutral-900 hover:bg-emerald-50">
-                    Start Planning
-                </button>
+                <Link href="/plan-safari">
+                    <button className="mt-10 rounded-full bg-white px-6 py-3 text-sm font-heading font-semibold text-neutral-900 hover:bg-emerald-50">
+                        Start Planning
+                    </button>
+                </Link>
+
             </div>
         </section>
     );

@@ -10,12 +10,12 @@ export default function TripsGrid({ trips }: { trips: any[] }) {
   // console.log('TripsGrid', trips);
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-2.5 mt-8">
+    <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 lg:gap-2.5 mt-8">
       {trips.map((trip) => (
           <Link href={`/details/${trip.id}`} key={trip.id}>
-            <div className="group bg-orange-100/10 rounded-[35px] overflow-hidden transition-all duration-300 border border-stone-300">
+            <div className="group bg-orange-100/15 rounded-[45px] overflow-hidden transition-all duration-300 border border-stone-300">
               {/* Image */}
-              <div className="relative h-50  overflow-hidden">
+              <div className="relative h-50 md:h-60  overflow-hidden">
                 <Image
                     src={trip.imgUrl}
                     alt={trip.name}
@@ -32,7 +32,7 @@ export default function TripsGrid({ trips }: { trips: any[] }) {
               </div>
 
               {/* Content */}
-              <div className="p-4 space-y-3">
+              <div className="p-5 space-y-3">
                 {/* Title and Price */}
                 <div className="flex items-start justify-between gap-2">
                   <h3 className="font-bold font-heading text-base text-gray-700 line-clamp-1 group-hover:text-emerald-600 transition-colors">

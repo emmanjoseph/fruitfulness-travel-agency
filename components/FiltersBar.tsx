@@ -1,23 +1,24 @@
 "use client";
-
 import { useRouter, useSearchParams } from "next/navigation";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
-import { Calendar, MapPin, Search } from "lucide-react";
-import { useState } from "react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { MapPin } from "lucide-react";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import Image from "next/image";
 
 const CATEGORIES = [
-  { value: "safari", label: "Safari" },
-  { value: "adventure", label: "Adventure" },
-  { value: "cultural", label: "Cultural" },
-  { value: "beach", label: "Beach" },
-  { value: "luxury", label: "Luxury" },
-  { value: "budget", label: "Budget" },
-  { value: "family", label: "Family Friendly" },
-  { value: "honeymoon", label: "Honeymoon" },
+  { value: "safari", label: "Safari", imgUrl:"https://images.unsplash.com/photo-1524414621493-7dec026782c3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGtlbnlhfGVufDB8fDB8fHww" },
+  { value: "adventure", label: "Adventure", imgUrl:"https://images.unsplash.com/photo-1524414621493-7dec026782c3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGtlbnlhfGVufDB8fDB8fHww" },
+  { value: "cultural", label: "Cultural", imgUrl:"https://images.unsplash.com/photo-1524414621493-7dec026782c3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGtlbnlhfGVufDB8fDB8fHww" },
+  { value: "beach", label: "Beach", imgUrl:"https://images.unsplash.com/photo-1524414621493-7dec026782c3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGtlbnlhfGVufDB8fDB8fHww" },
+  { value: "luxury", label: "Luxury", imgUrl:"https://images.unsplash.com/photo-1524414621493-7dec026782c3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGtlbnlhfGVufDB8fDB8fHww" },
+  { value: "budget", label: "Budget", imgUrl:"https://images.unsplash.com/photo-1524414621493-7dec026782c3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGtlbnlhfGVufDB8fDB8fHww" },
+  { value: "family", label: "Family Friendly" , imgUrl:"https://images.unsplash.com/photo-1524414621493-7dec026782c3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGtlbnlhfGVufDB8fDB8fHww"},
+  { value: "honeymoon", label: "Honeymoon", imgUrl:"https://images.unsplash.com/photo-1524414621493-7dec026782c3?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzZ8fGtlbnlhfGVufDB8fDB8fHww" },
 ];
 
 const COUNTRIES = [
@@ -26,32 +27,45 @@ const COUNTRIES = [
   { value: "uganda", label: "Uganda" },
 ];
 
-const MONTHS = [
-  "January", "February", "March", "April", "May", "June",
-  "July", "August", "September", "October", "November", "December"
-];
+type FilterOption = {
+  value: string;
+  label: string;
+  imgUrl?: string;
+};
 
-export default function FiltersSidebar() {
+type FiltersBarProps = {
+  title?: string;
+  description?: string;
+  basePath?: string;
+  showCountryFilter?: boolean;
+  categories?: FilterOption[];
+  countries?: FilterOption[];
+};
+
+export default function FiltersBar({
+  title = "Discover handpicked journeys",
+  description = "Explore destinations across East Africa",
+  basePath = "/services",
+  showCountryFilter = true,
+  categories = CATEGORIES,
+  countries = COUNTRIES,
+}: FiltersBarProps) {
   const router = useRouter();
   const params = useSearchParams();
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const [priceRange, setPriceRange] = useState([0, 2300]);
   const activeCategory = params.get("category") ?? "";
   const activeCountry = params.get("country") ?? "";
-  const activeMonth = params.get("month") ?? "";
 
   function updateParam(key: string, value: string) {
     const sp = new URLSearchParams(params.toString());
 
-    // Map category to tags for API
     if (key === "category") {
       if (value === "all" || !value) {
         sp.delete("category");
         sp.delete("tags");
       } else {
         sp.set("category", value);
-        sp.set("tags", value); // Also set tags for API compatibility
+        sp.set("tags", value);
       }
     } else if (value === "all" || !value) {
       sp.delete(key);
@@ -60,131 +74,95 @@ export default function FiltersSidebar() {
     }
 
     sp.set("page", "1");
-    router.push(`/services?${sp.toString()}`);
-  }
 
-  function handleSearch() {
-    const sp = new URLSearchParams(params.toString());
-    if (searchQuery) {
-      sp.set("q", searchQuery); // Use 'q' to match your API
-    } else {
-      sp.delete("q");
-    }
-    sp.set("page", "1");
-    router.push(`/services?${sp.toString()}`);
+    const queryString = sp.toString();
+    router.push(queryString ? `${basePath}?${queryString}` : basePath);
   }
 
   return (
-      <aside className="bg-gradient-to-br from-stone-50 to-amber-50/30 rounded-3xl p-6 space-y-6 sticky top-6 h-fit shadow-sm border border-stone-200/50">
-        {/* About Section */}
-        <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-gray-600 font-heading">About me</h2>
-          <p className="text-sm text-gray-600 font-medium text-lg">
-            Discover amazing travel experiences across East Africa
-          </p>
-        </div>
+      <aside className="space-y-5 font-heading">
+        {/* Header */}
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-700 font-heading">
+              {title}
+            </h2>
 
-        {/* Search Tour */}
-        <div className="space-y-2">
-          <Label htmlFor="search" className="text-sm font-medium text-gray-700 font-heading">
-            Search Tour
-          </Label>
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" size={18} />
-            <Input
-                id="search"
-                placeholder="Search Tour..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                className="pl-10 rounded-xl border-gray-300 bg-white focus:border-emerald-500 focus:ring-emerald-500 h-11"
-            />
+            <p className="text-sm text-gray-500 mt-1">
+              {description}
+            </p>
           </div>
-        </div>
 
-        {/* Where To */}
-        <div className="space-y-2">
-          <Label htmlFor="country" className="text-sm font-medium text-gray-700 font-heading">
-            Where To..
-          </Label>
-          <div className="relative">
-            <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 z-10" size={18} />
-            <Select
-                value={activeCountry || "all"}
-                onValueChange={(value) => updateParam("country", value)}
-            >
-              <SelectTrigger className="w-full h-13 pl-10 rounded-xl border-gray-300 bg-white focus:border-emerald-500 focus:ring-emerald-500">
-                <SelectValue placeholder="Select destination" />
-              </SelectTrigger>
-              <SelectContent className="rounded-xl">
-                <SelectItem value="all">All Destinations</SelectItem>
-                {COUNTRIES.map((c) => (
-                    <SelectItem key={c.value} value={c.value}>
-                      {c.label}
+          {/* Country Select */}
+          {showCountryFilter && (
+              <div className="relative w-full lg:w-[180px]">
+                <MapPin
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 z-10"
+                    size={18}
+                />
+
+                <Select
+                    value={activeCountry || "all"}
+                    onValueChange={(value) => updateParam("country", value)}
+                >
+                  <SelectTrigger className="w-full h-15 pl-10 py-5 rounded-xl border-gray-300 bg-white focus:border-emerald-500 focus:ring-emerald-500">
+                    <SelectValue placeholder="Select destination" />
+                  </SelectTrigger>
+
+                  <SelectContent className="rounded-2xl">
+                    <SelectItem value="all">
+                      All Countries
                     </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
+
+                    {countries.map((c) => (
+                        <SelectItem key={c.value} value={c.value}>
+                          {c.label}
+                        </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+          )}
         </div>
 
-        {/* Month */}
-        <div className="space-y-2">
-          <Label htmlFor="month" className="text-sm font-medium text-gray-700">
-            Month
-          </Label>
-          <div className="relative">
-            <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400 z-10" size={18} />
-            <Select
-                value={activeMonth || "all"}
-                onValueChange={(value) => updateParam("month", value)}
+        {/* Horizontal Categories */}
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex items-center gap-3 min-w-max pb-1">
+            {/* All */}
+            <button
+                onClick={() => updateParam("category", "all")}
+                className={`whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold transition-all cursor-pointer ${
+                    !activeCategory
+                        ? "bg-emerald-600 text-white shadow-sm"
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
             >
-              <SelectTrigger className="pl-10 rounded-xl border-gray-300 bg-white focus:border-emerald-500 focus:ring-emerald-500">
-                <SelectValue placeholder="Select month" />
-              </SelectTrigger>
-              <SelectContent className="rounded-xl max-h-[300px]">
-                <SelectItem value="all">All Months</SelectItem>
-                {MONTHS.map((month) => (
-                    <SelectItem key={month.toLowerCase()} value={month.toLowerCase()}>
-                      {month}
-                    </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </div>
+              All categories
+            </button>
 
-        {/* Categories */}
-        <div className="space-y-3">
-          <RadioGroup
-              value={activeCategory}
-              onValueChange={(value) => updateParam("category", value)}
-              className="space-y-2"
-          >
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="" id="all" />
-              <Label htmlFor="all" className="text-sm text-gray-700 cursor-pointer font-heading">
-                All Categories
-              </Label>
-            </div>
-            {CATEGORIES.map((cat) => (
-                <div key={cat.value} className="flex items-center space-x-2 cursor-pointer">
-                  <RadioGroupItem value={cat.value} id={cat.value} />
-                  <Label htmlFor={cat.value} className="text-sm text-gray-700 cursor-pointer">
+            {/* Categories */}
+            {categories.map((cat) => {
+              const active = activeCategory === cat.value;
+
+              return (
+                  <button
+                      key={cat.value}
+                      onClick={() => updateParam("category", cat.value)}
+                      className={`whitespace-nowrap cursor-pointer rounded-full pl-1 py-1 pr-3 text-sm font-semibold transition-all flex items-center gap-x-1 ${
+                          active
+                              ? "bg-emerald-600 text-white shadow-sm"
+                              : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                      }`}
+                  >
+                    {cat.imgUrl && (
+                        <Image src={cat.imgUrl} alt={cat.label} width={300} height={300} className={'size-8 rounded-full'} />
+                    )}
                     {cat.label}
-                  </Label>
-                </div>
-            ))}
-          </RadioGroup>
+                  </button>
+              );
+            })}
+          </div>
         </div>
-
-        {/* Search Button */}
-        <Button
-            onClick={handleSearch}
-            className="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl h-11 font-semibold shadow-md hover:shadow-lg transition-all"
-        >
-          SEARCH
-        </Button>
       </aside>
   );
 }

@@ -175,9 +175,20 @@ html {
 .embla {
   max-width:100% !important;
   margin: auto;
-  --slide-height: 25rem;
+  --slide-height: 30rem;
   --slide-spacing: 10px;
   --slide-size: 22%;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+
+.embla {
+  --slide-height: 25rem;
+  --slide-spacing: 0.5rem;
+  --slide-size: 23%;
 }
 
 .embla__viewport {
@@ -221,7 +232,6 @@ html {
 }
 
 .embla__button {
-
   -webkit-appearance: none;
   appearance: none;
   background-color: transparent;
@@ -243,10 +253,9 @@ html {
   transform: rotate(0deg);
 }
 
-
 .embla__button__svg {
-  width: 20%;
-  height: 20%;
+  width: 35%;
+  height: 35%;
 }
 
 .embla__dots {
@@ -254,7 +263,7 @@ html {
   flex-wrap: wrap;
   justify-content: flex-end;
   align-items: center;
-  margin-right: calc((1.6rem - 1.4rem) / 2 * -1);
+  margin-right: calc((2.6rem - 1.4rem) / 2 * -1);
 }
 
 .embla__dot {
@@ -268,8 +277,8 @@ html {
   border: 0;
   padding: 0;
   margin: 0;
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 2.6rem;
+  height: 2.6rem;
 
   display: flex;
   align-items: center;
@@ -290,18 +299,30 @@ html {
   content: '';
 }
 
-.embla__dot:before {
-  border: 0.2rem solid
-}
-
-.embla__dot:after {
-  border: 0.2rem solid;
-  opacity: 0;
-}
-
 .embla__dot--selected:after {
   opacity: 1;
 }
+
+.embla__parallax {
+  border-radius: 1.8rem;
+  height: 100%;
+  overflow: hidden;
+}
+
+.embla__parallax__layer {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.embla__parallax__img {
+  max-width: none;
+  flex: 0 0 calc(115% + (var(--slide-spacing) * 2));
+  object-fit: cover;
+}
+
 
 
 @media (max-width: 1024px) {
@@ -324,4 +345,55 @@ html {
   }
 }
 
+.photo-strip.embla {
+  --slide-height: 16rem;
+  --slide-spacing: 0.5rem;
+  --slide-size: 20%;
+}
+
+.photo-strip__controls {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.85rem;
+}
+
+.photo-strip .embla__button {
+  width: 2.75rem;
+  height: 2.75rem;
+  color: #ffffff;
+  background: rgb(255 255 255 / 12%);
+  border: 1px solid rgb(255 255 255 / 24%);
+  transition: background 180ms ease, opacity 180ms ease;
+}
+
+.photo-strip .embla__button:hover:not(:disabled) {
+  background: rgb(255 255 255 / 22%);
+}
+
+.photo-strip .embla__button--disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+@media (max-width: 1024px) {
+  .photo-strip.embla {
+    --slide-size: 32%;
+    --slide-height: 14rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-strip.embla {
+    --slide-size: 58%;
+    --slide-height: 11.5rem;
+    --slide-spacing: 0.45rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .photo-strip.embla {
+    --slide-size: 68%;
+    --slide-height: 10rem;
+  }
+}
 

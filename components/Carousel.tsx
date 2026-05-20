@@ -19,6 +19,7 @@ import {
 } from "@/components/EmblaCarouselBotButton"
 
 import { Calendar, StarIcon } from "lucide-react"
+import Link from "next/link";
 
 type TripSlide = {
     id: string
@@ -54,7 +55,8 @@ const EmblaCarousel = ({ slides, options }: PropType) => {
             <div className="embla__viewport" ref={emblaRef}>
                 <div className="embla__container">
                     {slides.map((slide) => (
-                        <div className="embla__slide" key={slide.id}>
+
+                        <Link href={`/details/${slide.id}`} key={slide.id} className="embla__slide">
                             <div className="relative overflow-hidden rounded-[38px]">
 
                                 <img
@@ -95,7 +97,8 @@ const EmblaCarousel = ({ slides, options }: PropType) => {
                                 </div>
 
                             </div>
-                        </div>
+                        </Link>
+
                     ))}
                 </div>
             </div>

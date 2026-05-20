@@ -17,11 +17,10 @@ export async function TripsList({
                                     country,
                                     search,
                                     category,
-                                    month,
                                 }: TripsListProps) {
     const trips = await getAllTrips({
         page,
-        limit: 9,
+        limit:8,
         tags: category || tags,
         country,
         search,
@@ -38,16 +37,12 @@ export async function TripsList({
 
     return (
         <div className="space-y-6">
-            <div>
-                <h1 className="text-2xl text-gray-600 font-heading text-center font-bold py-2">Explore handpicked trips</h1>
                 <p className="text-gray-600 font-semibold">
           <span className="text-emerald-600 font-bold">
             {trips.meta.total || 0}
           </span>{" "}
                     experiences available
                 </p>
-            </div>
-
             <TripsGrid trips={trips.data} />
         </div>
     );
