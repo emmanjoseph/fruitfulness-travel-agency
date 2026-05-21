@@ -12,13 +12,14 @@ import {
   PrevButton,
   usePrevNextButtons
 } from '../EmblaCarouselArrowButtons'
+import {
+  PHOTO_STRIP_IMAGE_FALLBACK,
+  type PhotoStripSlide
+} from '@/lib/photo-strip'
 
 const TWEEN_FACTOR_BASE = 0.2
 
-export type PhotoStripSlide = {
-  src: string
-  alt: string
-}
+export type { PhotoStripSlide } from '@/lib/photo-strip'
 
 type PropType = {
   slides: PhotoStripSlide[]
@@ -31,6 +32,7 @@ type PropType = {
 
 const PhotoStrip = (props: PropType) => {
   const { slides, options, location, rating } = props
+  const safeSlides = slides.filter((slide) => slide.src)
   const [emblaRef, emblaApi] = useEmblaCarousel(options)
   const tweenFactor = useRef(0)
   const tweenNodes = useRef<HTMLElement[]>([])
@@ -118,7 +120,7 @@ const PhotoStrip = (props: PropType) => {
         .off('scroll', tweenParallax)
         .off('slideFocus', tweenParallax)
     }
-  }, [emblaApi, setTweenFactor, setTweenNodes, slides.length, tweenParallax])
+  }, [emblaApi, setTweenFactor, setTweenNodes, safeSlides.length, tweenParallax])
 
   return (
     <section className="photo-strip embla bg-black px-4 py-6 sm:px-6">
@@ -140,7 +142,7 @@ const PhotoStrip = (props: PropType) => {
         </div>
       )}
 
-      {slides.length > 1 && (
+      {safeSlides.length > 1 && (
         <div className="photo-strip__controls">
           <div className="embla__buttons">
             <PrevButton
@@ -157,10 +159,10 @@ const PhotoStrip = (props: PropType) => {
         </div>
       )}
 
-      {slides.length > 0 && (
+      {safeSlides.length > 0 && (
         <div className="embla__viewport" ref={emblaRef}>
           <div className="embla__container">
-            {slides.map((slide, index) => (
+            {safeSlides.map((slide, index) => (
               <div className="embla__slide" key={`${slide.src}-${index}`}>
                 <div className="embla__parallax">
                   <div className="embla__parallax__layer">
@@ -168,6 +170,13 @@ const PhotoStrip = (props: PropType) => {
                       className="embla__slide__img embla__parallax__img"
                       src={slide.src}
                       alt={slide.alt}
+                      onError={(event) => {
+                        const img = event.currentTarget
+                        if (img.dataset.fallbackApplied) return
+
+                        img.dataset.fallbackApplied = "true"
+                        img.src = PHOTO_STRIP_IMAGE_FALLBACK
+                      }}
                     />
                   </div>
                 </div>

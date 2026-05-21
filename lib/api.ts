@@ -95,18 +95,18 @@ export const requestBooking = async (payload: {
 
 
 
-export const fetchRelatedJourneys = async (id:string) => {
+export const fetchRelatedJourneys = async (id: string) => {
   try {
-    const res = await fetch(`${API_URL}/api/journeys/${id}/related`,
-      { cache: "no-store" }
-    );
-     if (!res.ok) {
-      throw new Error(`Failed to fetch related journeys for ${id}: ${res.status}`,
-        
-      );
+    const res = await fetch(`/api/journeys/${id}/related`, {
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch related journeys for ${id}: ${res.status}`);
     }
+
     const data = await res.json();
-    return data;  
+    return data;
   } catch (error) {
     console.error("Error fetching related journeys:", error);
     return []; // Return empty array on error

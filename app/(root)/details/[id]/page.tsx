@@ -9,6 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 import PhotoStrip, { type PhotoStripSlide } from "@/components/sections/photo-strip";
 import Carousel from "@/components/Carousel";
 import JourneyLoading from "@/components/journey-loading";
+import { getPhotoStripFallback, normalizePhotoStripSlides } from "@/lib/photo-strip";
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -257,23 +258,34 @@ const DetailsPage = () => {
     useEffect(() => {
         if (!journeyDetails) return
 
+        let isActive = true
         const resolved = journeyDetails.data || journeyDetails
-        const query = encodeURIComponent(`${resolved.location} safari`)
+        const fallbackSlides = getPhotoStripFallback(resolved)
+        const location = resolved.location || resolved.name || "East Africa"
 
-        fetch(
-            `https://api.pexels.com/v1/search?query=${query}&per_page=9&orientation=landscape`,
-            { headers: { Authorization: process.env.NEXT_PUBLIC_PEXELS_API_KEY! } }
-        )
-            .then(r => r.json())
-            .then(data =>
-                setPhotoStrip(
-                    data.photos.map((p: any) => ({
-                        src: p.src.large,
-                        alt: p.alt || resolved.location,
-                    }))
-                )
-            )
-            .catch(console.error)
+        setPhotoStrip(fallbackSlides)
+
+        fetch(`/api/photo-strip?location=${encodeURIComponent(location)}`, {
+            cache: "no-store",
+        })
+            .then(r => {
+                if (!r.ok) throw new Error(`Failed to fetch photo strip: ${r.status}`)
+                return r.json()
+            })
+            .then(data => {
+                if (!isActive) return
+
+                const slides = normalizePhotoStripSlides(data.slides || data.data, location)
+                setPhotoStrip(slides.length > 0 ? slides : fallbackSlides)
+            })
+            .catch((error) => {
+                console.error("Error fetching photo strip:", error)
+                if (isActive) setPhotoStrip(fallbackSlides)
+            })
+
+        return () => {
+            isActive = false
+        }
     }, [journeyDetails])
 
     if (loading) return <JourneyLoading />
